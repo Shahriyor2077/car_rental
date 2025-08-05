@@ -17,7 +17,7 @@ datasource db {
 
 
 model companies {
-  id             BigInt     @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   name           String
   address        String
   phone          String
@@ -29,10 +29,10 @@ model companies {
 }
 
 model branches {
-  id         BigInt   @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   name       String
   address    String
-  company_id BigInt
+  company_id Int
   phone      String
   created_at DateTime @default(now())
   company    companies @relation(fields: [company_id], references: [id])
@@ -42,13 +42,13 @@ model branches {
 }
 
 model car {
-  id              BigInt   @id @default(autoincrement())
-  branch_id       BigInt
+  id         Int      @id @default(autoincrement())
+  branch_id       Int
   brand           String
   model           String
   year            String
-  color           BigInt
-  mileage         BigInt
+  color           String
+  mileage         Int
   price_per_day   String
   is_available    Boolean
   created_at      DateTime @default(now())
@@ -63,8 +63,8 @@ model car {
 }
 
 model car_images {
-  id     BigInt @id @default(autoincrement())
-  car_id BigInt
+  id         Int      @id @default(autoincrement())
+  car_id Int
   image  String
   car    car    @relation(fields: [car_id], references: [id])
 
@@ -72,8 +72,8 @@ model car_images {
 }
 
 model car_maintenance {
-  id          BigInt   @id @default(autoincrement())
-  car_id      BigInt
+  id         Int      @id @default(autoincrement())
+  car_id      Int
   service_date String
   description String
   cost        Decimal
@@ -83,9 +83,9 @@ model car_maintenance {
 }
 
 model car_feature {
-  id         BigInt  @id @default(autoincrement())
-  car_id     BigInt
-  feature_id BigInt
+  id         Int      @id @default(autoincrement())
+  car_id     Int
+  feature_id Int
   car        car     @relation(fields: [car_id], references: [id])
   feature    feature @relation(fields: [feature_id], references: [id])
 
@@ -93,7 +93,7 @@ model car_feature {
 }
 
 model feature {
-  id          BigInt        @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   name        String
   car_feature car_feature[]
 
@@ -101,9 +101,9 @@ model feature {
 }
 
 model rentals {
-  id          BigInt   @id @default(autoincrement())
-  user_id     BigInt
-  car_id      BigInt
+  id         Int      @id @default(autoincrement())
+  user_id     Int
+  car_id      Int
   start_date  String
   end_date    String
   total_price Decimal
@@ -119,8 +119,8 @@ model rentals {
 }
 
 model damages {
-  id            BigInt   @id @default(autoincrement())
-  rental_id     BigInt
+  id         Int      @id @default(autoincrement())
+  rental_id     Int
   description   String
   cost_estimate String
   damage_date   DateTime
@@ -130,8 +130,8 @@ model damages {
 }
 
 model payments {
-  id             BigInt   @id @default(autoincrement())
-  rental_id      BigInt
+  id         Int      @id @default(autoincrement())
+  rental_id      Int
   amount         Decimal
   payment_date   DateTime
   payment_method PaymentMethod
@@ -142,7 +142,7 @@ model payments {
 }
 
 model user {
-  id            BigInt   @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   full_name     String
   phone         String
   email         String   @unique
@@ -160,9 +160,9 @@ model user {
 }
 
 model reviews {
-  id         BigInt   @id @default(autoincrement())
-  user_id    BigInt
-  car_id     BigInt
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  car_id     Int
   rating     String
   created_at DateTime @default(now())
   user       user     @relation(fields: [user_id], references: [id])
@@ -172,8 +172,8 @@ model reviews {
 }
 
 model documents {
-  id             BigInt   @id @default(autoincrement())
-  user_id        BigInt
+  id         Int      @id @default(autoincrement())
+  user_id        Int
   deliver_license String
   created_at     DateTime @default(now())
   user           user     @relation(fields: [user_id], references: [id])
@@ -182,8 +182,8 @@ model documents {
 }
 
 model notifications {
-  id         BigInt   @id @default(autoincrement())
-  user_id    BigInt
+  id         Int      @id @default(autoincrement())
+  user_id    Int
   message    String
   created_at DateTime @default(now())
   user       user     @relation(fields: [user_id], references: [id])
@@ -192,10 +192,10 @@ model notifications {
 }
 
 model complaints {
-  id         BigInt   @id @default(autoincrement())
-  user_id    BigInt
+  id         Int      @id @default(autoincrement())
+  user_id    Int
   message    String
-  rental_id  BigInt
+  rental_id  Int
   created_at DateTime @default(now())
   user       user     @relation(fields: [user_id], references: [id])
   rental     rentals  @relation(fields: [rental_id], references: [id])
@@ -228,7 +228,7 @@ enum AdminRole {
 }
 
 model admin {
-  id        BigInt    @id @default(autoincrement())
+  id         Int      @id @default(autoincrement())
   full_name String
   email     String    @unique
   password  String

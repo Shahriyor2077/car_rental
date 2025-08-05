@@ -1,42 +1,134 @@
-import { CreateReviewsDto } from './dto/create-review.dto';
-import { UpdateReviewsDto } from './dto/update-review.dto';
-import { PrismaService } from '../prisma/prisma.service';
+import { CreateReviewsDto } from "./dto/create-review.dto";
+import { UpdateReviewsDto } from "./dto/update-review.dto";
+import { PrismaService } from "../prisma/prisma.service";
 export declare class ReviewsService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createReviewDto: CreateReviewsDto): import("generated/prisma").Prisma.Prisma__reviewsClient<{
-        id: bigint;
+    create(createReviewDto: CreateReviewsDto, currentUserId?: number): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        car_id: bigint;
-        user_id: bigint;
+        user_id: number;
+        car_id: number;
         rating: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
+    }>;
+    findAll(): Promise<({
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        car_id: bigint;
-        user_id: bigint;
+        user_id: number;
+        car_id: number;
         rating: string;
-    }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__reviewsClient<{
-        id: bigint;
+    })[]>;
+    findOne(id: number, currentUserId?: number, userRole?: string): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        car_id: bigint;
-        user_id: bigint;
+        user_id: number;
+        car_id: number;
         rating: string;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: number, updateReviewDto: UpdateReviewsDto): import("generated/prisma").Prisma.Prisma__reviewsClient<{
-        id: bigint;
+    }>;
+    update(id: number, updateReviewDto: UpdateReviewsDto): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        car_id: bigint;
-        user_id: bigint;
+        user_id: number;
+        car_id: number;
         rating: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__reviewsClient<{
-        id: bigint;
+    }>;
+    remove(id: number): Promise<{
+        id: number;
         created_at: Date;
-        car_id: bigint;
-        user_id: bigint;
+        user_id: number;
+        car_id: number;
         rating: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    }>;
 }

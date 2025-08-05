@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateCarDto = void 0;
 const mapped_types_1 = require("@nestjs/mapped-types");
 const swagger_1 = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
 const create_car_dto_1 = require("./create-car.dto");
 class UpdateCarDto extends (0, mapped_types_1.PartialType)(create_car_dto_1.CreateCarDto) {
     branch_id;
@@ -26,58 +27,80 @@ class UpdateCarDto extends (0, mapped_types_1.PartialType)(create_car_dto_1.Crea
 exports.UpdateCarDto = UpdateCarDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Filial ID (ixtiyoriy)',
+        description: "Filial ID (ixtiyoriy)",
         example: 1
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { message: "Filial ID raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Filial ID musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateCarDto.prototype, "branch_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil brendi (ixtiyoriy)',
-        example: 'Toyota'
+        description: "Avtomobil brendi (ixtiyoriy)",
+        example: "Toyota"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Brend matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(2, { message: "Brend kamida 2 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(50, { message: "Brend 50 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], UpdateCarDto.prototype, "brand", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil modeli (ixtiyoriy)',
-        example: 'Camry'
+        description: "Avtomobil modeli (ixtiyoriy)",
+        example: "Camry"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Model matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(2, { message: "Model kamida 2 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(50, { message: "Model 50 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], UpdateCarDto.prototype, "model", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Ishlab chiqarilgan yili (ixtiyoriy)',
-        example: '2020'
+        description: "Ishlab chiqarilgan yili (ixtiyoriy)",
+        example: "2020"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Yil matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateCarDto.prototype, "year", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Rang kodi (ixtiyoriy)',
-        example: 1
+        description: "Rang (ixtiyoriy)",
+        example: "red"
     }),
-    __metadata("design:type", Number)
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Rang matn bo'lishi kerak" }),
+    __metadata("design:type", String)
 ], UpdateCarDto.prototype, "color", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Yurgan masofa (ixtiyoriy)',
+        description: "Yurgan masofa (ixtiyoriy)",
         example: 50000
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { message: "Masofa raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Masofa musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateCarDto.prototype, "mileage", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Kunlik narxi (ixtiyoriy)',
-        example: '500000'
+        description: "Kunlik narxi (ixtiyoriy)",
+        example: "500000"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Narx matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateCarDto.prototype, "price_per_day", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil mavjudmi (ixtiyoriy)',
+        description: "Avtomobil mavjudmi (ixtiyoriy)",
         example: true
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)({ message: "Mavjudlik mantiqiy qiymat bo'lishi kerak" }),
     __metadata("design:type", Boolean)
 ], UpdateCarDto.prototype, "is_available", void 0);
 //# sourceMappingURL=update-car.dto.js.map

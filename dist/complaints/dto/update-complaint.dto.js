@@ -22,30 +22,30 @@ class UpdateComplaintsDto extends (0, mapped_types_1.PartialType)(create_complai
 exports.UpdateComplaintsDto = UpdateComplaintsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Foydalanuvchi ID (ixtiyoriy)',
+        description: "Foydalanuvchi ID (ixtiyoriy)",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "user_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateComplaintsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Shikoyat matni (ixtiyoriy)',
-        example: 'Avtomobil kechikib yetkazildi.'
+        description: "Shikoyat matni (ixtiyoriy)",
+        example: "Avtomobil kechikib yetkazildi."
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Shikoyat matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Shikoyat kamida 5 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Shikoyat matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(5, { message: "Shikoyat kamida 5 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateComplaintsDto.prototype, "message", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Ijaraga olingan avtomobil ID (ixtiyoriy)',
+        description: "Ijaraga olingan avtomobil ID (ixtiyoriy)",
         example: 10
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'rental_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "rental_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateComplaintsDto.prototype, "rental_id", void 0);
 //# sourceMappingURL=update-complaint.dto.js.map

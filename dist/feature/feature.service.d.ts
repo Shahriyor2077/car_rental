@@ -4,24 +4,24 @@ import { PrismaService } from '../prisma/prisma.service';
 export declare class FeatureService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createFeatureDto: CreateFeatureDto): import("generated/prisma").Prisma.Prisma__featureClient<{
-        id: bigint;
+    create(createFeatureDto: CreateFeatureDto): Promise<{
+        id: number;
         name: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
+    }>;
+    findAll(): Promise<{
+        id: number;
         name: string;
     }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__featureClient<{
-        id: bigint;
+    findOne(id: number): Promise<{
+        id: number;
         name: string;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: number, updateFeatureDto: UpdateFeatureDto): import("generated/prisma").Prisma.Prisma__featureClient<{
-        id: bigint;
+    }>;
+    update(id: number, updateFeatureDto: UpdateFeatureDto): Promise<{
+        id: number;
         name: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__featureClient<{
-        id: bigint;
+    }>;
+    remove(id: number): Promise<{
+        id: number;
         name: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    }>;
 }

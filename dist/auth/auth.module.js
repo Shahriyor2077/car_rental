@@ -13,7 +13,6 @@ const auth_controller_1 = require("./auth.controller");
 const prisma_module_1 = require("../prisma/prisma.module");
 const mail_module_1 = require("../mail/mail.module");
 const jwt_1 = require("@nestjs/jwt");
-const user_module_1 = require("../user/user.module");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -21,7 +20,6 @@ exports.AuthModule = AuthModule = __decorate([
     (0, common_1.Module)({
         imports: [
             prisma_module_1.PrismaModule,
-            user_module_1.UserModule,
             mail_module_1.MailModule,
             jwt_1.JwtModule.register({
                 secret: process.env.JWT__ACCESS_SECRET || 'your-secret-key',
@@ -30,6 +28,7 @@ exports.AuthModule = AuthModule = __decorate([
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [auth_service_1.AuthService],
+        exports: [jwt_1.JwtModule]
     })
 ], AuthModule);
 //# sourceMappingURL=auth.module.js.map

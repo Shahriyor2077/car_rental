@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateBranchesDto } from './dto/create-branch.dto';
@@ -8,25 +8,83 @@ import { UpdateBranchesDto } from './dto/update-branch.dto';
 @Injectable()
 export class BranchService {
   constructor(private readonly prismaService: PrismaService){}
-  create(createBranchDto: CreateBranchesDto) {
-    return this.prismaService.branches.create({
+  async create(createBranchDto: CreateBranchesDto) {
+    // Company mavjudligini tekshirish
+    const company = await this.prismaService.companies.findUnique({
+      where: { id: createBranchDto.company_id }
+    });
+    
+    if (!company) {
+      throw new BadRequestException('Kompaniya topilmadi');
+    }
+
+    return await this.prismaService.branches.create({
       data: createBranchDto
     });
   }
 
-  findAll() {
-    return this.prismaService.branches.findMany();
+  async findAll() {
+    return await this.prismaService.branches.findMany({
+      include: { company: true }
+    });
   }
 
-  findOne(id: number) {
-    return this.prismaService.branches.findUnique({where: {id}});
+  async findOne(id: number) {
+    const branch = await this.prismaService.branches.findUnique({
+      where: { id },
+      include: { company: true }
+    });
+    
+    if (!branch) {
+      throw new NotFoundException('Branch topilmadi');
+    }
+    
+    return branch;
   }
 
-  update(id: number, updateBranchDto: UpdateBranchesDto) {
-    return this.prismaService.branches.update({where: {id}, data: updateBranchDto});
+  async update(id: number, updateBranchDto: UpdateBranchesDto) {
+    // Branch mavjudligini tekshirish
+    const existingBranch = await this.prismaService.branches.findUnique({
+      where: { id }
+    });
+    
+    if (!existingBranch) {
+      throw new NotFoundException('Branch topilmadi');
+    }
+
+    if (updateBranchDto.company_id) {
+      const company = await this.prismaService.companies.findUnique({
+        where: { id: updateBranchDto.company_id }
+      });
+      
+      if (!company) {
+        throw new BadRequestException('Kompaniya topilmadi');
+      }
+    }
+
+    return await this.prismaService.branches.update({
+      where: { id }, 
+      data: updateBranchDto
+    });
   }
 
-  remove(id: number) {
-    return this.prismaService.branches.delete({where: {id}});
+  async remove(id: number) {
+    // Branch mavjudligini tekshirish
+    const existingBranch = await this.prismaService.branches.findUnique({
+      where: { id },
+      include: { cars: true }
+    });
+    
+    if (!existingBranch) {
+      throw new NotFoundException('Branch topilmadi');
+    }
+
+    if (existingBranch.cars.length > 0) {
+      throw new BadRequestException('Bu branchda carlar mavjud. Avval carlarni ochiring');
+    }
+
+    return await this.prismaService.branches.delete({
+      where: { id }
+    });
   }
 }

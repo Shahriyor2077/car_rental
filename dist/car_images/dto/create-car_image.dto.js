@@ -19,19 +19,19 @@ class CreateCarImagesDto {
 exports.CreateCarImagesDto = CreateCarImagesDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Avtomobil ID',
+        description: "Avtomobil ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "car_id raqam bolishi kerak" }),
     __metadata("design:type", Number)
 ], CreateCarImagesDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Rasm URL yoki fayl nomi',
-        example: 'car1.jpg'
+        description: "Rasm URL yoki fayl nomi",
+        example: "car1.jpg"
     }),
-    (0, class_validator_1.IsString)({ message: 'Rasm matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(3, { message: 'Rasm nomi kamida 3 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Rasm matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(3, { message: "Rasm nomi kamida 3 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateCarImagesDto.prototype, "image", void 0);
 //# sourceMappingURL=create-car_image.dto.js.map

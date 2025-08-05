@@ -21,11 +21,11 @@ class UpdateCarImagesDto extends (0, mapped_types_1.PartialType)(create_car_imag
 exports.UpdateCarImagesDto = UpdateCarImagesDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil ID (ixtiyoriy)',
+        description: 'Avtomobil ID',
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "car_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateCarImagesDto.prototype, "car_id", void 0);
 __decorate([
@@ -34,8 +34,8 @@ __decorate([
         example: 'car1.jpg'
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Rasm matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(3, { message: 'Rasm nomi kamida 3 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Rasm matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(3, { message: "Rasm nomi kamida 3 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateCarImagesDto.prototype, "image", void 0);
 //# sourceMappingURL=update-car_image.dto.js.map

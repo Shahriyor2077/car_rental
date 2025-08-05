@@ -17,36 +17,46 @@ const create_review_dto_1 = require("./create-review.dto");
 class UpdateReviewsDto extends (0, mapped_types_1.PartialType)(create_review_dto_1.CreateReviewsDto) {
     user_id;
     car_id;
+    comment;
     rating;
 }
 exports.UpdateReviewsDto = UpdateReviewsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Foydalanuvchi ID (ixtiyoriy)',
+        description: "Foydalanuvchi ID (ixtiyoriy)",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Foydalanuvchi ID raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateReviewsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil ID (ixtiyoriy)',
-        example: 2
+        description: "Avtomobil ID (ixtiyoriy)",
+        example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Avtomobil ID raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateReviewsDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Reyting (ixtiyoriy)',
-        example: '5'
+        description: "Sharh matni (ixtiyoriy)",
+        example: "Avtomobil juda yaxshi ishlaydi"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Reyting matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(1, { message: 'Reyting kamida 1 ta belgi bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(1, { message: 'Reyting 1 ta belgidan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Sharh matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(10, { message: "Sharh kamida 10 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(500, { message: "Sharh 500 ta harfdan oshmasligi kerak" }),
+    __metadata("design:type", String)
+], UpdateReviewsDto.prototype, "comment", void 0);
+__decorate([
+    (0, swagger_1.ApiPropertyOptional)({
+        description: "Baho (1-5) (ixtiyoriy)",
+        example: "5"
+    }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Baho matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateReviewsDto.prototype, "rating", void 0);
 //# sourceMappingURL=update-review.dto.js.map

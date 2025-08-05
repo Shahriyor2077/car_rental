@@ -11,11 +11,26 @@ const common_1 = require("@nestjs/common");
 const reviews_service_1 = require("./reviews.service");
 const reviews_controller_1 = require("./reviews.controller");
 const prisma_module_1 = require("../prisma/prisma.module");
+const admin_module_1 = require("../admin/admin.module");
+const jwt_1 = require("@nestjs/jwt");
+const config_1 = require("@nestjs/config");
 let ReviewsModule = class ReviewsModule {
 };
 exports.ReviewsModule = ReviewsModule;
 exports.ReviewsModule = ReviewsModule = __decorate([
-    (0, common_1.Module)({ imports: [prisma_module_1.PrismaModule],
+    (0, common_1.Module)({
+        imports: [
+            prisma_module_1.PrismaModule,
+            admin_module_1.AdminModule,
+            jwt_1.JwtModule.registerAsync({
+                imports: [config_1.ConfigModule],
+                useFactory: async (configService) => ({
+                    secret: configService.get('JWT_SECRET') || 'your-secret-key',
+                    signOptions: { expiresIn: '15m' },
+                }),
+                inject: [config_1.ConfigService],
+            }),
+        ],
         controllers: [reviews_controller_1.ReviewsController],
         providers: [reviews_service_1.ReviewsService],
     })

@@ -17,20 +17,62 @@ let CarMaintenanceService = class CarMaintenanceService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createCarMaintenanceDto) {
-        return this.prismaService.car_maintenance.create({ data: createCarMaintenanceDto });
+    async create(createCarMaintenanceDto) {
+        const car = await this.prismaService.car.findUnique({
+            where: { id: createCarMaintenanceDto.car_id }
+        });
+        if (!car) {
+            throw new common_1.BadRequestException('Avtomobil topilmadi');
+        }
+        return await this.prismaService.car_maintenance.create({
+            data: createCarMaintenanceDto
+        });
     }
-    findAll() {
-        return this.prismaService.car_maintenance.findMany();
+    async findAll() {
+        return await this.prismaService.car_maintenance.findMany({
+            include: { car: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.car_maintenance.findUnique({ where: { id } });
+    async findOne(id) {
+        const maintenance = await this.prismaService.car_maintenance.findUnique({
+            where: { id },
+            include: { car: true }
+        });
+        if (!maintenance) {
+            throw new common_1.NotFoundException('Texnik xizmat topilmadi');
+        }
+        return maintenance;
     }
-    update(id, updateCarMaintenanceDto) {
-        return this.prismaService.car_maintenance.update({ where: { id }, data: updateCarMaintenanceDto });
+    async update(id, updateCarMaintenanceDto) {
+        const existingMaintenance = await this.prismaService.car_maintenance.findUnique({
+            where: { id }
+        });
+        if (!existingMaintenance) {
+            throw new common_1.NotFoundException('Texnik xizmat topilmadi');
+        }
+        if (updateCarMaintenanceDto.car_id) {
+            const car = await this.prismaService.car.findUnique({
+                where: { id: updateCarMaintenanceDto.car_id }
+            });
+            if (!car) {
+                throw new common_1.BadRequestException('Avtomobil topilmadi');
+            }
+        }
+        return await this.prismaService.car_maintenance.update({
+            where: { id },
+            data: updateCarMaintenanceDto
+        });
     }
-    remove(id) {
-        return this.prismaService.car_maintenance.delete({ where: { id } });
+    async remove(id) {
+        const existingMaintenance = await this.prismaService.car_maintenance.findUnique({
+            where: { id }
+        });
+        if (!existingMaintenance) {
+            throw new common_1.NotFoundException('Texnik xizmat topilmadi');
+        }
+        return await this.prismaService.car_maintenance.delete({
+            where: { id }
+        });
     }
 };
 exports.CarMaintenanceService = CarMaintenanceService;

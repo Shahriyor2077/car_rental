@@ -1,5 +1,7 @@
-import { CanActivate, ExecutionContext } from "@nestjs/common";
-import { Observable } from "rxjs";
+import { CanActivate, ExecutionContext } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 export declare class ManagerOnlyGuard implements CanActivate {
-    canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean>;
+    private jwtService;
+    constructor(jwtService: JwtService);
+    canActivate(context: ExecutionContext): Promise<boolean>;
 }

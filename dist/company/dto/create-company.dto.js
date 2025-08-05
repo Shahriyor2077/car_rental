@@ -21,40 +21,40 @@ class CreateCompaniesDto {
 exports.CreateCompaniesDto = CreateCompaniesDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Kompaniya nomi',
-        example: 'Avto Ijara MChJ'
+        description: "Kompaniya nomi",
+        example: "Avto Ijara MChJ"
     }),
-    (0, class_validator_1.IsString)({ message: 'Kompaniya nomi matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(2, { message: 'Kompaniya nomi kamida 2 ta harf bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(100, { message: 'Kompaniya nomi 100 ta harfdan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Kompaniya nomi matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(2, { message: "Kompaniya nomi kamida 2 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(100, { message: "Kompaniya nomi 100 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], CreateCompaniesDto.prototype, "name", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Kompaniya manzili',
-        example: 'Toshkent shahri, Chilonzor tumani, 1-uy'
+        description: "Kompaniya manzili",
+        example: "Toshkent shahri, Chilonzor tumani, 1-uy"
     }),
-    (0, class_validator_1.IsString)({ message: 'Manzil matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(10, { message: 'Manzil kamida 10 ta harf bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(200, { message: 'Manzil 200 ta harfdan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Manzil matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(10, { message: "Manzil kamida 10 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(200, { message: "Manzil 200 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], CreateCompaniesDto.prototype, "address", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Telefon raqami',
-        example: '+998901234567'
+        description: "Telefon raqami",
+        example: "+998901234567"
     }),
-    (0, class_validator_1.IsString)({ message: 'Telefon raqami matn bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Telefon raqami matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateCompaniesDto.prototype, "phone", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Litsenziya raqami',
-        example: 'L123456789'
+        description: "Litsenziya raqami",
+        example: "L123456789"
     }),
-    (0, class_validator_1.IsString)({ message: 'Litsenziya raqami matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Litsenziya raqami kamida 5 ta belgi bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(20, { message: 'Litsenziya raqami 20 ta belgidan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Litsenziya raqami matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(5, { message: "Litsenziya raqami kamida 5 ta belgi bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(20, { message: "Litsenziya raqami 20 ta belgidan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], CreateCompaniesDto.prototype, "license_number", void 0);
 //# sourceMappingURL=create-company.dto.js.map

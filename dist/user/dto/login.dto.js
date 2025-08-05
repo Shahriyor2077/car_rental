@@ -19,19 +19,19 @@ class LoginDto {
 exports.LoginDto = LoginDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Email manzili',
-        example: 'aziz@example.com'
+        description: "Email manzili",
+        example: "aziz@example.com"
     }),
-    (0, class_validator_1.IsEmail)({}, { message: 'To\'g\'ri email kiriting' }),
+    (0, class_validator_1.IsEmail)({}, { message: "To'g'ri email kiriting" }),
     __metadata("design:type", String)
 ], LoginDto.prototype, "email", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Parol',
-        example: '123456'
+        description: "Parol",
+        example: "123456"
     }),
-    (0, class_validator_1.IsString)({ message: 'Parol matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(6, { message: 'Parol kamida 6 ta belgi bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Parol matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(6, { message: "Parol kamida 6 ta belgi bo'lishi kerak" }),
     __metadata("design:type", String)
 ], LoginDto.prototype, "password", void 0);
 //# sourceMappingURL=login.dto.js.map

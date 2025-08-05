@@ -23,39 +23,39 @@ class UpdateCarMaintenanceDto extends (0, mapped_types_1.PartialType)(create_car
 exports.UpdateCarMaintenanceDto = UpdateCarMaintenanceDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil ID (ixtiyoriy)',
+        description: "Avtomobil ID (ixtiyoriy)",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "car_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateCarMaintenanceDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Xizmat sanasi (ixtiyoriy)',
-        example: '2024-08-01'
+        description: "Xizmat sanasi (ixtiyoriy)",
+        example: "2024-08-01"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Sana matn bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Sana matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateCarMaintenanceDto.prototype, "service_date", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Xizmat tavsifi (ixtiyoriy)',
-        example: 'Moy almashtirildi.'
+        description: "Xizmat tavsifi (ixtiyoriy)",
+        example: "Moy almashtirildi."
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Tavsif matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Tavsif kamida 5 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Tavsif matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(5, { message: "Tavsif kamida 5 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateCarMaintenanceDto.prototype, "description", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Xizmat narxi (ixtiyoriy)',
-        example: 100000
+        description: "Xizmat narxi (ixtiyoriy)",
+        example: 500000
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'Narx raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Narx raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateCarMaintenanceDto.prototype, "cost", void 0);
 //# sourceMappingURL=update-car_maintenance.dto.js.map

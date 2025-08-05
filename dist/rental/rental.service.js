@@ -17,20 +17,107 @@ let RentalService = class RentalService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createRentalDto) {
-        return this.prismaService.rentals.create({ data: createRentalDto });
+    async create(createRentalDto, userId) {
+        const user = await this.prismaService.user.findUnique({
+            where: { id: userId }
+        });
+        if (!user) {
+            throw new common_1.BadRequestException('Foydalanuvchi topilmadi');
+        }
+        const car = await this.prismaService.car.findUnique({
+            where: { id: createRentalDto.car_id }
+        });
+        if (!car) {
+            throw new common_1.BadRequestException('Avtomobil topilmadi');
+        }
+        if (!car.is_available) {
+            throw new common_1.BadRequestException('Bu avtomobil mavjud emas');
+        }
+        const startDate = new Date(createRentalDto.start_date);
+        const endDate = new Date(createRentalDto.end_date);
+        const daysDiff = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+        if (daysDiff <= 0) {
+            throw new common_1.BadRequestException('Tugash sanasi boshlanish sanasidan keyin bo\'lishi kerak');
+        }
+        const carPricePerDay = parseFloat(car.price_per_day);
+        const totalRequiredPrice = carPricePerDay * daysDiff;
+        if (createRentalDto.total_price < totalRequiredPrice) {
+            throw new common_1.BadRequestException(`Avtomobil narxi: ${carPricePerDay} so'm/kun, ${daysDiff} kun uchun: ${totalRequiredPrice} so'm. Siz ${createRentalDto.total_price} so'm to\'layapsiz. Kamida ${totalRequiredPrice} so\'m to\'lashingiz kerak.`);
+        }
+        return await this.prismaService.$transaction(async (prisma) => {
+            const rental = await prisma.rentals.create({
+                data: {
+                    ...createRentalDto,
+                    user_id: userId
+                },
+                include: { user: true, car: true }
+            });
+            await prisma.car.update({
+                where: { id: createRentalDto.car_id },
+                data: { is_available: false }
+            });
+            return rental;
+        });
     }
-    findAll() {
-        return this.prismaService.rentals.findMany();
+    async findAll(currentUserId, userRole) {
+        if (userRole === 'ADMIN' || userRole === 'MANAGER') {
+            return await this.prismaService.rentals.findMany({
+                include: { user: true, car: true }
+            });
+        }
+        if (!currentUserId) {
+            throw new common_1.BadRequestException('Foydalanuvchi ma\'lumotlari kerak');
+        }
+        return await this.prismaService.rentals.findMany({
+            where: { user_id: currentUserId },
+            include: { user: true, car: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.rentals.findUnique({ where: { id } });
+    async findByUserId(userId) {
+        return await this.prismaService.rentals.findMany({
+            where: { user_id: userId },
+            include: { user: true, car: true }
+        });
     }
-    update(id, updateRentalDto) {
-        return this.prismaService.rentals.update({ where: { id }, data: updateRentalDto });
+    async findOne(id, currentUserId, userRole) {
+        const rental = await this.prismaService.rentals.findUnique({
+            where: { id },
+            include: { user: true, car: true }
+        });
+        if (!rental) {
+            throw new common_1.NotFoundException('Ijara topilmadi');
+        }
+        if (userRole === 'ADMIN' || userRole === 'MANAGER') {
+            return rental;
+        }
+        if (rental.user_id !== currentUserId) {
+            throw new common_1.ForbiddenException('Faqat o\'z ijara ma\'lumotlaringizga kirishingiz mumkin');
+        }
+        return rental;
     }
-    remove(id) {
-        return this.prismaService.rentals.delete({ where: { id } });
+    async update(id, updateRentalDto) {
+        const existingRental = await this.prismaService.rentals.findUnique({
+            where: { id }
+        });
+        if (!existingRental) {
+            throw new common_1.NotFoundException('Ijara topilmadi');
+        }
+        return await this.prismaService.rentals.update({
+            where: { id },
+            data: updateRentalDto,
+            include: { user: true, car: true }
+        });
+    }
+    async remove(id) {
+        const existingRental = await this.prismaService.rentals.findUnique({
+            where: { id }
+        });
+        if (!existingRental) {
+            throw new common_1.NotFoundException('Ijara topilmadi');
+        }
+        return await this.prismaService.rentals.delete({
+            where: { id }
+        });
     }
 };
 exports.RentalService = RentalService;

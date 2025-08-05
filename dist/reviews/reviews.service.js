@@ -17,20 +17,71 @@ let ReviewsService = class ReviewsService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createReviewDto) {
-        return this.prismaService.reviews.create({ data: createReviewDto });
+    async create(createReviewDto, currentUserId) {
+        if (currentUserId && createReviewDto.user_id !== currentUserId) {
+            throw new common_1.BadRequestException("Faqat o'z nomingizga sharh yarata olasiz");
+        }
+        const user = await this.prismaService.user.findUnique({
+            where: { id: createReviewDto.user_id }
+        });
+        if (!user) {
+            throw new common_1.BadRequestException("Foydalanuvchi topilmadi");
+        }
+        const car = await this.prismaService.car.findUnique({
+            where: { id: createReviewDto.car_id }
+        });
+        if (!car) {
+            throw new common_1.BadRequestException("Avtomobil topilmadi");
+        }
+        return await this.prismaService.reviews.create({
+            data: createReviewDto,
+            include: { user: true, car: true }
+        });
     }
-    findAll() {
-        return this.prismaService.reviews.findMany();
+    async findAll() {
+        return await this.prismaService.reviews.findMany({
+            include: { user: true, car: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.reviews.findUnique({ where: { id } });
+    async findOne(id, currentUserId, userRole) {
+        const review = await this.prismaService.reviews.findUnique({
+            where: { id },
+            include: { user: true, car: true }
+        });
+        if (!review) {
+            throw new common_1.NotFoundException("Sharh topilmadi");
+        }
+        if (userRole === "ADMIN" || userRole === "MANAGER") {
+            return review;
+        }
+        if (review.user_id !== currentUserId) {
+            throw new common_1.BadRequestException("Faqat o'z sharhingizga kirishingiz mumkin");
+        }
+        return review;
     }
-    update(id, updateReviewDto) {
-        return this.prismaService.reviews.update({ where: { id }, data: updateReviewDto });
+    async update(id, updateReviewDto) {
+        const existingReview = await this.prismaService.reviews.findUnique({
+            where: { id }
+        });
+        if (!existingReview) {
+            throw new common_1.NotFoundException("Sharh topilmadi");
+        }
+        return await this.prismaService.reviews.update({
+            where: { id },
+            data: updateReviewDto,
+            include: { user: true, car: true }
+        });
     }
-    remove(id) {
-        return this.prismaService.reviews.delete({ where: { id } });
+    async remove(id) {
+        const existingReview = await this.prismaService.reviews.findUnique({
+            where: { id }
+        });
+        if (!existingReview) {
+            throw new common_1.NotFoundException("Sharh topilmadi");
+        }
+        return await this.prismaService.reviews.delete({
+            where: { id }
+        });
     }
 };
 exports.ReviewsService = ReviewsService;

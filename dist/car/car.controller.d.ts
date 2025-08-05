@@ -4,64 +4,82 @@ import { UpdateCarDto } from './dto/update-car.dto';
 export declare class CarController {
     private readonly carService;
     constructor(carService: CarService);
-    create(createCarDto: CreateCarDto): import("generated/prisma").Prisma.Prisma__carClient<{
-        id: bigint;
+    create(createCarDto: CreateCarDto): Promise<{
+        id: number;
         created_at: Date;
-        branch_id: bigint;
+        branch_id: number;
         brand: string;
         model: string;
         year: string;
-        color: bigint;
-        mileage: bigint;
+        color: string;
+        mileage: number;
         price_per_day: string;
         is_available: boolean;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
+    }>;
+    findAll(): Promise<({
+        branch: {
+            phone: string;
+            id: number;
+            name: string;
+            address: string;
+            created_at: Date;
+            company_id: number;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        branch_id: bigint;
+        branch_id: number;
         brand: string;
         model: string;
         year: string;
-        color: bigint;
-        mileage: bigint;
+        color: string;
+        mileage: number;
         price_per_day: string;
         is_available: boolean;
-    }[]>;
-    findOne(id: string): import("generated/prisma").Prisma.Prisma__carClient<{
-        id: bigint;
+    })[]>;
+    findOne(id: string): Promise<{
+        branch: {
+            phone: string;
+            id: number;
+            name: string;
+            address: string;
+            created_at: Date;
+            company_id: number;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        branch_id: bigint;
+        branch_id: number;
         brand: string;
         model: string;
         year: string;
-        color: bigint;
-        mileage: bigint;
+        color: string;
+        mileage: number;
         price_per_day: string;
         is_available: boolean;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: string, updateCarDto: UpdateCarDto): import("generated/prisma").Prisma.Prisma__carClient<{
-        id: bigint;
+    }>;
+    update(id: string, updateCarDto: UpdateCarDto): Promise<{
+        id: number;
         created_at: Date;
-        branch_id: bigint;
+        branch_id: number;
         brand: string;
         model: string;
         year: string;
-        color: bigint;
-        mileage: bigint;
+        color: string;
+        mileage: number;
         price_per_day: string;
         is_available: boolean;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: string): import("generated/prisma").Prisma.Prisma__carClient<{
-        id: bigint;
+    }>;
+    remove(id: string): Promise<{
+        id: number;
         created_at: Date;
-        branch_id: bigint;
+        branch_id: number;
         brand: string;
         model: string;
         year: string;
-        color: bigint;
-        mileage: bigint;
+        color: string;
+        mileage: number;
         price_per_day: string;
         is_available: boolean;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    }>;
 }

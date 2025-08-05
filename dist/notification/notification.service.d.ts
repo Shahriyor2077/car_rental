@@ -4,34 +4,78 @@ import { PrismaService } from '../prisma/prisma.service';
 export declare class NotificationService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createNotificationDto: CreateNotificationsDto): import("generated/prisma").Prisma.Prisma__notificationsClient<{
+    create(createNotificationDto: CreateNotificationsDto): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
         message: string;
-        id: bigint;
+        id: number;
         created_at: Date;
-        user_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
+        user_id: number;
+    }>;
+    findAll(): Promise<({
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
         message: string;
-        id: bigint;
+        id: number;
         created_at: Date;
-        user_id: bigint;
-    }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__notificationsClient<{
+        user_id: number;
+    })[]>;
+    findOne(id: number, currentUserId?: number, userRole?: string): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
         message: string;
-        id: bigint;
+        id: number;
         created_at: Date;
-        user_id: bigint;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: number, updateNotificationDto: UpdateNotificationsDto): import("generated/prisma").Prisma.Prisma__notificationsClient<{
+        user_id: number;
+    }>;
+    update(id: number, updateNotificationDto: UpdateNotificationsDto): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
         message: string;
-        id: bigint;
+        id: number;
         created_at: Date;
-        user_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__notificationsClient<{
+        user_id: number;
+    }>;
+    remove(id: number): Promise<{
         message: string;
-        id: bigint;
+        id: number;
         created_at: Date;
-        user_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+        user_id: number;
+    }>;
 }

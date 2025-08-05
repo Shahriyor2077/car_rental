@@ -11,12 +11,26 @@ const common_1 = require("@nestjs/common");
 const company_service_1 = require("./company.service");
 const company_controller_1 = require("./company.controller");
 const prisma_module_1 = require("../prisma/prisma.module");
+const admin_module_1 = require("../admin/admin.module");
+const jwt_1 = require("@nestjs/jwt");
+const config_1 = require("@nestjs/config");
 let CompanyModule = class CompanyModule {
 };
 exports.CompanyModule = CompanyModule;
 exports.CompanyModule = CompanyModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule],
+        imports: [
+            prisma_module_1.PrismaModule,
+            admin_module_1.AdminModule,
+            jwt_1.JwtModule.registerAsync({
+                imports: [config_1.ConfigModule],
+                useFactory: async (configService) => ({
+                    secret: configService.get('JWT_SECRET') || 'your-secret-key',
+                    signOptions: { expiresIn: '15m' },
+                }),
+                inject: [config_1.ConfigService],
+            }),
+        ],
         controllers: [company_controller_1.CompanyController],
         providers: [company_service_1.CompanyService],
     })

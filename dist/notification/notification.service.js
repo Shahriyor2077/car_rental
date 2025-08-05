@@ -17,20 +17,62 @@ let NotificationService = class NotificationService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createNotificationDto) {
-        return this.prismaService.notifications.create({ data: createNotificationDto });
+    async create(createNotificationDto) {
+        const user = await this.prismaService.user.findUnique({
+            where: { id: createNotificationDto.user_id }
+        });
+        if (!user) {
+            throw new common_1.BadRequestException('Foydalanuvchi topilmadi');
+        }
+        return await this.prismaService.notifications.create({
+            data: createNotificationDto,
+            include: { user: true }
+        });
     }
-    findAll() {
-        return this.prismaService.notifications.findMany();
+    async findAll() {
+        return await this.prismaService.notifications.findMany({
+            include: { user: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.notifications.findUnique({ where: { id } });
+    async findOne(id, currentUserId, userRole) {
+        const notification = await this.prismaService.notifications.findUnique({
+            where: { id },
+            include: { user: true }
+        });
+        if (!notification) {
+            throw new common_1.NotFoundException('Bildirishnoma topilmadi');
+        }
+        if (userRole === 'ADMIN' || userRole === 'MANAGER') {
+            return notification;
+        }
+        if (notification.user_id !== currentUserId) {
+            throw new common_1.BadRequestException('Faqat o\'z bildirishnomaingizga kirishingiz mumkin');
+        }
+        return notification;
     }
-    update(id, updateNotificationDto) {
-        return this.prismaService.notifications.update({ where: { id }, data: updateNotificationDto });
+    async update(id, updateNotificationDto) {
+        const existingNotification = await this.prismaService.notifications.findUnique({
+            where: { id }
+        });
+        if (!existingNotification) {
+            throw new common_1.NotFoundException('Bildirishnoma topilmadi');
+        }
+        return await this.prismaService.notifications.update({
+            where: { id },
+            data: updateNotificationDto,
+            include: { user: true }
+        });
     }
-    remove(id) {
-        return this.prismaService.notifications.delete({ where: { id } });
+    async remove(id) {
+        const existingNotification = await this.prismaService.notifications.findUnique({
+            where: { id }
+        });
+        if (!existingNotification) {
+            throw new common_1.NotFoundException('Bildirishnoma topilmadi');
+        }
+        return await this.prismaService.notifications.delete({
+            where: { id }
+        });
     }
 };
 exports.NotificationService = NotificationService;

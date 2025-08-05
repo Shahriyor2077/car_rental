@@ -11,7 +11,7 @@ export declare class AdminController {
             full_name: string;
             email: string;
             password: string;
-            id: bigint;
+            id: number;
             created_at: Date;
             role: import("generated/prisma").$Enums.AdminRole;
         };
@@ -20,19 +20,26 @@ export declare class AdminController {
         email: string;
         password: string;
     }, res: Response): Promise<{
+        message: string;
+        success: boolean;
         accessToken: string;
+        refreshToken: string;
     }>;
     refresh(req: Request, res: Response): Promise<{
+        message: string;
+        success: boolean;
         accessToken: string;
+        refreshToken: string;
     }>;
     logout(res: Response): Promise<{
         message: string;
+        success: boolean;
     }>;
     findAll(): import("generated/prisma").Prisma.PrismaPromise<{
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     }[]>;
@@ -40,7 +47,7 @@ export declare class AdminController {
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
@@ -48,7 +55,7 @@ export declare class AdminController {
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     }>;
@@ -56,7 +63,7 @@ export declare class AdminController {
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     }>;

@@ -21,35 +21,35 @@ class CreateCarMaintenanceDto {
 exports.CreateCarMaintenanceDto = CreateCarMaintenanceDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Avtomobil ID',
+        description: "Avtomobil ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "car_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateCarMaintenanceDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Xizmat sanasi',
-        example: '2024-08-01'
+        description: "Xizmat sanasi",
+        example: "2024-08-01"
     }),
-    (0, class_validator_1.IsString)({ message: 'Sana matn bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Sana matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateCarMaintenanceDto.prototype, "service_date", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Xizmat tavsifi',
-        example: 'Moy almashtirildi.'
+        description: "Xizmat tavsifi",
+        example: "Moy almashtirildi."
     }),
-    (0, class_validator_1.IsString)({ message: 'Tavsif matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Tavsif kamida 5 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Tavsif matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(5, { message: "Tavsif kamida 5 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateCarMaintenanceDto.prototype, "description", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Xizmat narxi',
-        example: 100000
+        description: "Xizmat narxi",
+        example: 500000
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'Narx raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Narx raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateCarMaintenanceDto.prototype, "cost", void 0);
 //# sourceMappingURL=create-car_maintenance.dto.js.map

@@ -1,6 +1,18 @@
+-- CreateEnum
+CREATE TYPE "public"."RentalStatus" AS ENUM ('PENDING', 'ACTIVE', 'COMPLETED', 'CANCELLED');
+
+-- CreateEnum
+CREATE TYPE "public"."PaymentStatus" AS ENUM ('PENDING', 'PAID', 'FAILED');
+
+-- CreateEnum
+CREATE TYPE "public"."PaymentMethod" AS ENUM ('CASH', 'CARD', 'TRANSFER');
+
+-- CreateEnum
+CREATE TYPE "public"."AdminRole" AS ENUM ('ADMIN', 'MANAGER');
+
 -- CreateTable
 CREATE TABLE "public"."company" (
-    "id" BIGSERIAL NOT NULL,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "address" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
@@ -12,10 +24,10 @@ CREATE TABLE "public"."company" (
 
 -- CreateTable
 CREATE TABLE "public"."branch" (
-    "id" BIGSERIAL NOT NULL,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "address" TEXT NOT NULL,
-    "company_id" BIGINT NOT NULL,
+    "company_id" INTEGER NOT NULL,
     "phone" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -24,13 +36,13 @@ CREATE TABLE "public"."branch" (
 
 -- CreateTable
 CREATE TABLE "public"."car" (
-    "id" BIGSERIAL NOT NULL,
-    "branch_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "branch_id" INTEGER NOT NULL,
     "brand" TEXT NOT NULL,
     "model" TEXT NOT NULL,
     "year" TEXT NOT NULL,
-    "color" BIGINT NOT NULL,
-    "mileage" BIGINT NOT NULL,
+    "color" TEXT NOT NULL,
+    "mileage" INTEGER NOT NULL,
     "price_per_day" TEXT NOT NULL,
     "is_available" BOOLEAN NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -40,8 +52,8 @@ CREATE TABLE "public"."car" (
 
 -- CreateTable
 CREATE TABLE "public"."car_image" (
-    "id" BIGSERIAL NOT NULL,
-    "car_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "car_id" INTEGER NOT NULL,
     "image" TEXT NOT NULL,
 
     CONSTRAINT "car_image_pkey" PRIMARY KEY ("id")
@@ -49,8 +61,8 @@ CREATE TABLE "public"."car_image" (
 
 -- CreateTable
 CREATE TABLE "public"."car_maintenance" (
-    "id" BIGSERIAL NOT NULL,
-    "car_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "car_id" INTEGER NOT NULL,
     "service_date" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "cost" DECIMAL(65,30) NOT NULL,
@@ -60,16 +72,16 @@ CREATE TABLE "public"."car_maintenance" (
 
 -- CreateTable
 CREATE TABLE "public"."car_feature" (
-    "id" BIGSERIAL NOT NULL,
-    "car_id" BIGINT NOT NULL,
-    "feature_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "car_id" INTEGER NOT NULL,
+    "feature_id" INTEGER NOT NULL,
 
     CONSTRAINT "car_feature_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "public"."feature" (
-    "id" BIGSERIAL NOT NULL,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
 
     CONSTRAINT "feature_pkey" PRIMARY KEY ("id")
@@ -77,13 +89,13 @@ CREATE TABLE "public"."feature" (
 
 -- CreateTable
 CREATE TABLE "public"."rentals" (
-    "id" BIGSERIAL NOT NULL,
-    "user_id" BIGINT NOT NULL,
-    "car_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "car_id" INTEGER NOT NULL,
     "start_date" TEXT NOT NULL,
     "end_date" TEXT NOT NULL,
     "total_price" DECIMAL(65,30) NOT NULL,
-    "status" TEXT NOT NULL,
+    "status" "public"."RentalStatus" NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "rentals_pkey" PRIMARY KEY ("id")
@@ -91,8 +103,8 @@ CREATE TABLE "public"."rentals" (
 
 -- CreateTable
 CREATE TABLE "public"."damages" (
-    "id" BIGSERIAL NOT NULL,
-    "rental_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "rental_id" INTEGER NOT NULL,
     "description" TEXT NOT NULL,
     "cost_estimate" TEXT NOT NULL,
     "damage_date" TIMESTAMP(3) NOT NULL,
@@ -102,34 +114,35 @@ CREATE TABLE "public"."damages" (
 
 -- CreateTable
 CREATE TABLE "public"."payments" (
-    "id" BIGSERIAL NOT NULL,
-    "rental_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "rental_id" INTEGER NOT NULL,
     "amount" DECIMAL(65,30) NOT NULL,
     "payment_date" TIMESTAMP(3) NOT NULL,
-    "payment_method" TEXT NOT NULL,
-    "status" TEXT NOT NULL,
+    "payment_method" "public"."PaymentMethod" NOT NULL,
+    "status" "public"."PaymentStatus" NOT NULL,
 
     CONSTRAINT "payments_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "public"."user" (
-    "id" BIGSERIAL NOT NULL,
+    "id" SERIAL NOT NULL,
     "full_name" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "birthday" TEXT NOT NULL,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "is_active" BOOLEAN NOT NULL DEFAULT false,
+    "activation_link" TEXT,
 
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "public"."reviews" (
-    "id" BIGSERIAL NOT NULL,
-    "user_id" BIGINT NOT NULL,
-    "car_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "car_id" INTEGER NOT NULL,
     "rating" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -138,8 +151,8 @@ CREATE TABLE "public"."reviews" (
 
 -- CreateTable
 CREATE TABLE "public"."documents" (
-    "id" BIGSERIAL NOT NULL,
-    "user_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "user_id" INTEGER NOT NULL,
     "deliver_license" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -148,8 +161,8 @@ CREATE TABLE "public"."documents" (
 
 -- CreateTable
 CREATE TABLE "public"."notifications" (
-    "id" BIGSERIAL NOT NULL,
-    "user_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "user_id" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -158,14 +171,32 @@ CREATE TABLE "public"."notifications" (
 
 -- CreateTable
 CREATE TABLE "public"."complaints" (
-    "id" BIGSERIAL NOT NULL,
-    "user_id" BIGINT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "user_id" INTEGER NOT NULL,
     "message" TEXT NOT NULL,
-    "rental_id" BIGINT NOT NULL,
+    "rental_id" INTEGER NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "complaints_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateTable
+CREATE TABLE "public"."admin" (
+    "id" SERIAL NOT NULL,
+    "full_name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "role" "public"."AdminRole" NOT NULL DEFAULT 'MANAGER',
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "admin_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "user_email_key" ON "public"."user"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "admin_email_key" ON "public"."admin"("email");
 
 -- AddForeignKey
 ALTER TABLE "public"."branch" ADD CONSTRAINT "branch_company_id_fkey" FOREIGN KEY ("company_id") REFERENCES "public"."company"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

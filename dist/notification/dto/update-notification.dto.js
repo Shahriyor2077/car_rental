@@ -21,21 +21,21 @@ class UpdateNotificationsDto extends (0, mapped_types_1.PartialType)(create_noti
 exports.UpdateNotificationsDto = UpdateNotificationsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Foydalanuvchi ID (ixtiyoriy)',
+        description: "Foydalanuvchi ID (ixtiyoriy)",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "user_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateNotificationsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Xabar matni (ixtiyoriy)',
-        example: 'Sizning buyurtmangiz tasdiqlandi.'
+        description: "Xabar matni (ixtiyoriy)",
+        example: "Sizning buyurtmangiz tasdiqlandi."
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Xabar matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(3, { message: 'Xabar kamida 3 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Xabar matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(3, { message: "Xabar kamida 3 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateNotificationsDto.prototype, "message", void 0);
 //# sourceMappingURL=update-notification.dto.js.map

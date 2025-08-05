@@ -6,42 +6,42 @@ export declare class CompanyService {
     constructor(prismaService: PrismaService);
     create(createCompanyDto: CreateCompaniesDto): import("generated/prisma").Prisma.Prisma__companiesClient<{
         phone: string;
-        id: bigint;
-        created_at: Date;
+        id: number;
         name: string;
         address: string;
         license_number: string;
+        created_at: Date;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     findAll(): import("generated/prisma").Prisma.PrismaPromise<{
         phone: string;
-        id: bigint;
-        created_at: Date;
+        id: number;
         name: string;
         address: string;
         license_number: string;
+        created_at: Date;
     }[]>;
     findOne(id: number): import("generated/prisma").Prisma.Prisma__companiesClient<{
         phone: string;
-        id: bigint;
-        created_at: Date;
+        id: number;
         name: string;
         address: string;
         license_number: string;
+        created_at: Date;
     } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     update(id: number, updateCompanyDto: UpdateCompaniesDto): import("generated/prisma").Prisma.Prisma__companiesClient<{
         phone: string;
-        id: bigint;
-        created_at: Date;
+        id: number;
         name: string;
         address: string;
         license_number: string;
+        created_at: Date;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     remove(id: number): import("generated/prisma").Prisma.Prisma__companiesClient<{
         phone: string;
-        id: bigint;
-        created_at: Date;
+        id: number;
         name: string;
         address: string;
         license_number: string;
+        created_at: Date;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
 }

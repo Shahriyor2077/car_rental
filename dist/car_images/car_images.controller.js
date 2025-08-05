@@ -14,6 +14,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CarImagesController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
+const admin_auth_guard_1 = require("../auth/common/guards/admin-auth.guard");
 const car_images_service_1 = require("./car_images.service");
 const create_car_image_dto_1 = require("./dto/create-car_image.dto");
 const update_car_image_dto_1 = require("./dto/update-car_image.dto");
@@ -25,9 +27,6 @@ let CarImagesController = class CarImagesController {
     create(createCarImageDto) {
         return this.carImagesService.create(createCarImageDto);
     }
-    findAll() {
-        return this.carImagesService.findAll();
-    }
     findOne(id) {
         return this.carImagesService.findOne(+id);
     }
@@ -37,9 +36,16 @@ let CarImagesController = class CarImagesController {
     remove(id) {
         return this.carImagesService.remove(+id);
     }
+    findAll() {
+        return this.carImagesService.findAll();
+    }
 };
 exports.CarImagesController = CarImagesController;
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil rasmi yaratish" }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: "Avtomobil rasmi muvaffaqiyatli yaratildi" }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: "Noto'g'ri ma'lumotlar" }),
+    (0, common_1.UseGuards)(admin_auth_guard_1.AdminAuthGuard),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -47,35 +53,53 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CarImagesController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], CarImagesController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil rasmi ma'lumotini olish" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Avtomobil rasmi ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobil rasmi ma'lumoti" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Avtomobil rasmi topilmadi" }),
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CarImagesController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil rasmi ma'lumotini yangilash" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Avtomobil rasmi ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobil rasmi yangilandi" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Avtomobil rasmi topilmadi" }),
+    (0, common_1.UseGuards)(admin_auth_guard_1.AdminAuthGuard),
+    (0, common_1.Patch)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_car_image_dto_1.UpdateCarImagesDto]),
     __metadata("design:returntype", void 0)
 ], CarImagesController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil rasmi ma'lumotini o'chirish" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Avtomobil rasmi ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobil rasmi o'chirildi" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Avtomobil rasmi topilmadi" }),
+    (0, common_1.UseGuards)(admin_auth_guard_1.AdminAuthGuard),
+    (0, common_1.Delete)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CarImagesController.prototype, "remove", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Barcha avtomobil rasmlari ro'yxatini olish" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobil rasmlari ro'yxati" }),
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], CarImagesController.prototype, "findAll", null);
 exports.CarImagesController = CarImagesController = __decorate([
-    (0, common_1.Controller)('car-images'),
+    (0, swagger_1.ApiTags)("Car Images - Avtomobil Rasmlari"),
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, common_1.Controller)("car-images"),
     __metadata("design:paramtypes", [car_images_service_1.CarImagesService])
 ], CarImagesController);
 //# sourceMappingURL=car_images.controller.js.map

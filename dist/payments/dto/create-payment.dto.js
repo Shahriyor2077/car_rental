@@ -17,51 +17,39 @@ class CreatePaymentsDto {
     amount;
     payment_date;
     payment_method;
-    status;
 }
 exports.CreatePaymentsDto = CreatePaymentsDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Ijaraga olingan avtomobil ID',
+        description: "Ijara ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'rental_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Ijara ID raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreatePaymentsDto.prototype, "rental_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Toʻlov summasi',
-        example: 100000
+        description: "To'lov miqdori",
+        example: 500000
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'amount raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "To'lov miqdori raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreatePaymentsDto.prototype, "amount", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Toʻlov sanasi',
-        example: '2024-08-01'
+        description: "To'lov sanasi (YYYY-MM-DD formatida)",
+        example: "2024-01-15"
     }),
-    (0, class_validator_1.IsDateString)({}, { message: 'payment_date ISO formatda bo\'lishi kerak' }),
+    (0, class_validator_1.IsDateString)({}, { message: "To'lov sanasi to'g'ri formatda bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreatePaymentsDto.prototype, "payment_date", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Toʻlov turi',
-        example: 'CASH',
-        enum: ['CASH', 'CARD', 'TRANSFER']
+        description: "To'lov usuli",
+        example: "CASH",
+        enum: ["CASH", "CARD", "TRANSFER"]
     }),
-    (0, class_validator_1.IsString)({ message: 'payment_method matn bo\'lishi kerak' }),
-    (0, class_validator_1.IsIn)(['CASH', 'CARD', 'TRANSFER'], { message: 'Toʻlov turi CASH, CARD yoki TRANSFER bo\'lishi kerak' }),
+    (0, class_validator_1.IsIn)(["CASH", "CARD", "TRANSFER"], { message: "To'lov usuli to'g'ri bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreatePaymentsDto.prototype, "payment_method", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({
-        description: 'Toʻlov statusi',
-        example: 'PENDING',
-        enum: ['PENDING', 'PAID', 'FAILED']
-    }),
-    (0, class_validator_1.IsString)({ message: 'status matn bo\'lishi kerak' }),
-    (0, class_validator_1.IsIn)(['PENDING', 'PAID', 'FAILED'], { message: 'Status PENDING, PAID yoki FAILED bo\'lishi kerak' }),
-    __metadata("design:type", String)
-], CreatePaymentsDto.prototype, "status", void 0);
 //# sourceMappingURL=create-payment.dto.js.map

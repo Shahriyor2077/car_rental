@@ -23,55 +23,55 @@ class CreateRentalsDto {
 exports.CreateRentalsDto = CreateRentalsDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Foydalanuvchi ID',
+        description: "Foydalanuvchi ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'Foydalanuvchi ID raqam bo\'lishi kerak' }),
-    (0, class_validator_1.IsPositive)({ message: 'Foydalanuvchi ID musbat raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Foydalanuvchi ID raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Foydalanuvchi ID musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateRentalsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Avtomobil ID',
+        description: "Avtomobil ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'Avtomobil ID raqam bo\'lishi kerak' }),
-    (0, class_validator_1.IsPositive)({ message: 'Avtomobil ID musbat raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Avtomobil ID raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Avtomobil ID musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateRentalsDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Ijara boshlanish sanasi (YYYY-MM-DD)',
-        example: '2024-01-15'
+        description: "Ijara boshlanish sanasi (YYYY-MM-DD)",
+        example: "2024-01-15"
     }),
-    (0, class_validator_1.IsDateString)({}, { message: 'Boshlanish sanasi to\'g\'ri formatda bo\'lishi kerak' }),
+    (0, class_validator_1.IsDateString)({}, { message: "Boshlanish sanasi to'g'ri formatda bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateRentalsDto.prototype, "start_date", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Ijara tugash sanasi (YYYY-MM-DD)',
-        example: '2024-01-20'
+        description: "Ijara tugash sanasi (YYYY-MM-DD)",
+        example: "2024-01-20"
     }),
-    (0, class_validator_1.IsDateString)({}, { message: 'Tugash sanasi to\'g\'ri formatda bo\'lishi kerak' }),
+    (0, class_validator_1.IsDateString)({}, { message: "Tugash sanasi to'g'ri formatda bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateRentalsDto.prototype, "end_date", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Umumiy narxi',
+        description: "Umumiy narxi",
         example: 2500000
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'Narx raqam bo\'lishi kerak' }),
-    (0, class_validator_1.IsPositive)({ message: 'Narx musbat raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Narx raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Narx musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateRentalsDto.prototype, "total_price", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Ijara holati',
-        example: 'PENDING',
-        enum: ['PENDING', 'ACTIVE', 'COMPLETED', 'CANCELLED']
+        description: "Ijara holati",
+        example: "PENDING",
+        enum: ["PENDING", "ACTIVE", "COMPLETED", "CANCELLED"]
     }),
-    (0, class_validator_1.IsIn)(['PENDING', 'ACTIVE', 'COMPLETED', 'CANCELLED'], {
-        message: 'Holat PENDING, ACTIVE, COMPLETED yoki CANCELLED bo\'lishi kerak'
+    (0, class_validator_1.IsIn)(["PENDING", "ACTIVE", "COMPLETED", "CANCELLED"], {
+        message: "Holat PENDING, ACTIVE, COMPLETED yoki CANCELLED bo'lishi kerak"
     }),
     __metadata("design:type", String)
 ], CreateRentalsDto.prototype, "status", void 0);

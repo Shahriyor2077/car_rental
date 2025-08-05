@@ -15,7 +15,7 @@ export class AdminService {
 
   // Generate tokens for admin
   private generateTokens(payload: any) {
-    const accessToken = this.jwtService.sign(payload, { expiresIn: '15m' });
+    const accessToken = this.jwtService.sign(payload, { expiresIn: '3d' });
     const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' });
     return { accessToken, refreshToken };
   }
@@ -36,12 +36,17 @@ export class AdminService {
     const hashedPassword = await bcrypt.hash(createAdminDto.password, 10);
     const admin = await this.prisma.admin.create({
       data: {
-        ...createAdminDto,
+        full_name: createAdminDto.full_name,
+        email: createAdminDto.email,
         password: hashedPassword,
+        role: createAdminDto.role, // undefined bo'lsa default ishlaydi
       },
     });
 
-    return { message: 'Admin muvaffaqiyatli yaratildi', admin };
+    return {
+      message: 'Admin muvaffaqiyatli yaratildi',
+      admin,
+    };
   }
 
   // Admin login (email tasdiqlashsiz)

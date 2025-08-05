@@ -13,16 +13,16 @@ exports.ActivateDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const class_validator_1 = require("class-validator");
 class ActivateDto {
-    link;
+    code;
 }
 exports.ActivateDto = ActivateDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Email tasdiqlash linki',
-        example: '550e8400-e29b-41d4-a716-446655440000'
+        description: "Aktivlash kodi",
+        example: "123456"
     }),
-    (0, class_validator_1.IsString)({ message: 'Link matn bo\'lishi kerak' }),
-    (0, class_validator_1.IsNotEmpty)({ message: 'Link bo\'sh bo\'lishi mumkin emas' }),
+    (0, class_validator_1.IsString)({ message: "Aktivlash kodi matn bo'lishi kerak" }),
+    (0, class_validator_1.IsNotEmpty)({ message: "Aktivlash kodi bo'sh bo'lishi mumkin emas" }),
     __metadata("design:type", String)
-], ActivateDto.prototype, "link", void 0);
+], ActivateDto.prototype, "code", void 0);
 //# sourceMappingURL=activate.dto.js.map

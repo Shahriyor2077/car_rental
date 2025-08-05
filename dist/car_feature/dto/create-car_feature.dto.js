@@ -22,7 +22,7 @@ __decorate([
         description: 'Avtomobil ID',
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "car_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateCarFeatureDto.prototype, "car_id", void 0);
 __decorate([
@@ -30,7 +30,7 @@ __decorate([
         description: 'Xususiyat ID',
         example: 2
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'feature_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "feature_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateCarFeatureDto.prototype, "feature_id", void 0);
 //# sourceMappingURL=create-car_feature.dto.js.map

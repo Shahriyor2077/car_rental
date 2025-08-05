@@ -4,34 +4,78 @@ import { PrismaService } from '../prisma/prisma.service';
 export declare class DocumentsService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createDocumentDto: CreateDocumentsDto): import("generated/prisma").Prisma.Prisma__documentsClient<{
-        id: bigint;
+    create(createDocumentDto: CreateDocumentsDto, currentUserId?: number): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        user_id: bigint;
+        user_id: number;
         deliver_license: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
+    }>;
+    findAll(): Promise<({
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        user_id: bigint;
+        user_id: number;
         deliver_license: string;
-    }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
+    })[]>;
+    findOne(id: number, currentUserId?: number, userRole?: string): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        user_id: bigint;
+        user_id: number;
         deliver_license: string;
-    }[]>;
-    update(id: number, updateDocumentDto: UpdateDocumentsDto): import("generated/prisma").Prisma.Prisma__documentsClient<{
-        id: bigint;
+    }>;
+    update(id: number, updateDocumentDto: UpdateDocumentsDto): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        user_id: bigint;
+        user_id: number;
         deliver_license: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__documentsClient<{
-        id: bigint;
+    }>;
+    remove(id: number): Promise<{
+        id: number;
         created_at: Date;
-        user_id: bigint;
+        user_id: number;
         deliver_license: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    }>;
 }

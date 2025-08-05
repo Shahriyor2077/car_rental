@@ -20,13 +20,13 @@ class UpdateFeatureDto extends (0, mapped_types_1.PartialType)(create_feature_dt
 exports.UpdateFeatureDto = UpdateFeatureDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Xususiyat nomi (ixtiyoriy)',
-        example: 'Bluetooth'
+        description: "Xususiyat nomi (ixtiyoriy)",
+        example: "Bluetooth"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Nomi matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(2, { message: 'Nomi kamida 2 ta harf bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(50, { message: 'Nomi 50 ta harfdan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Nomi matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(2, { message: "Nomi kamida 2 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(10, { message: "Nomi 10 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], UpdateFeatureDto.prototype, "name", void 0);
 //# sourceMappingURL=update-feature.dto.js.map

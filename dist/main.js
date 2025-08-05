@@ -9,6 +9,7 @@ const prisma_service_1 = require("./prisma/prisma.service");
 const prisma_1 = require("../generated/prisma");
 const winston_logger_service_1 = require("./common/logger/winston-logger.service");
 const all_exceptions_filter_1 = require("./common/errors/all-exceptions.filter");
+const bcrypt = require("bcrypt");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, {
         bufferLogs: true,
@@ -19,15 +20,19 @@ async function bootstrap() {
     await prisma.$connect();
     const managerEmail = 'manager@mail.com';
     const managerPassword = '12345678';
+    await prisma.admin.deleteMany({
+        where: { email: managerEmail }
+    });
     const existingManager = await prisma.admin.findUnique({
         where: { email: managerEmail },
     });
     if (!existingManager) {
+        const hashedPassword = await bcrypt.hash(managerPassword, 10);
         await prisma.admin.create({
             data: {
                 full_name: 'Super Manager',
                 email: managerEmail,
-                password: managerPassword,
+                password: hashedPassword,
                 role: prisma_1.AdminRole.MANAGER,
             },
         });
@@ -48,7 +53,7 @@ async function bootstrap() {
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('/api/docs', app, document);
-    const PORT = process.env.PORT || 3030;
+    const PORT = process.env.PORT || 3000;
     await app.listen(PORT, () => {
         logger.log(`🚀 Server http://localhost:${PORT}`, 'Bootstrap');
         logger.log(`📘 Swagger http://localhost:${PORT}/api/docs`, 'Bootstrap');

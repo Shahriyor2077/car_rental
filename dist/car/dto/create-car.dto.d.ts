@@ -3,7 +3,7 @@ export declare class CreateCarDto {
     brand: string;
     model: string;
     year: string;
-    color: number;
+    color: string;
     mileage: number;
     price_per_day: string;
     is_available: boolean;

@@ -28,7 +28,7 @@ let JwtAuthGuard = class JwtAuthGuard {
             request.user = payload;
             return true;
         }
-        catch {
+        catch (error) {
             throw new common_1.UnauthorizedException('Token noto\'g\'ri');
         }
     }

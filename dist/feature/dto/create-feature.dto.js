@@ -18,12 +18,12 @@ class CreateFeatureDto {
 exports.CreateFeatureDto = CreateFeatureDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Xususiyat nomi',
-        example: 'Bluetooth'
+        description: "Xususiyat nomi",
+        example: "Bluetooth"
     }),
-    (0, class_validator_1.IsString)({ message: 'Nomi matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(2, { message: 'Nomi kamida 2 ta harf bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(50, { message: 'Nomi 50 ta harfdan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Nomi matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(2, { message: "Nomi kamida 2 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(5, { message: "Nomi 5 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], CreateFeatureDto.prototype, "name", void 0);
 //# sourceMappingURL=create-feature.dto.js.map

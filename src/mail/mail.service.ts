@@ -9,10 +9,11 @@ export class MailService {
     user: { email: string; name: string; activation_link?: string },
     type: "user" | "admin" = "user"
   ) {
+    const baseUrl = process.env.api_url || "http://localhost:5000";
     const url =
       type === "admin"
-        ? `${process.env.api_url}/api/admin/activate/${user.activation_link}`
-        : `${process.env.api_url}/api/auth/activate/${user.activation_link}`;
+        ? `${baseUrl}/api/admin/activate?link=${user.activation_link}`
+        : `${baseUrl}/api/auth/activate?link=${user.activation_link}`;
 
     await this.mailerService.sendMail({
       to: user.email,
@@ -26,7 +27,7 @@ export class MailService {
   }
 
   async sendResetPasswordEmail(to: string, token: string) {
-    const resetLink = `http://localhost:3000/auth/reset-password?token=${token}`;
+    const resetLink = `http://localhost:5000/auth/reset-password?token=${token}`;
 
     await this.mailerService.sendMail({
       to,

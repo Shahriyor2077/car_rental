@@ -17,20 +17,63 @@ let DamageService = class DamageService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createDamageDto) {
-        return this.prismaService.damages.create({ data: createDamageDto });
+    async create(createDamageDto) {
+        const rental = await this.prismaService.rentals.findUnique({
+            where: { id: createDamageDto.rental_id }
+        });
+        if (!rental) {
+            throw new common_1.BadRequestException('Ijara topilmadi');
+        }
+        return await this.prismaService.damages.create({
+            data: {
+                ...createDamageDto,
+                damage_date: new Date(createDamageDto.damage_date)
+            },
+            include: { rental: true }
+        });
     }
-    findAll() {
-        return this.prismaService.damages.findMany();
+    async findAll() {
+        return await this.prismaService.damages.findMany({
+            include: { rental: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.damages.findUnique({ where: { id } });
+    async findOne(id) {
+        const damage = await this.prismaService.damages.findUnique({
+            where: { id },
+            include: { rental: true }
+        });
+        if (!damage) {
+            throw new common_1.NotFoundException('Zarar topilmadi');
+        }
+        return damage;
     }
-    update(id, updateDamageDto) {
-        return this.prismaService.damages.update({ where: { id }, data: updateDamageDto });
+    async update(id, updateDamageDto) {
+        const existingDamage = await this.prismaService.damages.findUnique({
+            where: { id }
+        });
+        if (!existingDamage) {
+            throw new common_1.NotFoundException('Zarar topilmadi');
+        }
+        const updateData = { ...updateDamageDto };
+        if (updateDamageDto.damage_date) {
+            updateData.damage_date = new Date(updateDamageDto.damage_date);
+        }
+        return await this.prismaService.damages.update({
+            where: { id },
+            data: updateData,
+            include: { rental: true }
+        });
     }
-    remove(id) {
-        return this.prismaService.damages.delete({ where: { id } });
+    async remove(id) {
+        const existingDamage = await this.prismaService.damages.findUnique({
+            where: { id }
+        });
+        if (!existingDamage) {
+            throw new common_1.NotFoundException('Zarar topilmadi');
+        }
+        return await this.prismaService.damages.delete({
+            where: { id }
+        });
     }
 };
 exports.DamageService = DamageService;

@@ -4,25 +4,55 @@ import { PrismaService } from '../prisma/prisma.service';
 export declare class CarImagesService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createCarImageDto: CreateCarImagesDto): import("generated/prisma").Prisma.Prisma__car_imagesClient<{
-        id: bigint;
-        car_id: bigint;
+    create(createCarImageDto: CreateCarImagesDto): Promise<{
+        id: number;
+        car_id: number;
         image: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
-        car_id: bigint;
+    }>;
+    findAll(): Promise<({
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+    } & {
+        id: number;
+        car_id: number;
         image: string;
-    }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__car_imagesClient<{
-        id: bigint;
-        car_id: bigint;
+    })[]>;
+    findOne(id: number): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+    } & {
+        id: number;
+        car_id: number;
         image: string;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: number, updateCarImageDto: UpdateCarImagesDto): import("generated/prisma").Prisma.Prisma__car_imagesClient<{
-        id: bigint;
-        car_id: bigint;
+    }>;
+    update(id: number, updateCarImageDto: UpdateCarImagesDto): Promise<{
+        id: number;
+        car_id: number;
         image: string;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): string;
+    }>;
+    remove(id: number): Promise<{
+        id: number;
+        car_id: number;
+        image: string;
+    }>;
 }

@@ -1,53 +1,76 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { ApiPropertyOptional } from '@nestjs/swagger';
-import { CreateCarDto } from './create-car.dto';
+import { PartialType } from "@nestjs/mapped-types";
+import { ApiPropertyOptional } from "@nestjs/swagger";
+import { IsOptional, IsNumber, IsString, IsBoolean, IsPositive, MinLength, MaxLength } from "class-validator";
+import { CreateCarDto } from "./create-car.dto";
 
 export class UpdateCarDto extends PartialType(CreateCarDto) {
   @ApiPropertyOptional({
-    description: 'Filial ID (ixtiyoriy)',
+    description: "Filial ID ",
     example: 1
   })
+  @IsOptional()
+  @IsNumber({}, { message: "Filial ID raqam bo'lishi kerak" })
+  @IsPositive({ message: "Filial ID musbat raqam bo'lishi kerak" })
   branch_id?: number;
 
   @ApiPropertyOptional({
-    description: 'Avtomobil brendi (ixtiyoriy)',
-    example: 'Toyota'
+    description: "Avtomobil brendi",
+    example: "Toyota"
   })
+  @IsOptional()
+  @IsString({ message: "Brend matn bo'lishi kerak" })
+  @MinLength(2, { message: "Brend kamida 2 ta harf bo'lishi kerak" })
+  @MaxLength(50, { message: "Brend 50 ta harfdan oshmasligi kerak" })
   brand?: string;
 
   @ApiPropertyOptional({
-    description: 'Avtomobil modeli (ixtiyoriy)',
-    example: 'Camry'
+    description: "Avtomobil modeli",
+    example: "Camry"
   })
+  @IsOptional()
+  @IsString({ message: "Model matn bo'lishi kerak" })
+  @MinLength(2, { message: "Model kamida 2 ta harf bo'lishi kerak" })
+  @MaxLength(50, { message: "Model 50 ta harfdan oshmasligi kerak" })
   model?: string;
 
   @ApiPropertyOptional({
-    description: 'Ishlab chiqarilgan yili (ixtiyoriy)',
-    example: '2020'
+    description: "Ishlab chiqarilgan yili",
+    example: "2020"
   })
+  @IsOptional()
+  @IsString({ message: "Yil matn bo'lishi kerak" })
   year?: string;
 
   @ApiPropertyOptional({
-    description: 'Rang kodi (ixtiyoriy)',
-    example: 1
+    description: "Rang ",
+    example: "red"
   })
-  color?: number;
+  @IsOptional()
+  @IsString({ message: "Rang matn bo'lishi kerak" })
+  color?: string;
 
   @ApiPropertyOptional({
-    description: 'Yurgan masofa (ixtiyoriy)',
+    description: "Yurgan masofa ",
     example: 50000
   })
+  @IsOptional()
+  @IsNumber({}, { message: "Masofa raqam bo'lishi kerak" })
+  @IsPositive({ message: "Masofa musbat raqam bo'lishi kerak" })
   mileage?: number;
 
   @ApiPropertyOptional({
-    description: 'Kunlik narxi (ixtiyoriy)',
-    example: '500000'
+    description: "Kunlik narxi ",
+    example: "500000"
   })
+  @IsOptional()
+  @IsString({ message: "Narx matn bo'lishi kerak" })
   price_per_day?: string;
 
   @ApiPropertyOptional({
-    description: 'Avtomobil mavjudmi (ixtiyoriy)',
+    description: "Avtomobil mavjudmi ",
     example: true
   })
+  @IsOptional()
+  @IsBoolean({ message: "Mavjudlik mantiqiy qiymat bo'lishi kerak" })
   is_available?: boolean;
 }

@@ -1,12 +1,12 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNotEmpty } from 'class-validator';
+import { ApiProperty } from "@nestjs/swagger";
+import { IsString, IsNotEmpty } from "class-validator";
 
 export class ActivateDto {
   @ApiProperty({
-    description: 'Email tasdiqlash linki',
-    example: '550e8400-e29b-41d4-a716-446655440000'
+    description: "Aktivlash kodi",
+    example: "123456"
   })
-  @IsString({ message: 'Link matn bo\'lishi kerak' })
-  @IsNotEmpty({ message: 'Link bo\'sh bo\'lishi mumkin emas' })
-  link: string;
+  @IsString({ message: "Aktivlash kodi matn bo'lishi kerak" })
+  @IsNotEmpty({ message: "Aktivlash kodi bo'sh bo'lishi mumkin emas" })
+  code: string;
 }

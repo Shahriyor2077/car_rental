@@ -66,6 +66,7 @@ import { PrismaService } from './prisma/prisma.service';
 import { AdminRole } from '../generated/prisma';
 import { WinstonLoggerService } from './common/logger/winston-logger.service';
 import { AllExceptionsFilter } from './common/errors/all-exceptions.filter';
+import * as bcrypt from 'bcrypt';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -77,20 +78,26 @@ async function bootstrap() {
   const prisma = app.get(PrismaService);
   await prisma.$connect();
 
-  // ✅ Admin modeldan manager tekshiruv
+  // Admin modeldan manager tekshiruv
   const managerEmail = 'manager@mail.com';
   const managerPassword = '12345678';
+
+  // Eski manager foydalanuvchisini o'chirish
+  await prisma.admin.deleteMany({
+    where: { email: managerEmail }
+  });
 
   const existingManager = await prisma.admin.findUnique({
     where: { email: managerEmail },
   });
 
   if (!existingManager) {
+    const hashedPassword = await bcrypt.hash(managerPassword, 10);
     await prisma.admin.create({
       data: {
         full_name: 'Super Manager',
         email: managerEmail,
-        password: managerPassword, // ❗ Parolni xohlasangiz hash qiling
+        password: hashedPassword, // Parol endi hash bilan saqlanadi
         role: AdminRole.MANAGER,
       },
     });
@@ -102,7 +109,7 @@ async function bootstrap() {
   app.use(cookieParser());
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
-  // Global Exception Filter
+
   app.useGlobalFilters(new AllExceptionsFilter(logger));
 
   const config = new DocumentBuilder()
@@ -115,7 +122,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/docs', app, document);
 
-  const PORT = process.env.PORT || 3030;
+  const PORT = process.env.PORT || 3000;
   await app.listen(PORT, () => {
     logger.log(`🚀 Server http://localhost:${PORT}`, 'Bootstrap');
     logger.log(`📘 Swagger http://localhost:${PORT}/api/docs`, 'Bootstrap');

@@ -17,22 +17,66 @@ let BranchService = class BranchService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createBranchDto) {
-        return this.prismaService.branches.create({
+    async create(createBranchDto) {
+        const company = await this.prismaService.companies.findUnique({
+            where: { id: createBranchDto.company_id }
+        });
+        if (!company) {
+            throw new common_1.BadRequestException('Kompaniya topilmadi');
+        }
+        return await this.prismaService.branches.create({
             data: createBranchDto
         });
     }
-    findAll() {
-        return this.prismaService.branches.findMany();
+    async findAll() {
+        return await this.prismaService.branches.findMany({
+            include: { company: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.branches.findUnique({ where: { id } });
+    async findOne(id) {
+        const branch = await this.prismaService.branches.findUnique({
+            where: { id },
+            include: { company: true }
+        });
+        if (!branch) {
+            throw new common_1.NotFoundException('Branch topilmadi');
+        }
+        return branch;
     }
-    update(id, updateBranchDto) {
-        return this.prismaService.branches.update({ where: { id }, data: updateBranchDto });
+    async update(id, updateBranchDto) {
+        const existingBranch = await this.prismaService.branches.findUnique({
+            where: { id }
+        });
+        if (!existingBranch) {
+            throw new common_1.NotFoundException('Branch topilmadi');
+        }
+        if (updateBranchDto.company_id) {
+            const company = await this.prismaService.companies.findUnique({
+                where: { id: updateBranchDto.company_id }
+            });
+            if (!company) {
+                throw new common_1.BadRequestException('Kompaniya topilmadi');
+            }
+        }
+        return await this.prismaService.branches.update({
+            where: { id },
+            data: updateBranchDto
+        });
     }
-    remove(id) {
-        return this.prismaService.branches.delete({ where: { id } });
+    async remove(id) {
+        const existingBranch = await this.prismaService.branches.findUnique({
+            where: { id },
+            include: { cars: true }
+        });
+        if (!existingBranch) {
+            throw new common_1.NotFoundException('Branch topilmadi');
+        }
+        if (existingBranch.cars.length > 0) {
+            throw new common_1.BadRequestException('Bu branch\'da car\'lar mavjud. Avval car\'larni o\'chiring');
+        }
+        return await this.prismaService.branches.delete({
+            where: { id }
+        });
     }
 };
 exports.BranchService = BranchService;

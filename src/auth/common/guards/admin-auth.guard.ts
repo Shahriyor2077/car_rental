@@ -10,7 +10,7 @@ export class AdminAuthGuard implements CanActivate {
     const token = request.headers.authorization?.replace('Bearer ', '');
 
     if (!token) {
-      throw new UnauthorizedException('Token yo\'q');
+      throw new UnauthorizedException("Token yo'q");
     }
 
     try {
@@ -18,7 +18,7 @@ export class AdminAuthGuard implements CanActivate {
       
       // Admin ekanligini tekshirish
       if (payload.role !== 'ADMIN' && payload.role !== 'MANAGER') {
-        throw new ForbiddenException('Admin huquqi yo\'q');
+        throw new ForbiddenException("Admin huquqi yoq");
       }
       
       request.user = payload;
@@ -27,7 +27,7 @@ export class AdminAuthGuard implements CanActivate {
       if (error instanceof ForbiddenException) {
         throw error;
       }
-      throw new UnauthorizedException('Token noto\'g\'ri');
+      throw new UnauthorizedException("Token noto'g'ri");
     }
   }
 } 

@@ -14,40 +14,40 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BranchController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
+const jwt_auth_guard_1 = require("../auth/common/guards/jwt-auth.guard");
+const role_guard_1 = require("../auth/common/guards/role.guard");
+const roles_decorator_1 = require("../auth/common/decorators/roles.decorator");
 const branch_service_1 = require("./branch.service");
 const update_branch_dto_1 = require("./dto/update-branch.dto");
 const create_branch_dto_1 = require("./dto/create-branch.dto");
-const winston_logger_service_1 = require("../common/logger/winston-logger.service");
 let BranchController = class BranchController {
     branchService;
-    logger;
-    constructor(branchService, logger) {
+    constructor(branchService) {
         this.branchService = branchService;
-        this.logger = logger;
     }
     create(createBranchDto) {
-        this.logger.log('Branch yaratish so‘rovi', 'BranchController');
         return this.branchService.create(createBranchDto);
     }
     findAll() {
-        this.logger.log('Barcha branchlar ro‘yxati', 'BranchController');
         return this.branchService.findAll();
     }
     findOne(id) {
-        this.logger.log(`Branch olish: ${id}`, 'BranchController');
         return this.branchService.findOne(+id);
     }
     update(id, updateBranchDto) {
-        this.logger.log(`Branch yangilash: ${id}`, 'BranchController');
         return this.branchService.update(+id, updateBranchDto);
     }
     remove(id) {
-        this.logger.log(`Branch o‘chirish: ${id}`, 'BranchController');
         return this.branchService.remove(+id);
     }
 };
 exports.BranchController = BranchController;
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Filial yaratish" }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: "Filial muvaffaqiyatli yaratildi" }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: "Noto'g'ri ma'lumotlar" }),
+    (0, roles_decorator_1.Roles)("MANAGER"),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -55,36 +55,54 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], BranchController.prototype, "create", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Barcha filiallar ro'yxatini olish" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Filiallar ro'yxati" }),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], BranchController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Filial ma'lumotini olish" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Filial ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Filial ma'lumoti" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Filial topilmadi" }),
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], BranchController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Filial ma'lumotini yangilash" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Filial ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Filial yangilandi" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Filial topilmadi" }),
+    (0, roles_decorator_1.Roles)("MANAGER"),
+    (0, common_1.Patch)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_branch_dto_1.UpdateBranchesDto]),
     __metadata("design:returntype", void 0)
 ], BranchController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Filial ma'lumotini o'chirish" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Filial ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Filial o'chirildi" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Filial topilmadi" }),
+    (0, roles_decorator_1.Roles)("MANAGER"),
+    (0, common_1.Delete)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], BranchController.prototype, "remove", null);
 exports.BranchController = BranchController = __decorate([
-    (0, common_1.Controller)('branch'),
-    __metadata("design:paramtypes", [branch_service_1.BranchService,
-        winston_logger_service_1.WinstonLoggerService])
+    (0, swagger_1.ApiTags)("Branch - Filiallar"),
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard, role_guard_1.RoleGuard),
+    (0, common_1.Controller)("branch"),
+    __metadata("design:paramtypes", [branch_service_1.BranchService])
 ], BranchController);
 //# sourceMappingURL=branch.controller.js.map

@@ -2,6 +2,5 @@ export declare class CreatePaymentsDto {
     rental_id: number;
     amount: number;
     payment_date: string;
-    payment_method: 'CASH' | 'CARD' | 'TRANSFER';
-    status: 'PENDING' | 'PAID' | 'FAILED';
+    payment_method: "CASH" | "CARD" | "TRANSFER";
 }

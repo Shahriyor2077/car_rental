@@ -6,13 +6,13 @@ export class CreateCarFeatureDto {
     description: 'Avtomobil ID',
     example: 1
   })
-  @IsNumber({}, { message: 'car_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: "car_id raqam bo'lishi kerak" })
   car_id: number;
 
   @ApiProperty({
     description: 'Xususiyat ID',
     example: 2
   })
-  @IsNumber({}, { message: 'feature_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: "feature_id raqam bo'lishi kerak" })
   feature_id: number;
 }

@@ -11,12 +11,26 @@ const common_1 = require("@nestjs/common");
 const car_images_service_1 = require("./car_images.service");
 const car_images_controller_1 = require("./car_images.controller");
 const prisma_module_1 = require("../prisma/prisma.module");
+const admin_module_1 = require("../admin/admin.module");
+const jwt_1 = require("@nestjs/jwt");
+const config_1 = require("@nestjs/config");
 let CarImagesModule = class CarImagesModule {
 };
 exports.CarImagesModule = CarImagesModule;
 exports.CarImagesModule = CarImagesModule = __decorate([
     (0, common_1.Module)({
-        imports: [prisma_module_1.PrismaModule],
+        imports: [
+            prisma_module_1.PrismaModule,
+            admin_module_1.AdminModule,
+            jwt_1.JwtModule.registerAsync({
+                imports: [config_1.ConfigModule],
+                useFactory: async (configService) => ({
+                    secret: configService.get('JWT_SECRET') || 'your-secret-key',
+                    signOptions: { expiresIn: '15m' },
+                }),
+                inject: [config_1.ConfigService],
+            }),
+        ],
         controllers: [car_images_controller_1.CarImagesController],
         providers: [car_images_service_1.CarImagesService],
     })

@@ -4,44 +4,62 @@ import { UpdateBranchesDto } from './dto/update-branch.dto';
 export declare class BranchService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createBranchDto: CreateBranchesDto): import("generated/prisma").Prisma.Prisma__branchesClient<{
+    create(createBranchDto: CreateBranchesDto): Promise<{
         phone: string;
-        id: bigint;
-        created_at: Date;
+        id: number;
         name: string;
         address: string;
-        company_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        phone: string;
-        id: bigint;
         created_at: Date;
+        company_id: number;
+    }>;
+    findAll(): Promise<({
+        company: {
+            phone: string;
+            id: number;
+            name: string;
+            address: string;
+            license_number: string;
+            created_at: Date;
+        };
+    } & {
+        phone: string;
+        id: number;
         name: string;
         address: string;
-        company_id: bigint;
-    }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__branchesClient<{
-        phone: string;
-        id: bigint;
         created_at: Date;
+        company_id: number;
+    })[]>;
+    findOne(id: number): Promise<{
+        company: {
+            phone: string;
+            id: number;
+            name: string;
+            address: string;
+            license_number: string;
+            created_at: Date;
+        };
+    } & {
+        phone: string;
+        id: number;
         name: string;
         address: string;
-        company_id: bigint;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: number, updateBranchDto: UpdateBranchesDto): import("generated/prisma").Prisma.Prisma__branchesClient<{
-        phone: string;
-        id: bigint;
         created_at: Date;
+        company_id: number;
+    }>;
+    update(id: number, updateBranchDto: UpdateBranchesDto): Promise<{
+        phone: string;
+        id: number;
         name: string;
         address: string;
-        company_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__branchesClient<{
-        phone: string;
-        id: bigint;
         created_at: Date;
+        company_id: number;
+    }>;
+    remove(id: number): Promise<{
+        phone: string;
+        id: number;
         name: string;
         address: string;
-        company_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+        created_at: Date;
+        company_id: number;
+    }>;
 }

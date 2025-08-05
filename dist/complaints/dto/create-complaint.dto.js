@@ -20,27 +20,27 @@ class CreateComplaintsDto {
 exports.CreateComplaintsDto = CreateComplaintsDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Foydalanuvchi ID',
+        description: "Foydalanuvchi ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "user_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateComplaintsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Shikoyat matni',
-        example: 'Avtomobil kechikib yetkazildi.'
+        description: "Shikoyat matni",
+        example: "Avtomobil kechikib yetkazildi."
     }),
-    (0, class_validator_1.IsString)({ message: 'Shikoyat matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Shikoyat kamida 5 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Shikoyat matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(5, { message: "Shikoyat kamida 5 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateComplaintsDto.prototype, "message", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Ijaraga olingan avtomobil ID',
+        description: "Ijaraga olingan avtomobil ID",
         example: 10
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'rental_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "rental_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateComplaintsDto.prototype, "rental_id", void 0);
 //# sourceMappingURL=create-complaint.dto.js.map

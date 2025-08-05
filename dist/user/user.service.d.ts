@@ -4,39 +4,36 @@ import { CreateUserDto } from './dto/create-user.dto';
 export declare class UserService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createUserDto: CreateUserDto): import("generated/prisma").Prisma.Prisma__userClient<{
+    create(createUserDto: CreateUserDto): Promise<{
         full_name: string;
         phone: string;
         email: string;
         password: string;
         birthday: string;
         is_active: boolean;
-        id: bigint;
-        created_at: Date;
+        id: number;
         activation_link: string | null;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
+    }>;
+    findAll(): Promise<{
         full_name: string;
         phone: string;
         email: string;
         password: string;
         birthday: string;
         is_active: boolean;
-        id: bigint;
-        created_at: Date;
+        id: number;
         activation_link: string | null;
     }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__userClient<{
+    findOne(id: number): Promise<{
         full_name: string;
         phone: string;
         email: string;
         password: string;
         birthday: string;
         is_active: boolean;
-        id: bigint;
-        created_at: Date;
+        id: number;
         activation_link: string | null;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    }>;
     findByEmail(email: string): Promise<{
         full_name: string;
         phone: string;
@@ -44,30 +41,27 @@ export declare class UserService {
         password: string;
         birthday: string;
         is_active: boolean;
-        id: bigint;
-        created_at: Date;
+        id: number;
         activation_link: string | null;
-    } | null>;
-    update(id: number, updateUserDto: UpdateUserDto): import("generated/prisma").Prisma.Prisma__userClient<{
+    }>;
+    update(id: number, updateUserDto: UpdateUserDto): Promise<{
         full_name: string;
         phone: string;
         email: string;
         password: string;
         birthday: string;
         is_active: boolean;
-        id: bigint;
-        created_at: Date;
+        id: number;
         activation_link: string | null;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__userClient<{
+    }>;
+    remove(id: number): Promise<{
         full_name: string;
         phone: string;
         email: string;
         password: string;
         birthday: string;
         is_active: boolean;
-        id: bigint;
-        created_at: Date;
+        id: number;
         activation_link: string | null;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    }>;
 }

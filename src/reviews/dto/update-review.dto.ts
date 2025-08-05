@@ -1,33 +1,41 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsNumber, IsString, MinLength, MaxLength, IsOptional } from 'class-validator';
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateReviewsDto } from './create-review.dto';
+import { ApiPropertyOptional } from "@nestjs/swagger";
+import { IsNumber, IsString, MinLength, MaxLength, IsOptional } from "class-validator";
+import { PartialType } from "@nestjs/mapped-types";
+import { CreateReviewsDto } from "./create-review.dto";
 
 export class UpdateReviewsDto extends PartialType(CreateReviewsDto) {
   @ApiPropertyOptional({
-    description: 'Foydalanuvchi ID (ixtiyoriy)',
+    description: "Foydalanuvchi id",
     example: 1
   })
   @IsOptional()
-  @IsNumber({}, { message: 'user_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: "Foydalanuvchi ID raqam bo'lishi kerak" })
   user_id?: number;
 
   @ApiPropertyOptional({
-    description: 'Avtomobil ID (ixtiyoriy)',
-    example: 2
+    description: "Avtomobil ID",
+    example: 1
   })
   @IsOptional()
-  @IsNumber({}, { message: 'car_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: "Avtomobil ID raqam bo'lishi kerak" })
   car_id?: number;
 
   @ApiPropertyOptional({
-    description: 'Reyting (ixtiyoriy)',
-    example: '5'
+    description: "Sharh matni",
+    example: "Avtomobil juda yaxshi ishlaydi"
   })
   @IsOptional()
-  @IsString({ message: 'Reyting matn bo\'lishi kerak' })
-  @MinLength(1, { message: 'Reyting kamida 1 ta belgi bo\'lishi kerak' })
-  @MaxLength(1, { message: 'Reyting 1 ta belgidan oshmasligi kerak' })
+  @IsString({ message: "Sharh matn bo'lishi kerak" })
+  @MinLength(10, { message: "Sharh kamida 10 ta harf bo'lishi kerak" })
+  @MaxLength(500, { message: "Sharh 500 ta harfdan oshmasligi kerak" })
+  comment?: string;
+
+  @ApiPropertyOptional({
+    description: "Baho (1-5)",
+    example: "5"
+  })
+  @IsOptional()
+  @IsString({ message: "Baho matn bo'lishi kerak" })
   rating?: string;
 }
         

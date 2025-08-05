@@ -1,53 +1,87 @@
 import { Controller, Post, Body, Get, Query, Req, Res } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiParam } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { LoginDto } from '../user/dto/login.dto';
 import { Request, Response } from 'express';
 
-@Controller('auth')
+@ApiTags("Auth")
+@Controller("auth")
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post('register')
+  @ApiOperation({ summary: "Foydalanuvchi ro'yxatdan o'tkazish" })
+  @ApiResponse({ status: 201, description: "Foydalanuvchi muvaffaqiyatli yaratildi" })
+  @ApiResponse({ status: 400, description: "Noto'g'ri ma'lumotlar" })
+  @Post("register")
   async register(@Body() dto: CreateUserDto) {
     return this.authService.register(dto);
   }
 
-  @Get('activate')
-  async activate(@Query('link') link: string) {
+  @ApiOperation({ summary: "Foydalanuvchi faollashtirish" })
+  @ApiResponse({ status: 200, description: "Foydalanuvchi faollashtirildi" })
+  @ApiResponse({ status: 400, description: "Noto'g'ri aktivatsiya havolasi" })
+  @Get("activate")
+  async activate(@Query("link") link: string) {
     return this.authService.activate(link);
   }
 
-  @Post('login')
+  @ApiOperation({ summary: "Foydalanuvchi tizimga kirish" })
+  @ApiResponse({ status: 200, description: "Muvaffaqiyatli kirish" })
+  @ApiResponse({ status: 401, description: "Noto'g'ri ma'lumotlar" })
+  @Post("login")
   async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: Response) {
     const { accessToken, refreshToken } = await this.authService.login(dto.email, dto.password);
-    res.cookie('refreshToken', refreshToken, {
+    
+    res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: true, // HTTPS uchun true, localda false bo'lishi mumkin
-      sameSite: 'strict',
+      secure: false,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      path: '/auth/refresh'
     });
-    return { accessToken };
+    
+    return { 
+      message: "User login muvaffaqiyatli",
+      success: true,
+      accessToken,
+      refreshToken
+    };
   }
 
-  @Post('refresh')
-  async refresh(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
-    const oldRefreshToken = req.cookies['refreshToken'];
+  @ApiOperation({ summary: "Token yangilash" })
+  @ApiResponse({ status: 200, description: "Token yangilandi" })
+  @ApiResponse({ status: 401, description: "Noto'g'ri refresh token" })
+  @Post("refresh")
+  async refresh(@Req() req: Request, @Body() body: any, @Res({ passthrough: true }) res: Response) {
+    const oldRefreshToken = req.cookies["refreshToken"] || body?.refreshToken;
     const { accessToken, refreshToken } = await this.authService.refreshToken(oldRefreshToken);
-    res.cookie('refreshToken', refreshToken, {
+    
+    // Yangi refresh token ni cookie da saqlash
+    res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: 'strict',
+      secure: false,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      path: '/auth/refresh'
     });
-    return { accessToken };
+    
+    return { 
+      message: "Token yangilandi",
+      success: true,
+      accessToken,
+      refreshToken
+    };
   }
 
-  @Post('logout')
+  @ApiOperation({ summary: "Tizimdan chiqish" })
+  @ApiResponse({ status: 200, description: "Muvaffaqiyatli chiqish" })
+  @Post("logout")
   async logout(@Res({ passthrough: true }) res: Response) {
-    res.clearCookie('refreshToken', { path: '/auth/refresh' });
-    return this.authService.logout();
+    res.clearCookie("refreshToken", { 
+      httpOnly: true,
+      secure: false,
+    });
+    
+    return { 
+      message: "Logout muvaffaqiyatli",
+      success: true
+    };
   }
 }

@@ -13,7 +13,7 @@ export declare class AdminService {
             full_name: string;
             email: string;
             password: string;
-            id: bigint;
+            id: number;
             created_at: Date;
             role: import("generated/prisma").$Enums.AdminRole;
         };
@@ -33,7 +33,7 @@ export declare class AdminService {
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     }[]>;
@@ -41,7 +41,7 @@ export declare class AdminService {
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
@@ -49,7 +49,7 @@ export declare class AdminService {
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     }>;
@@ -57,7 +57,7 @@ export declare class AdminService {
         full_name: string;
         email: string;
         password: string;
-        id: bigint;
+        id: number;
         created_at: Date;
         role: import("generated/prisma").$Enums.AdminRole;
     }>;

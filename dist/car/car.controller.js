@@ -14,6 +14,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CarController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
+const admin_auth_guard_1 = require("../auth/common/guards/admin-auth.guard");
 const car_service_1 = require("./car.service");
 const create_car_dto_1 = require("./dto/create-car.dto");
 const update_car_dto_1 = require("./dto/update-car.dto");
@@ -40,6 +42,10 @@ let CarController = class CarController {
 };
 exports.CarController = CarController;
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil yaratish" }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: "Avtomobil muvaffaqiyatli yaratildi" }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: "Noto'g'ri ma'lumotlar" }),
+    (0, common_1.UseGuards)(admin_auth_guard_1.AdminAuthGuard),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -47,35 +53,53 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CarController.prototype, "create", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Barcha avtomobillar ro'yxatini olish" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobillar ro'yxati" }),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CarController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil ma'lumotini olish" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Avtomobil ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobil ma'lumoti" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Avtomobil topilmadi" }),
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CarController.prototype, "findOne", null);
 __decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil ma'lumotini yangilash" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Avtomobil ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobil yangilandi" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Avtomobil topilmadi" }),
+    (0, common_1.UseGuards)(admin_auth_guard_1.AdminAuthGuard),
+    (0, common_1.Patch)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_car_dto_1.UpdateCarDto]),
     __metadata("design:returntype", void 0)
 ], CarController.prototype, "update", null);
 __decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobil ma'lumotini o'chirish" }),
+    (0, swagger_1.ApiParam)({ name: "id", description: "Avtomobil ID" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Avtomobil o'chirildi" }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: "Avtomobil topilmadi" }),
+    (0, common_1.UseGuards)(admin_auth_guard_1.AdminAuthGuard),
+    (0, common_1.Delete)(":id"),
+    __param(0, (0, common_1.Param)("id")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CarController.prototype, "remove", null);
 exports.CarController = CarController = __decorate([
-    (0, common_1.Controller)('car'),
+    (0, swagger_1.ApiTags)("Car - Avtomobillar"),
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, common_1.Controller)("car"),
     __metadata("design:paramtypes", [car_service_1.CarService])
 ], CarController);
 //# sourceMappingURL=car.controller.js.map

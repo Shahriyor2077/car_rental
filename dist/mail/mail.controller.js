@@ -8,10 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MailController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 let MailController = class MailController {
 };
 exports.MailController = MailController;
 exports.MailController = MailController = __decorate([
+    (0, swagger_1.ApiTags)("Mail - Xabar Yuborish"),
+    (0, swagger_1.ApiBearerAuth)(),
     (0, common_1.Controller)("mail")
 ], MailController);
 //# sourceMappingURL=mail.controller.js.map

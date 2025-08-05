@@ -1,27 +1,34 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsString, MinLength, MaxLength } from 'class-validator';
+import { ApiProperty } from "@nestjs/swagger";
+import { IsNumber, IsString, MinLength, MaxLength } from "class-validator";
 
 export class CreateReviewsDto {
   @ApiProperty({
-    description: 'Foydalanuvchi ID',
+    description: "Foydalanuvchi ID",
     example: 1
   })
-  @IsNumber({}, { message: 'user_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: "Foydalanuvchi ID raqam bo'lishi kerak" })
   user_id: number;
 
   @ApiProperty({
-    description: 'Avtomobil ID',
-    example: 2
+    description: "Avtomobil ID",
+    example: 1
   })
-  @IsNumber({}, { message: 'car_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: "Avtomobil ID raqam bo'lishi kerak" })
   car_id: number;
 
   @ApiProperty({
-    description: 'Reyting (1-5)',
-    example: '5'
+    description: "Sharh matni",
+    example: "Avtomobil juda yaxshi ishlaydi"
   })
-  @IsString({ message: 'Reyting matn bo\'lishi kerak' })
-  @MinLength(1, { message: 'Reyting kamida 1 ta belgi bo\'lishi kerak' })
-  @MaxLength(1, { message: 'Reyting 1 ta belgidan oshmasligi kerak' })
+  @IsString({ message: "Sharh matn bo'lishi kerak" })
+  @MinLength(10, { message: "Sharh kamida 10 ta harf bo'lishi kerak" })
+  @MaxLength(500, { message: "Sharh 500 ta harfdan oshmasligi kerak" })
+  comment: string;
+
+  @ApiProperty({
+    description: "Baho (1-5)",
+    example: "5"
+  })
+  @IsString({ message: "Baho matn bo'lishi kerak" })
   rating: string;
 }

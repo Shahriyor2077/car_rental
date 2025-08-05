@@ -4,5 +4,5 @@ export declare class CreateRentalsDto {
     start_date: string;
     end_date: string;
     total_price: number;
-    status: 'PENDING' | 'ACTIVE' | 'COMPLETED' | 'CANCELLED';
+    status: "PENDING" | "ACTIVE" | "COMPLETED" | "CANCELLED";
 }

@@ -1,42 +1,68 @@
-import { CarMaintenanceService } from './car_maintenance.service';
-import { CreateCarMaintenanceDto } from './dto/create-car_maintenance.dto';
-import { UpdateCarMaintenanceDto } from './dto/update-car_maintenance.dto';
+import { CarMaintenanceService } from "./car_maintenance.service";
+import { CreateCarMaintenanceDto } from "./dto/create-car_maintenance.dto";
+import { UpdateCarMaintenanceDto } from "./dto/update-car_maintenance.dto";
 export declare class CarMaintenanceController {
     private readonly carMaintenanceService;
     constructor(carMaintenanceService: CarMaintenanceService);
-    create(createCarMaintenanceDto: CreateCarMaintenanceDto): import("generated/prisma").Prisma.Prisma__car_maintenanceClient<{
+    create(createCarMaintenanceDto: CreateCarMaintenanceDto): Promise<{
         description: string;
-        id: bigint;
-        car_id: bigint;
+        id: number;
+        car_id: number;
         service_date: string;
         cost: import("generated/prisma/runtime/library").Decimal;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
+    }>;
+    findOne(id: string): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+    } & {
         description: string;
-        id: bigint;
-        car_id: bigint;
+        id: number;
+        car_id: number;
         service_date: string;
         cost: import("generated/prisma/runtime/library").Decimal;
-    }[]>;
-    findOne(id: string): import("generated/prisma").Prisma.Prisma__car_maintenanceClient<{
+    }>;
+    update(id: string, updateCarMaintenanceDto: UpdateCarMaintenanceDto): Promise<{
         description: string;
-        id: bigint;
-        car_id: bigint;
+        id: number;
+        car_id: number;
         service_date: string;
         cost: import("generated/prisma/runtime/library").Decimal;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: string, updateCarMaintenanceDto: UpdateCarMaintenanceDto): import("generated/prisma").Prisma.Prisma__car_maintenanceClient<{
+    }>;
+    remove(id: string): Promise<{
         description: string;
-        id: bigint;
-        car_id: bigint;
+        id: number;
+        car_id: number;
         service_date: string;
         cost: import("generated/prisma/runtime/library").Decimal;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: string): import("generated/prisma").Prisma.Prisma__car_maintenanceClient<{
+    }>;
+    findAll(): Promise<({
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+    } & {
         description: string;
-        id: bigint;
-        car_id: bigint;
+        id: number;
+        car_id: number;
         service_date: string;
         cost: import("generated/prisma/runtime/library").Decimal;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    })[]>;
 }

@@ -1,12 +1,126 @@
-import { ComplaintsService } from './complaints.service';
-import { CreateComplaintsDto } from './dto/create-complaint.dto';
-import { UpdateComplaintsDto } from './dto/update-complaint.dto';
+import { ComplaintsService } from "./complaints.service";
+import { CreateComplaintsDto } from "./dto/create-complaint.dto";
+import { UpdateComplaintsDto } from "./dto/update-complaint.dto";
 export declare class ComplaintsController {
     private readonly complaintsService;
     constructor(complaintsService: ComplaintsService);
-    create(createComplaintDto: CreateComplaintsDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updateComplaintDto: UpdateComplaintsDto): string;
-    remove(id: string): string;
+    create(createComplaintDto: CreateComplaintsDto, req: any): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+        rental: {
+            id: number;
+            created_at: Date;
+            user_id: number;
+            car_id: number;
+            start_date: string;
+            end_date: string;
+            total_price: import("generated/prisma/runtime/library").Decimal;
+            status: import("generated/prisma").$Enums.RentalStatus;
+        };
+    } & {
+        message: string;
+        id: number;
+        created_at: Date;
+        user_id: number;
+        rental_id: number;
+    }>;
+    findOne(id: string, req: any): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+        rental: {
+            id: number;
+            created_at: Date;
+            user_id: number;
+            car_id: number;
+            start_date: string;
+            end_date: string;
+            total_price: import("generated/prisma/runtime/library").Decimal;
+            status: import("generated/prisma").$Enums.RentalStatus;
+        };
+    } & {
+        message: string;
+        id: number;
+        created_at: Date;
+        user_id: number;
+        rental_id: number;
+    }>;
+    update(id: string, updateComplaintDto: UpdateComplaintsDto): Promise<{
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+        rental: {
+            id: number;
+            created_at: Date;
+            user_id: number;
+            car_id: number;
+            start_date: string;
+            end_date: string;
+            total_price: import("generated/prisma/runtime/library").Decimal;
+            status: import("generated/prisma").$Enums.RentalStatus;
+        };
+    } & {
+        message: string;
+        id: number;
+        created_at: Date;
+        user_id: number;
+        rental_id: number;
+    }>;
+    remove(id: string): Promise<{
+        message: string;
+        id: number;
+        created_at: Date;
+        user_id: number;
+        rental_id: number;
+    }>;
+    findAll(): Promise<({
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+        rental: {
+            id: number;
+            created_at: Date;
+            user_id: number;
+            car_id: number;
+            start_date: string;
+            end_date: string;
+            total_price: import("generated/prisma/runtime/library").Decimal;
+            status: import("generated/prisma").$Enums.RentalStatus;
+        };
+    } & {
+        message: string;
+        id: number;
+        created_at: Date;
+        user_id: number;
+        rental_id: number;
+    })[]>;
 }

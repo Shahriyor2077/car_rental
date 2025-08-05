@@ -17,20 +17,82 @@ let CarFeatureService = class CarFeatureService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createCarFeatureDto) {
-        return this.prismaService.car_feature.create({ data: createCarFeatureDto });
+    async create(createCarFeatureDto) {
+        const car = await this.prismaService.car.findUnique({
+            where: { id: createCarFeatureDto.car_id }
+        });
+        if (!car) {
+            throw new common_1.BadRequestException('Avtomobil topilmadi');
+        }
+        const feature = await this.prismaService.feature.findUnique({
+            where: { id: createCarFeatureDto.feature_id }
+        });
+        if (!feature) {
+            throw new common_1.BadRequestException('Xususiyat topilmadi');
+        }
+        return await this.prismaService.car_feature.create({
+            data: createCarFeatureDto
+        });
     }
-    findAll() {
-        return this.prismaService.car_feature.findMany();
+    async findAll() {
+        return await this.prismaService.car_feature.findMany({
+            include: {
+                car: true,
+                feature: true
+            }
+        });
     }
-    findOne(id) {
-        return this.prismaService.car_feature.findUnique({ where: { id } });
+    async findOne(id) {
+        const carFeature = await this.prismaService.car_feature.findUnique({
+            where: { id },
+            include: {
+                car: true,
+                feature: true
+            }
+        });
+        if (!carFeature) {
+            throw new common_1.NotFoundException('Car xususiyat topilmadi');
+        }
+        return carFeature;
     }
-    update(id, updateCarFeatureDto) {
-        return this.prismaService.car_feature.update({ where: { id }, data: updateCarFeatureDto });
+    async update(id, updateCarFeatureDto) {
+        const existingCarFeature = await this.prismaService.car_feature.findUnique({
+            where: { id }
+        });
+        if (!existingCarFeature) {
+            throw new common_1.NotFoundException('Car xususiyat topilmadi');
+        }
+        if (updateCarFeatureDto.car_id) {
+            const car = await this.prismaService.car.findUnique({
+                where: { id: updateCarFeatureDto.car_id }
+            });
+            if (!car) {
+                throw new common_1.BadRequestException('Avtomobil topilmadi');
+            }
+        }
+        if (updateCarFeatureDto.feature_id) {
+            const feature = await this.prismaService.feature.findUnique({
+                where: { id: updateCarFeatureDto.feature_id }
+            });
+            if (!feature) {
+                throw new common_1.BadRequestException('Xususiyat topilmadi');
+            }
+        }
+        return await this.prismaService.car_feature.update({
+            where: { id },
+            data: updateCarFeatureDto
+        });
     }
-    remove(id) {
-        return this.prismaService.car_feature.delete({ where: { id } });
+    async remove(id) {
+        const existingCarFeature = await this.prismaService.car_feature.findUnique({
+            where: { id }
+        });
+        if (!existingCarFeature) {
+            throw new common_1.NotFoundException('Car xususiyat topilmadi');
+        }
+        return await this.prismaService.car_feature.delete({
+            where: { id }
+        });
     }
 };
 exports.CarFeatureService = CarFeatureService;

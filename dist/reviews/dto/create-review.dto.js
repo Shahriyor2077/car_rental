@@ -15,33 +15,42 @@ const class_validator_1 = require("class-validator");
 class CreateReviewsDto {
     user_id;
     car_id;
+    comment;
     rating;
 }
 exports.CreateReviewsDto = CreateReviewsDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Foydalanuvchi ID',
+        description: "Foydalanuvchi ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Foydalanuvchi ID raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateReviewsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Avtomobil ID',
-        example: 2
+        description: "Avtomobil ID",
+        example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "Avtomobil ID raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateReviewsDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Reyting (1-5)',
-        example: '5'
+        description: "Sharh matni",
+        example: "Avtomobil juda yaxshi ishlaydi"
     }),
-    (0, class_validator_1.IsString)({ message: 'Reyting matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(1, { message: 'Reyting kamida 1 ta belgi bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(1, { message: 'Reyting 1 ta belgidan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Sharh matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(10, { message: "Sharh kamida 10 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(500, { message: "Sharh 500 ta harfdan oshmasligi kerak" }),
+    __metadata("design:type", String)
+], CreateReviewsDto.prototype, "comment", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({
+        description: "Baho (1-5)",
+        example: "5"
+    }),
+    (0, class_validator_1.IsString)({ message: "Baho matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateReviewsDto.prototype, "rating", void 0);
 //# sourceMappingURL=create-review.dto.js.map

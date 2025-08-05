@@ -4,29 +4,63 @@ import { PrismaService } from '../prisma/prisma.service';
 export declare class CarFeatureService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createCarFeatureDto: CreateCarFeatureDto): import("generated/prisma").Prisma.Prisma__car_featureClient<{
-        id: bigint;
-        car_id: bigint;
-        feature_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
-        car_id: bigint;
-        feature_id: bigint;
-    }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__car_featureClient<{
-        id: bigint;
-        car_id: bigint;
-        feature_id: bigint;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: number, updateCarFeatureDto: UpdateCarFeatureDto): import("generated/prisma").Prisma.Prisma__car_featureClient<{
-        id: bigint;
-        car_id: bigint;
-        feature_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__car_featureClient<{
-        id: bigint;
-        car_id: bigint;
-        feature_id: bigint;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+    create(createCarFeatureDto: CreateCarFeatureDto): Promise<{
+        id: number;
+        car_id: number;
+        feature_id: number;
+    }>;
+    findAll(): Promise<({
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        feature: {
+            id: number;
+            name: string;
+        };
+    } & {
+        id: number;
+        car_id: number;
+        feature_id: number;
+    })[]>;
+    findOne(id: number): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        feature: {
+            id: number;
+            name: string;
+        };
+    } & {
+        id: number;
+        car_id: number;
+        feature_id: number;
+    }>;
+    update(id: number, updateCarFeatureDto: UpdateCarFeatureDto): Promise<{
+        id: number;
+        car_id: number;
+        feature_id: number;
+    }>;
+    remove(id: number): Promise<{
+        id: number;
+        car_id: number;
+        feature_id: number;
+    }>;
 }

@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateUserDto = void 0;
 const mapped_types_1 = require("@nestjs/mapped-types");
 const swagger_1 = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
 const create_user_dto_1 = require("./create-user.dto");
 class UpdateUserDto extends (0, mapped_types_1.PartialType)(create_user_dto_1.CreateUserDto) {
     full_name;
@@ -24,44 +25,58 @@ class UpdateUserDto extends (0, mapped_types_1.PartialType)(create_user_dto_1.Cr
 exports.UpdateUserDto = UpdateUserDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Foydalanuvchining to\'liq ismi (ixtiyoriy)',
-        example: 'Aziz Azizov'
+        description: "Foydalanuvchining to'liq ismi (ixtiyoriy)",
+        example: "Aziz Azizov"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Ism matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(2, { message: "Ism kamida 2 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(50, { message: "Ism 50 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "full_name", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Telefon raqami (ixtiyoriy)',
-        example: '+998901234567'
+        description: "Telefon raqami (ixtiyoriy)",
+        example: "+998901234567"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Telefon raqami matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "phone", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Email manzili (ixtiyoriy)',
-        example: 'aziz@example.com'
+        description: "Email manzili (ixtiyoriy)",
+        example: "aziz@example.com"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEmail)({}, { message: "To'g'ri email kiriting" }),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "email", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Parol (ixtiyoriy)',
-        example: '123456'
+        description: "Parol (ixtiyoriy)",
+        example: "123456"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Parol matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(6, { message: "Parol kamida 6 ta belgi bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "password", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Tug\'ilgan kun (ixtiyoriy)',
-        example: '1990-01-01'
+        description: "Tug'ilgan kun (ixtiyoriy)",
+        example: "1990-01-01"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: "Tug'ilgan kun matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "birthday", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Foydalanuvchi faolmi (ixtiyoriy)',
-        example: true
+        description: "Foydalanuvchi faolmi (ixtiyoriy)"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsBoolean)({ message: "Faollik mantiqiy qiymat bo'lishi kerak" }),
     __metadata("design:type", Boolean)
 ], UpdateUserDto.prototype, "is_active", void 0);
 //# sourceMappingURL=update-user.dto.js.map

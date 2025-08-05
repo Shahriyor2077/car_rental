@@ -4,54 +4,179 @@ import { UpdateRentalsDto } from './dto/update-rental.dto';
 export declare class RentalService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createRentalDto: CreateRentalsDto): import("generated/prisma").Prisma.Prisma__rentalsClient<{
-        id: bigint;
+    create(createRentalDto: CreateRentalsDto, userId: number): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
         created_at: Date;
-        car_id: bigint;
-        status: import("generated/prisma").$Enums.RentalStatus;
-        user_id: bigint;
+        user_id: number;
+        car_id: number;
         start_date: string;
         end_date: string;
         total_price: import("generated/prisma/runtime/library").Decimal;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    findAll(): import("generated/prisma").Prisma.PrismaPromise<{
-        id: bigint;
-        created_at: Date;
-        car_id: bigint;
         status: import("generated/prisma").$Enums.RentalStatus;
-        user_id: bigint;
+    }>;
+    findAll(currentUserId?: number, userRole?: string): Promise<({
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
+        created_at: Date;
+        user_id: number;
+        car_id: number;
         start_date: string;
         end_date: string;
         total_price: import("generated/prisma/runtime/library").Decimal;
-    }[]>;
-    findOne(id: number): import("generated/prisma").Prisma.Prisma__rentalsClient<{
-        id: bigint;
-        created_at: Date;
-        car_id: bigint;
         status: import("generated/prisma").$Enums.RentalStatus;
-        user_id: bigint;
+    })[]>;
+    findByUserId(userId: number): Promise<({
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
+        created_at: Date;
+        user_id: number;
+        car_id: number;
         start_date: string;
         end_date: string;
         total_price: import("generated/prisma/runtime/library").Decimal;
-    } | null, null, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    update(id: number, updateRentalDto: UpdateRentalsDto): import("generated/prisma").Prisma.Prisma__rentalsClient<{
-        id: bigint;
-        created_at: Date;
-        car_id: bigint;
         status: import("generated/prisma").$Enums.RentalStatus;
-        user_id: bigint;
+    })[]>;
+    findOne(id: number, currentUserId?: number, userRole?: string): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
+        created_at: Date;
+        user_id: number;
+        car_id: number;
         start_date: string;
         end_date: string;
         total_price: import("generated/prisma/runtime/library").Decimal;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
-    remove(id: number): import("generated/prisma").Prisma.Prisma__rentalsClient<{
-        id: bigint;
-        created_at: Date;
-        car_id: bigint;
         status: import("generated/prisma").$Enums.RentalStatus;
-        user_id: bigint;
+    }>;
+    update(id: number, updateRentalDto: UpdateRentalsDto): Promise<{
+        car: {
+            id: number;
+            created_at: Date;
+            branch_id: number;
+            brand: string;
+            model: string;
+            year: string;
+            color: string;
+            mileage: number;
+            price_per_day: string;
+            is_available: boolean;
+        };
+        user: {
+            full_name: string;
+            phone: string;
+            email: string;
+            password: string;
+            birthday: string;
+            is_active: boolean;
+            id: number;
+            activation_link: string | null;
+        };
+    } & {
+        id: number;
+        created_at: Date;
+        user_id: number;
+        car_id: number;
         start_date: string;
         end_date: string;
         total_price: import("generated/prisma/runtime/library").Decimal;
-    }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
+        status: import("generated/prisma").$Enums.RentalStatus;
+    }>;
+    remove(id: number): Promise<{
+        id: number;
+        created_at: Date;
+        user_id: number;
+        car_id: number;
+        start_date: string;
+        end_date: string;
+        total_price: import("generated/prisma/runtime/library").Decimal;
+        status: import("generated/prisma").$Enums.RentalStatus;
+    }>;
 }

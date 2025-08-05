@@ -17,20 +17,49 @@ let FeatureService = class FeatureService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createFeatureDto) {
-        return this.prismaService.feature.create({ data: createFeatureDto });
+    async create(createFeatureDto) {
+        return await this.prismaService.feature.create({
+            data: createFeatureDto
+        });
     }
-    findAll() {
-        return this.prismaService.feature.findMany();
+    async findAll() {
+        return await this.prismaService.feature.findMany();
     }
-    findOne(id) {
-        return this.prismaService.feature.findUnique({ where: { id } });
+    async findOne(id) {
+        const feature = await this.prismaService.feature.findUnique({
+            where: { id }
+        });
+        if (!feature) {
+            throw new common_1.NotFoundException('Xususiyat topilmadi');
+        }
+        return feature;
     }
-    update(id, updateFeatureDto) {
-        return this.prismaService.feature.update({ where: { id }, data: updateFeatureDto });
+    async update(id, updateFeatureDto) {
+        const existingFeature = await this.prismaService.feature.findUnique({
+            where: { id }
+        });
+        if (!existingFeature) {
+            throw new common_1.NotFoundException('Xususiyat topilmadi');
+        }
+        return await this.prismaService.feature.update({
+            where: { id },
+            data: updateFeatureDto
+        });
     }
-    remove(id) {
-        return this.prismaService.feature.delete({ where: { id } });
+    async remove(id) {
+        const existingFeature = await this.prismaService.feature.findUnique({
+            where: { id },
+            include: { car_feature: true }
+        });
+        if (!existingFeature) {
+            throw new common_1.NotFoundException('Xususiyat topilmadi');
+        }
+        if (existingFeature.car_feature.length > 0) {
+            throw new common_1.BadRequestException('Bu xususiyat car\'larda ishlatilgan. O\'chirish mumkin emas');
+        }
+        return await this.prismaService.feature.delete({
+            where: { id }
+        });
     }
 };
 exports.FeatureService = FeatureService;

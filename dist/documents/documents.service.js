@@ -17,20 +17,65 @@ let DocumentsService = class DocumentsService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createDocumentDto) {
-        return this.prismaService.documents.create({ data: createDocumentDto });
+    async create(createDocumentDto, currentUserId) {
+        if (currentUserId && createDocumentDto.user_id !== currentUserId) {
+            throw new common_1.BadRequestException('Faqat o\'z nomingizga hujjat yarata olasiz');
+        }
+        const user = await this.prismaService.user.findUnique({
+            where: { id: createDocumentDto.user_id }
+        });
+        if (!user) {
+            throw new common_1.BadRequestException('Foydalanuvchi topilmadi');
+        }
+        return await this.prismaService.documents.create({
+            data: createDocumentDto,
+            include: { user: true }
+        });
     }
-    findAll() {
-        return this.prismaService.documents.findMany();
+    async findAll() {
+        return await this.prismaService.documents.findMany({
+            include: { user: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.documents.findMany({ where: { id } });
+    async findOne(id, currentUserId, userRole) {
+        const document = await this.prismaService.documents.findUnique({
+            where: { id },
+            include: { user: true }
+        });
+        if (!document) {
+            throw new common_1.NotFoundException('Hujjat topilmadi');
+        }
+        if (userRole === 'ADMIN' || userRole === 'MANAGER') {
+            return document;
+        }
+        if (document.user_id !== currentUserId) {
+            throw new common_1.BadRequestException('Faqat o\'z hujjatingizga kirishingiz mumkin');
+        }
+        return document;
     }
-    update(id, updateDocumentDto) {
-        return this.prismaService.documents.update({ where: { id }, data: updateDocumentDto });
+    async update(id, updateDocumentDto) {
+        const existingDocument = await this.prismaService.documents.findUnique({
+            where: { id }
+        });
+        if (!existingDocument) {
+            throw new common_1.NotFoundException('Hujjat topilmadi');
+        }
+        return await this.prismaService.documents.update({
+            where: { id },
+            data: updateDocumentDto,
+            include: { user: true }
+        });
     }
-    remove(id) {
-        return this.prismaService.documents.delete({ where: { id } });
+    async remove(id) {
+        const existingDocument = await this.prismaService.documents.findUnique({
+            where: { id }
+        });
+        if (!existingDocument) {
+            throw new common_1.NotFoundException('Hujjat topilmadi');
+        }
+        return await this.prismaService.documents.delete({
+            where: { id }
+        });
     }
 };
 exports.DocumentsService = DocumentsService;

@@ -19,19 +19,19 @@ class CreateNotificationsDto {
 exports.CreateNotificationsDto = CreateNotificationsDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Foydalanuvchi ID',
+        description: "Foydalanuvchi ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "user_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateNotificationsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Xabar matni',
-        example: 'Sizning buyurtmangiz tasdiqlandi.'
+        description: "Xabar matni",
+        example: "Sizning buyurtmangiz tasdiqlandi."
     }),
-    (0, class_validator_1.IsString)({ message: 'Xabar matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(3, { message: 'Xabar kamida 3 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Xabar matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(3, { message: "Xabar kamida 3 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateNotificationsDto.prototype, "message", void 0);
 //# sourceMappingURL=create-notification.dto.js.map

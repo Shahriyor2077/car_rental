@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateRentalsDto = void 0;
 const mapped_types_1 = require("@nestjs/mapped-types");
 const swagger_1 = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
 const create_rental_dto_1 = require("./create-rental.dto");
 class UpdateRentalsDto extends (0, mapped_types_1.PartialType)(create_rental_dto_1.CreateRentalsDto) {
     user_id;
@@ -24,44 +25,61 @@ class UpdateRentalsDto extends (0, mapped_types_1.PartialType)(create_rental_dto
 exports.UpdateRentalsDto = UpdateRentalsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Foydalanuvchi ID (ixtiyoriy)',
+        description: "Foydalanuvchi ID (ixtiyoriy)",
         example: 1
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { message: "Foydalanuvchi ID raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Foydalanuvchi ID musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateRentalsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil ID (ixtiyoriy)',
+        description: "Avtomobil ID (ixtiyoriy)",
         example: 1
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { message: "Avtomobil ID raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Avtomobil ID musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateRentalsDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Ijara boshlanish sanasi (ixtiyoriy)',
-        example: '2024-01-15'
+        description: "Ijara boshlanish sanasi (ixtiyoriy)",
+        example: "2024-01-15"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsDateString)({}, { message: "Boshlanish sanasi to'g'ri formatda bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateRentalsDto.prototype, "start_date", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Ijara tugash sanasi (ixtiyoriy)',
-        example: '2024-01-20'
+        description: "Ijara tugash sanasi (ixtiyoriy)",
+        example: "2024-01-20"
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsDateString)({}, { message: "Tugash sanasi to'g'ri formatda bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateRentalsDto.prototype, "end_date", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Umumiy narxi (ixtiyoriy)',
+        description: "Umumiy narxi (ixtiyoriy)",
         example: 2500000
     }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsNumber)({}, { message: "Narx raqam bo'lishi kerak" }),
+    (0, class_validator_1.IsPositive)({ message: "Narx musbat raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateRentalsDto.prototype, "total_price", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Ijara holati (ixtiyoriy)',
-        example: 'ACTIVE',
-        enum: ['PENDING', 'ACTIVE', 'COMPLETED', 'CANCELLED']
+        description: "Ijara holati (ixtiyoriy)",
+        example: "PENDING",
+        enum: ["PENDING", "ACTIVE", "COMPLETED", "CANCELLED"]
+    }),
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsIn)(["PENDING", "ACTIVE", "COMPLETED", "CANCELLED"], {
+        message: "Holat PENDING, ACTIVE, COMPLETED yoki CANCELLED bo'lishi kerak"
     }),
     __metadata("design:type", String)
 ], UpdateRentalsDto.prototype, "status", void 0);

@@ -22,7 +22,7 @@ let AdminService = class AdminService {
         this.jwtService = jwtService;
     }
     generateTokens(payload) {
-        const accessToken = this.jwtService.sign(payload, { expiresIn: '15m' });
+        const accessToken = this.jwtService.sign(payload, { expiresIn: '3d' });
         const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' });
         return { accessToken, refreshToken };
     }
@@ -39,11 +39,16 @@ let AdminService = class AdminService {
         const hashedPassword = await bcrypt.hash(createAdminDto.password, 10);
         const admin = await this.prisma.admin.create({
             data: {
-                ...createAdminDto,
+                full_name: createAdminDto.full_name,
+                email: createAdminDto.email,
                 password: hashedPassword,
+                role: createAdminDto.role,
             },
         });
-        return { message: 'Admin muvaffaqiyatli yaratildi', admin };
+        return {
+            message: 'Admin muvaffaqiyatli yaratildi',
+            admin,
+        };
     }
     async login(email, password) {
         const admin = await this.prisma.admin.findUnique({ where: { email } });

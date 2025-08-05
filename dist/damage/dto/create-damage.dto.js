@@ -21,35 +21,35 @@ class CreateDamagesDto {
 exports.CreateDamagesDto = CreateDamagesDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Ijaraga olingan avtomobil ID',
+        description: "Ijaraga olingan avtomobil ID",
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'rental_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "rental_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], CreateDamagesDto.prototype, "rental_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Zarar tavsifi',
-        example: 'Old bamperda tirnalgan joy bor.'
+        description: "Zarar tavsifi",
+        example: "Old bamperda tirnalgan joy bor."
     }),
-    (0, class_validator_1.IsString)({ message: 'Tavsif matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Tavsif kamida 5 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Tavsif matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(5, { message: "Tavsif kamida 5 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateDamagesDto.prototype, "description", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Zarar qiymati',
-        example: '500000'
+        description: "Zarar qiymati",
+        example: "500000"
     }),
-    (0, class_validator_1.IsString)({ message: 'Qiymat matn bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Qiymat matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateDamagesDto.prototype, "cost_estimate", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: 'Zarar sanasi',
-        example: '2024-08-01'
+        description: "Zarar sanasi",
+        example: "2024-08-01"
     }),
-    (0, class_validator_1.IsDateString)({}, { message: 'Sana ISO formatda bo\'lishi kerak' }),
+    (0, class_validator_1.IsDateString)({}, { message: "Sana ISO formatda bo'lishi kerak" }),
     __metadata("design:type", String)
 ], CreateDamagesDto.prototype, "damage_date", void 0);
 //# sourceMappingURL=create-damage.dto.js.map

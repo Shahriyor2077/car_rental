@@ -17,20 +17,62 @@ let CarImagesService = class CarImagesService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    create(createCarImageDto) {
-        return this.prismaService.car_images.create({ data: createCarImageDto });
+    async create(createCarImageDto) {
+        const car = await this.prismaService.car.findUnique({
+            where: { id: createCarImageDto.car_id }
+        });
+        if (!car) {
+            throw new common_1.BadRequestException('Avtomobil topilmadi');
+        }
+        return await this.prismaService.car_images.create({
+            data: createCarImageDto
+        });
     }
-    findAll() {
-        return this.prismaService.car_images.findMany();
+    async findAll() {
+        return await this.prismaService.car_images.findMany({
+            include: { car: true }
+        });
     }
-    findOne(id) {
-        return this.prismaService.car_images.findUnique({ where: { id } });
+    async findOne(id) {
+        const carImage = await this.prismaService.car_images.findUnique({
+            where: { id },
+            include: { car: true }
+        });
+        if (!carImage) {
+            throw new common_1.NotFoundException('Car rasm topilmadi');
+        }
+        return carImage;
     }
-    update(id, updateCarImageDto) {
-        return this.prismaService.car_images.update({ where: { id }, data: updateCarImageDto });
+    async update(id, updateCarImageDto) {
+        const existingCarImage = await this.prismaService.car_images.findUnique({
+            where: { id }
+        });
+        if (!existingCarImage) {
+            throw new common_1.NotFoundException('Car rasm topilmadi');
+        }
+        if (updateCarImageDto.car_id) {
+            const car = await this.prismaService.car.findUnique({
+                where: { id: updateCarImageDto.car_id }
+            });
+            if (!car) {
+                throw new common_1.BadRequestException('Avtomobil topilmadi');
+            }
+        }
+        return await this.prismaService.car_images.update({
+            where: { id },
+            data: updateCarImageDto
+        });
     }
-    remove(id) {
-        return `This action removes a #${id} carImage`;
+    async remove(id) {
+        const existingCarImage = await this.prismaService.car_images.findUnique({
+            where: { id }
+        });
+        if (!existingCarImage) {
+            throw new common_1.NotFoundException('Car rasm topilmadi');
+        }
+        return await this.prismaService.car_images.delete({
+            where: { id }
+        });
     }
 };
 exports.CarImagesService = CarImagesService;

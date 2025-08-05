@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -7,27 +7,74 @@ import { CreateUserDto } from './dto/create-user.dto';
 export class UserService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  create(createUserDto: CreateUserDto) {
-    return this.prismaService.user.create({data: createUserDto});
+  async create(createUserDto: CreateUserDto) {
+    const existingUser = await this.prismaService.user.findUnique({
+      where: { email: createUserDto.email }
+    });
+    
+    if (existingUser) {
+      throw new BadRequestException('Bu email allaqachon mavjud');
+    }
+
+    return await this.prismaService.user.create({
+      data: createUserDto
+    });
   }
 
-  findAll() {
-    return this.prismaService.user.findMany();
+  async findAll() {
+    return await this.prismaService.user.findMany();
   }
 
-  findOne(id: number) {
-    return this.prismaService.user.findUnique({where: {id}});
+  async findOne(id: number) {
+    const user = await this.prismaService.user.findUnique({
+      where: { id }
+    });
+    
+    if (!user) {
+      throw new NotFoundException('Foydalanuvchi topilmadi');
+    }
+    
+    return user;
   }
 
   async findByEmail(email: string) {
-    return this.prismaService.user.findUnique({ where: { email } });
+    const user = await this.prismaService.user.findUnique({ 
+      where: { email } 
+    });
+    
+    if (!user) {
+      throw new NotFoundException('Foydalanuvchi topilmadi');
+    }
+    
+    return user;
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return this.prismaService.user.update({where: {id}, data: updateUserDto});
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const existingUser = await this.prismaService.user.findUnique({
+      where: { id }
+    });
+    
+    if (!existingUser) {
+      throw new NotFoundException('Foydalanuvchi topilmadi');
+    }
+
+    return await this.prismaService.user.update({
+      where: { id },
+      data: updateUserDto
+    });
   }
 
-  remove(id: number) {
-    return this.prismaService.user.delete({where: {id}});
+  async remove(id: number) {
+    const existingUser = await this.prismaService.user.findUnique({
+      where: { id }
+    });
+    
+    if (!existingUser) {
+      throw new NotFoundException('Foydalanuvchi topilmadi');
+    }
+
+    return await this.prismaService.user.delete({
+      where: { id }
+    });
   }
 }

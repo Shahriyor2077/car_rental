@@ -6,14 +6,14 @@ export class CreateDocumentsDto {
     description: 'Foydalanuvchi ID',
     example: 1
   })
-  @IsNumber({}, { message: 'user_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: 'user_id raqam bolishi kerak' })
   user_id: number;
 
   @ApiProperty({
     description: 'Haydovchilik guvohnomasi raqami',
     example: 'AA1234567'
   })
-  @IsString({ message: 'Guvohnoma raqami matn bo\'lishi kerak' })
-  @MinLength(5, { message: 'Guvohnoma raqami kamida 5 ta harf bo\'lishi kerak' })
+  @IsString({ message: 'Hujjat raqami matn bolishi kerak' })
+  @MinLength(5, { message: 'Hujjat raqami kamida 5 ta harf bolishi kerak' })
   deliver_license: string;
 }

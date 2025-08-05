@@ -23,42 +23,42 @@ class UpdateAdminDto extends (0, mapped_types_1.PartialType)(create_admin_dto_1.
 exports.UpdateAdminDto = UpdateAdminDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Adminning to\'liq ismi (ixtiyoriy)',
-        example: 'Admin Adminov'
+        description: "Adminning to'liq ismi (ixtiyoriy)",
+        example: "Admin Adminov"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Ism matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(2, { message: 'Ism kamida 2 ta harf bo\'lishi kerak' }),
-    (0, class_validator_1.MaxLength)(50, { message: 'Ism 50 ta harfdan oshmasligi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Ism matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(2, { message: "Ism kamida 2 ta harf bo'lishi kerak" }),
+    (0, class_validator_1.MaxLength)(50, { message: "Ism 50 ta harfdan oshmasligi kerak" }),
     __metadata("design:type", String)
 ], UpdateAdminDto.prototype, "full_name", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Email manzili (ixtiyoriy)',
-        example: 'admin@example.com'
+        description: "Email manzili (ixtiyoriy)",
+        example: "admin@example.com"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsEmail)({}, { message: 'To\'g\'ri email kiriting' }),
+    (0, class_validator_1.IsEmail)({}, { message: "To'g'ri email kiriting" }),
     __metadata("design:type", String)
 ], UpdateAdminDto.prototype, "email", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Parol (ixtiyoriy)',
-        example: '123456'
+        description: "Parol (ixtiyoriy)",
+        example: "123456"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Parol matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(6, { message: 'Parol kamida 6 ta belgi bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Parol matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(6, { message: "Parol kamida 6 ta belgi bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateAdminDto.prototype, "password", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Admin roli (ixtiyoriy)',
-        example: 'ADMIN',
-        enum: ['ADMIN', 'MANAGER']
+        description: "Admin roli (ixtiyoriy)",
+        example: "ADMIN",
+        enum: ["ADMIN", "MANAGER"]
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsIn)(['ADMIN', 'MANAGER'], { message: 'Rol ADMIN yoki MANAGER bo\'lishi kerak' }),
+    (0, class_validator_1.IsIn)(["ADMIN", "MANAGER"], { message: "Rol ADMIN yoki MANAGER bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateAdminDto.prototype, "role", void 0);
 //# sourceMappingURL=update-admin.dto.js.map

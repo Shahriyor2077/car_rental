@@ -23,39 +23,39 @@ class UpdateDamagesDto extends (0, mapped_types_1.PartialType)(create_damage_dto
 exports.UpdateDamagesDto = UpdateDamagesDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Ijaraga olingan avtomobil ID (ixtiyoriy)',
+        description: "Ijaraga olingan avtomobil ID (ixtiyoriy)",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'rental_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: "rental_id raqam bo'lishi kerak" }),
     __metadata("design:type", Number)
 ], UpdateDamagesDto.prototype, "rental_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Zarar tavsifi (ixtiyoriy)',
-        example: 'Old bamperda tirnalgan joy bor.'
+        description: "Zarar tavsifi (ixtiyoriy)",
+        example: "Old bamperda tirnalgan joy bor."
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Tavsif matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Tavsif kamida 5 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Tavsif matn bo'lishi kerak" }),
+    (0, class_validator_1.MinLength)(5, { message: "Tavsif kamida 5 ta harf bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateDamagesDto.prototype, "description", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Zarar qiymati (ixtiyoriy)',
-        example: '500000'
+        description: "Zarar qiymati (ixtiyoriy)",
+        example: "500000"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsString)({ message: 'Qiymat matn bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: "Qiymat matn bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateDamagesDto.prototype, "cost_estimate", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Zarar sanasi (ixtiyoriy)',
-        example: '2024-08-01'
+        description: "Zarar sanasi (ixtiyoriy)",
+        example: "2024-08-01"
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsDateString)({}, { message: 'Sana ISO formatda bo\'lishi kerak' }),
+    (0, class_validator_1.IsDateString)({}, { message: "Sana ISO formatda bo'lishi kerak" }),
     __metadata("design:type", String)
 ], UpdateDamagesDto.prototype, "damage_date", void 0);
 //# sourceMappingURL=update-damage.dto.js.map

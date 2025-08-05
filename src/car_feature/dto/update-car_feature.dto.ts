@@ -5,18 +5,18 @@ import { CreateCarFeatureDto } from './create-car_feature.dto';
 
 export class UpdateCarFeatureDto extends PartialType(CreateCarFeatureDto) {
   @ApiPropertyOptional({
-    description: 'Avtomobil ID (ixtiyoriy)',
+    description: 'Avtomobil ID ',
     example: 1
   })
   @IsOptional()
-  @IsNumber({}, { message: 'car_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: 'car_id raqam bolishi kerak' })
   car_id?: number;
 
   @ApiPropertyOptional({
-    description: 'Xususiyat ID (ixtiyoriy)',
+    description: 'Xususiyat ID ',
     example: 2
   })
   @IsOptional()
-  @IsNumber({}, { message: 'feature_id raqam bo\'lishi kerak' })
+  @IsNumber({}, { message: 'feature_id raqam bolishi kerak' })
   feature_id?: number;
 }

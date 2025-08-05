@@ -14,6 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const auth_service_1 = require("./auth.service");
 const create_user_dto_1 = require("../user/dto/create-user.dto");
 const login_dto_1 = require("../user/dto/login.dto");
@@ -30,49 +31,73 @@ let AuthController = class AuthController {
     }
     async login(dto, res) {
         const { accessToken, refreshToken } = await this.authService.login(dto.email, dto.password);
-        res.cookie('refreshToken', refreshToken, {
+        res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            secure: true,
-            sameSite: 'strict',
+            secure: false,
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            path: '/auth/refresh'
+            path: "/"
         });
-        return { accessToken };
+        return {
+            message: "User login muvaffaqiyatli",
+            success: true,
+            accessToken,
+            refreshToken
+        };
     }
-    async refresh(req, res) {
-        const oldRefreshToken = req.cookies['refreshToken'];
+    async refresh(req, body, res) {
+        const oldRefreshToken = req.cookies["refreshToken"] || body?.refreshToken;
         const { accessToken, refreshToken } = await this.authService.refreshToken(oldRefreshToken);
-        res.cookie('refreshToken', refreshToken, {
+        res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            secure: true,
-            sameSite: 'strict',
+            secure: false,
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            path: '/auth/refresh'
+            path: "/"
         });
-        return { accessToken };
+        return {
+            message: "Token yangilandi",
+            success: true,
+            accessToken,
+            refreshToken
+        };
     }
     async logout(res) {
-        res.clearCookie('refreshToken', { path: '/auth/refresh' });
-        return this.authService.logout();
+        res.clearCookie("refreshToken", {
+            path: "/",
+            httpOnly: true,
+            secure: false,
+        });
+        return {
+            message: "Logout muvaffaqiyatli",
+            success: true
+        };
     }
 };
 exports.AuthController = AuthController;
 __decorate([
-    (0, common_1.Post)('register'),
+    (0, swagger_1.ApiOperation)({ summary: "Foydalanuvchi ro'yxatdan o'tkazish" }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: "Foydalanuvchi muvaffaqiyatli yaratildi" }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: "Noto'g'ri ma'lumotlar" }),
+    (0, common_1.Post)("register"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "register", null);
 __decorate([
-    (0, common_1.Get)('activate'),
-    __param(0, (0, common_1.Query)('link')),
+    (0, swagger_1.ApiOperation)({ summary: "Foydalanuvchi faollashtirish" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Foydalanuvchi faollashtirildi" }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: "Noto'g'ri aktivatsiya havolasi" }),
+    (0, common_1.Get)("activate"),
+    __param(0, (0, common_1.Query)("link")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "activate", null);
 __decorate([
-    (0, common_1.Post)('login'),
+    (0, swagger_1.ApiOperation)({ summary: "Foydalanuvchi tizimga kirish" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Muvaffaqiyatli kirish" }),
+    (0, swagger_1.ApiResponse)({ status: 401, description: "Noto'g'ri ma'lumotlar" }),
+    (0, common_1.Post)("login"),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)({ passthrough: true })),
     __metadata("design:type", Function),
@@ -80,22 +105,29 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "login", null);
 __decorate([
-    (0, common_1.Post)('refresh'),
+    (0, swagger_1.ApiOperation)({ summary: "Token yangilash" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Token yangilandi" }),
+    (0, swagger_1.ApiResponse)({ status: 401, description: "Noto'g'ri refresh token" }),
+    (0, common_1.Post)("refresh"),
     __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Res)({ passthrough: true })),
+    __param(1, (0, common_1.Body)()),
+    __param(2, (0, common_1.Res)({ passthrough: true })),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "refresh", null);
 __decorate([
-    (0, common_1.Post)('logout'),
+    (0, swagger_1.ApiOperation)({ summary: "Tizimdan chiqish" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Muvaffaqiyatli chiqish" }),
+    (0, common_1.Post)("logout"),
     __param(0, (0, common_1.Res)({ passthrough: true })),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "logout", null);
 exports.AuthController = AuthController = __decorate([
-    (0, common_1.Controller)('auth'),
+    (0, swagger_1.ApiTags)("Auth - Autentifikatsiya"),
+    (0, common_1.Controller)("auth"),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map
