@@ -23,7 +23,7 @@ class UpdateCarMaintenanceDto extends (0, mapped_types_1.PartialType)(create_car
 exports.UpdateCarMaintenanceDto = UpdateCarMaintenanceDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Avtomobil ID (ixtiyoriy)",
+        description: "Avtomobil ID",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -32,7 +32,7 @@ __decorate([
 ], UpdateCarMaintenanceDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Xizmat sanasi (ixtiyoriy)",
+        description: "Xizmat sanasi",
         example: "2024-08-01"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -41,7 +41,7 @@ __decorate([
 ], UpdateCarMaintenanceDto.prototype, "service_date", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Xizmat tavsifi (ixtiyoriy)",
+        description: "Xizmat tavsifi",
         example: "Moy almashtirildi."
     }),
     (0, class_validator_1.IsOptional)(),
@@ -51,7 +51,7 @@ __decorate([
 ], UpdateCarMaintenanceDto.prototype, "description", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Xizmat narxi (ixtiyoriy)",
+        description: "Xizmat narxi ",
         example: 500000
     }),
     (0, class_validator_1.IsOptional)(),

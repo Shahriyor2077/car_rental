@@ -19,7 +19,7 @@ exports.RefreshTokenDto = RefreshTokenDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
         description: "Refresh token",
-        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        example: "sHaHrIyOr...",
     }),
     (0, class_validator_1.IsString)({ message: "Refresh token matn bo'lishi kerak" }),
     (0, class_validator_1.IsNotEmpty)({ message: "Refresh token bo'sh bo'lishi mumkin emas" }),

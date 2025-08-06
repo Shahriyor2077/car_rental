@@ -21,20 +21,20 @@ class UpdateCarFeatureDto extends (0, mapped_types_1.PartialType)(create_car_fea
 exports.UpdateCarFeatureDto = UpdateCarFeatureDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Avtomobil ID (ixtiyoriy)',
+        description: 'Avtomobil ID ',
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: 'car_id raqam bolishi kerak' }),
     __metadata("design:type", Number)
 ], UpdateCarFeatureDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Xususiyat ID (ixtiyoriy)',
+        description: 'Xususiyat ID ',
         example: 2
     }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNumber)({}, { message: 'feature_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: 'feature_id raqam bolishi kerak' }),
     __metadata("design:type", Number)
 ], UpdateCarFeatureDto.prototype, "feature_id", void 0);
 //# sourceMappingURL=update-car_feature.dto.js.map

@@ -19,7 +19,7 @@ exports.ActivateDto = ActivateDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
         description: "Aktivlash kodi",
-        example: "123456"
+        example: "123456",
     }),
     (0, class_validator_1.IsString)({ message: "Aktivlash kodi matn bo'lishi kerak" }),
     (0, class_validator_1.IsNotEmpty)({ message: "Aktivlash kodi bo'sh bo'lishi mumkin emas" }),

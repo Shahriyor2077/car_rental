@@ -23,7 +23,7 @@ class UpdateReviewsDto extends (0, mapped_types_1.PartialType)(create_review_dto
 exports.UpdateReviewsDto = UpdateReviewsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Foydalanuvchi ID (ixtiyoriy)",
+        description: "Foydalanuvchi id",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -32,7 +32,7 @@ __decorate([
 ], UpdateReviewsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Avtomobil ID (ixtiyoriy)",
+        description: "Avtomobil ID",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -41,7 +41,7 @@ __decorate([
 ], UpdateReviewsDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Sharh matni (ixtiyoriy)",
+        description: "Sharh matni",
         example: "Avtomobil juda yaxshi ishlaydi"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -52,7 +52,7 @@ __decorate([
 ], UpdateReviewsDto.prototype, "comment", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Baho (1-5) (ixtiyoriy)",
+        description: "Baho (1-5)",
         example: "5"
     }),
     (0, class_validator_1.IsOptional)(),

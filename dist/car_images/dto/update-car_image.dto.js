@@ -30,7 +30,7 @@ __decorate([
 ], UpdateCarImagesDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: 'Rasm URL yoki fayl nomi (ixtiyoriy)',
+        description: 'Rasm URL yoki fayl nomi',
         example: 'car1.jpg'
     }),
     (0, class_validator_1.IsOptional)(),

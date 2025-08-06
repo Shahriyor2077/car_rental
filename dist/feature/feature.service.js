@@ -55,7 +55,7 @@ let FeatureService = class FeatureService {
             throw new common_1.NotFoundException('Xususiyat topilmadi');
         }
         if (existingFeature.car_feature.length > 0) {
-            throw new common_1.BadRequestException('Bu xususiyat car\'larda ishlatilgan. O\'chirish mumkin emas');
+            throw new common_1.BadRequestException('Bu xususiyat carlarda ishlatilgan. Ochirish mumkin emas');
         }
         return await this.prismaService.feature.delete({
             where: { id }

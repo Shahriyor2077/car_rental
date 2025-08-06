@@ -20,7 +20,7 @@ exports.LoginDto = LoginDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
         description: "Email manzili",
-        example: "aziz@example.com"
+        example: "aziz@example.com",
     }),
     (0, class_validator_1.IsEmail)({}, { message: "To'g'ri email kiriting" }),
     __metadata("design:type", String)
@@ -28,7 +28,7 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({
         description: "Parol",
-        example: "123456"
+        example: "123456",
     }),
     (0, class_validator_1.IsString)({ message: "Parol matn bo'lishi kerak" }),
     (0, class_validator_1.MinLength)(6, { message: "Parol kamida 6 ta belgi bo'lishi kerak" }),

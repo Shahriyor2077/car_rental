@@ -13,11 +13,11 @@ let SelfGuard = class SelfGuard {
         const request = context.switchToHttp().getRequest();
         const user = request.user;
         const userId = parseInt(request.params.id);
-        if (user.role === 'ADMIN' || user.role === 'MANAGER') {
+        if (user.role === "ADMIN" || user.role === "MANAGER") {
             return true;
         }
         if (user.id !== userId) {
-            throw new common_1.ForbiddenException('Faqat o\'z ma\'lumotlaringizga kirishingiz mumkin');
+            throw new common_1.ForbiddenException("Faqat o'z malumotlaringizga kirishingiz mumkin");
         }
         return true;
     }

@@ -41,7 +41,7 @@ __decorate([
 ], CreateRentalsDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
-        description: "Ijara boshlanish sanasi (YYYY-MM-DD)",
+        description: "Ijara boshlanish sanasi yyyy-mm-dd",
         example: "2024-01-15"
     }),
     (0, class_validator_1.IsDateString)({}, { message: "Boshlanish sanasi to'g'ri formatda bo'lishi kerak" }),

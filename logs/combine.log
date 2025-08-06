@@ -1,0 +1,384 @@
+{"context":"NestFactory","label":"Car-Rental","level":"info","message":"Starting Nest application...","timestamp":"2025-08-06T07:52:20.477Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AppModule dependencies initialized","timestamp":"2025-08-06T07:52:20.506Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PrismaModule dependencies initialized","timestamp":"2025-08-06T07:52:20.510Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerModule dependencies initialized","timestamp":"2025-08-06T07:52:20.511Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigHostModule dependencies initialized","timestamp":"2025-08-06T07:52:20.516Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.517Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:20.520Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:20.521Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.837Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.838Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.838Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.839Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.839Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.839Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.840Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.840Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.840Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.841Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.841Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.842Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.842Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.843Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerCoreModule dependencies initialized","timestamp":"2025-08-06T07:52:20.843Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"UserModule dependencies initialized","timestamp":"2025-08-06T07:52:20.844Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"BranchModule dependencies initialized","timestamp":"2025-08-06T07:52:20.845Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailModule dependencies initialized","timestamp":"2025-08-06T07:52:20.845Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CompanyModule dependencies initialized","timestamp":"2025-08-06T07:52:20.846Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarModule dependencies initialized","timestamp":"2025-08-06T07:52:20.847Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"FeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:20.847Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarFeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:20.847Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DamageModule dependencies initialized","timestamp":"2025-08-06T07:52:20.848Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PaymentsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.848Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"RentalModule dependencies initialized","timestamp":"2025-08-06T07:52:20.848Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarImagesModule dependencies initialized","timestamp":"2025-08-06T07:52:20.849Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarMaintenanceModule dependencies initialized","timestamp":"2025-08-06T07:52:20.849Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ReviewsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.849Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DocumentsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.850Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ComplaintsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.850Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"NotificationModule dependencies initialized","timestamp":"2025-08-06T07:52:20.850Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AuthModule dependencies initialized","timestamp":"2025-08-06T07:52:20.851Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AdminModule dependencies initialized","timestamp":"2025-08-06T07:52:20.852Z"}
+{"context":"NestFactory","label":"Car-Rental","level":"info","message":"Starting Nest application...","timestamp":"2025-08-06T07:52:20.521Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AppModule dependencies initialized","timestamp":"2025-08-06T07:52:20.556Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PrismaModule dependencies initialized","timestamp":"2025-08-06T07:52:20.559Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerModule dependencies initialized","timestamp":"2025-08-06T07:52:20.560Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigHostModule dependencies initialized","timestamp":"2025-08-06T07:52:20.565Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.566Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:20.568Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:20.569Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.852Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.853Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.853Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.854Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.854Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.854Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.855Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.855Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.856Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.856Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.856Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.857Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.858Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:20.859Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerCoreModule dependencies initialized","timestamp":"2025-08-06T07:52:20.859Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"UserModule dependencies initialized","timestamp":"2025-08-06T07:52:20.860Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"BranchModule dependencies initialized","timestamp":"2025-08-06T07:52:20.861Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailModule dependencies initialized","timestamp":"2025-08-06T07:52:20.863Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CompanyModule dependencies initialized","timestamp":"2025-08-06T07:52:20.864Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarModule dependencies initialized","timestamp":"2025-08-06T07:52:20.865Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"FeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:20.866Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarFeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:20.866Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DamageModule dependencies initialized","timestamp":"2025-08-06T07:52:20.867Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PaymentsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.867Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"RentalModule dependencies initialized","timestamp":"2025-08-06T07:52:20.868Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarImagesModule dependencies initialized","timestamp":"2025-08-06T07:52:20.869Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarMaintenanceModule dependencies initialized","timestamp":"2025-08-06T07:52:20.869Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ReviewsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.870Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DocumentsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.870Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ComplaintsModule dependencies initialized","timestamp":"2025-08-06T07:52:20.871Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"NotificationModule dependencies initialized","timestamp":"2025-08-06T07:52:20.871Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AuthModule dependencies initialized","timestamp":"2025-08-06T07:52:20.872Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AdminModule dependencies initialized","timestamp":"2025-08-06T07:52:20.874Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"UserController {/api/user}:","timestamp":"2025-08-06T07:52:21.005Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user, POST} route","timestamp":"2025-08-06T07:52:21.008Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user/:id, GET} route","timestamp":"2025-08-06T07:52:21.008Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.009Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.010Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user, GET} route","timestamp":"2025-08-06T07:52:21.010Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"AuthController {/api/auth}:","timestamp":"2025-08-06T07:52:21.011Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/register, POST} route","timestamp":"2025-08-06T07:52:21.011Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/activate, GET} route","timestamp":"2025-08-06T07:52:21.012Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/login, POST} route","timestamp":"2025-08-06T07:52:21.012Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/refresh, POST} route","timestamp":"2025-08-06T07:52:21.013Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/logout, POST} route","timestamp":"2025-08-06T07:52:21.013Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CompanyController {/api/company}:","timestamp":"2025-08-06T07:52:21.014Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company, POST} route","timestamp":"2025-08-06T07:52:21.014Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company/:id, GET} route","timestamp":"2025-08-06T07:52:21.015Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.015Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.016Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company, GET} route","timestamp":"2025-08-06T07:52:21.017Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"AdminController {/api/admin}:","timestamp":"2025-08-06T07:52:21.017Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/register, POST} route","timestamp":"2025-08-06T07:52:21.018Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/login, POST} route","timestamp":"2025-08-06T07:52:21.019Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/refresh, POST} route","timestamp":"2025-08-06T07:52:21.020Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/logout, POST} route","timestamp":"2025-08-06T07:52:21.020Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin, GET} route","timestamp":"2025-08-06T07:52:21.021Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/:id, GET} route","timestamp":"2025-08-06T07:52:21.022Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.022Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.023Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"BranchController {/api/branch}:","timestamp":"2025-08-06T07:52:21.023Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch, POST} route","timestamp":"2025-08-06T07:52:21.024Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch, GET} route","timestamp":"2025-08-06T07:52:21.024Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch/:id, GET} route","timestamp":"2025-08-06T07:52:21.024Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.025Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.025Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarController {/api/car}:","timestamp":"2025-08-06T07:52:21.025Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car, POST} route","timestamp":"2025-08-06T07:52:21.026Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car, GET} route","timestamp":"2025-08-06T07:52:21.026Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/color, GET} route","timestamp":"2025-08-06T07:52:21.027Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/year, GET} route","timestamp":"2025-08-06T07:52:21.027Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/price, GET} route","timestamp":"2025-08-06T07:52:21.027Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/rating, GET} route","timestamp":"2025-08-06T07:52:21.028Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/:id, GET} route","timestamp":"2025-08-06T07:52:21.028Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.029Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.029Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"FeatureController {/api/feature}:","timestamp":"2025-08-06T07:52:21.029Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature, POST} route","timestamp":"2025-08-06T07:52:21.030Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature, GET} route","timestamp":"2025-08-06T07:52:21.031Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature/:id, GET} route","timestamp":"2025-08-06T07:52:21.031Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.032Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.032Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarFeatureController {/api/car-feature}:","timestamp":"2025-08-06T07:52:21.032Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature, POST} route","timestamp":"2025-08-06T07:52:21.033Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature/:id, GET} route","timestamp":"2025-08-06T07:52:21.033Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.033Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.034Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature, GET} route","timestamp":"2025-08-06T07:52:21.035Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"DamageController {/api/damage}:","timestamp":"2025-08-06T07:52:21.035Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage, POST} route","timestamp":"2025-08-06T07:52:21.036Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage/:id, GET} route","timestamp":"2025-08-06T07:52:21.037Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.037Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.038Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage, GET} route","timestamp":"2025-08-06T07:52:21.038Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"PaymentsController {/api/payments}:","timestamp":"2025-08-06T07:52:21.039Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments, POST} route","timestamp":"2025-08-06T07:52:21.039Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments/:id, GET} route","timestamp":"2025-08-06T07:52:21.040Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.040Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.041Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments, GET} route","timestamp":"2025-08-06T07:52:21.041Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"RentalController {/api/rental}:","timestamp":"2025-08-06T07:52:21.042Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental, POST} route","timestamp":"2025-08-06T07:52:21.043Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental/:id, GET} route","timestamp":"2025-08-06T07:52:21.044Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental, GET} route","timestamp":"2025-08-06T07:52:21.045Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.046Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.046Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarImagesController {/api/car-images}:","timestamp":"2025-08-06T07:52:21.046Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images, POST} route","timestamp":"2025-08-06T07:52:21.047Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images/:id, GET} route","timestamp":"2025-08-06T07:52:21.048Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.048Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.049Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images, GET} route","timestamp":"2025-08-06T07:52:21.049Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarMaintenanceController {/api/car-maintenance}:","timestamp":"2025-08-06T07:52:21.050Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance, POST} route","timestamp":"2025-08-06T07:52:21.050Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance/:id, GET} route","timestamp":"2025-08-06T07:52:21.051Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.052Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.052Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance, GET} route","timestamp":"2025-08-06T07:52:21.053Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"ReviewsController {/api/reviews}:","timestamp":"2025-08-06T07:52:21.053Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews, POST} route","timestamp":"2025-08-06T07:52:21.054Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews/:id, GET} route","timestamp":"2025-08-06T07:52:21.054Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.055Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.055Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews, GET} route","timestamp":"2025-08-06T07:52:21.056Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"DocumentsController {/api/documents}:","timestamp":"2025-08-06T07:52:21.056Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents, POST} route","timestamp":"2025-08-06T07:52:21.056Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents/:id, GET} route","timestamp":"2025-08-06T07:52:21.057Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.057Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.058Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents, GET} route","timestamp":"2025-08-06T07:52:21.059Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"ComplaintsController {/api/complaints}:","timestamp":"2025-08-06T07:52:21.059Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints, POST} route","timestamp":"2025-08-06T07:52:21.060Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints/:id, GET} route","timestamp":"2025-08-06T07:52:21.061Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.061Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.061Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints, GET} route","timestamp":"2025-08-06T07:52:21.062Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"NotificationController {/api/notification}:","timestamp":"2025-08-06T07:52:21.062Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification, POST} route","timestamp":"2025-08-06T07:52:21.063Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification/:id, GET} route","timestamp":"2025-08-06T07:52:21.063Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification/:id, PATCH} route","timestamp":"2025-08-06T07:52:21.064Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification/:id, DELETE} route","timestamp":"2025-08-06T07:52:21.064Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification, GET} route","timestamp":"2025-08-06T07:52:21.065Z"}
+{"context":"NestApplication","label":"Car-Rental","level":"info","message":"Nest application successfully started","timestamp":"2025-08-06T07:52:21.070Z"}
+{"context":"NestFactory","label":"Car-Rental","level":"info","message":"Starting Nest application...","timestamp":"2025-08-06T07:52:35.949Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AppModule dependencies initialized","timestamp":"2025-08-06T07:52:35.973Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PrismaModule dependencies initialized","timestamp":"2025-08-06T07:52:35.977Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerModule dependencies initialized","timestamp":"2025-08-06T07:52:35.978Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigHostModule dependencies initialized","timestamp":"2025-08-06T07:52:35.982Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:35.983Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:35.985Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:35.986Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.262Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.263Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.264Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.264Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.264Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.265Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.265Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.266Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.266Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.266Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.267Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.267Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.268Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.268Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerCoreModule dependencies initialized","timestamp":"2025-08-06T07:52:36.268Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"UserModule dependencies initialized","timestamp":"2025-08-06T07:52:36.269Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"BranchModule dependencies initialized","timestamp":"2025-08-06T07:52:36.270Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailModule dependencies initialized","timestamp":"2025-08-06T07:52:36.271Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CompanyModule dependencies initialized","timestamp":"2025-08-06T07:52:36.272Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarModule dependencies initialized","timestamp":"2025-08-06T07:52:36.273Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"FeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:36.273Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarFeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:36.274Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DamageModule dependencies initialized","timestamp":"2025-08-06T07:52:36.274Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PaymentsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.275Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"RentalModule dependencies initialized","timestamp":"2025-08-06T07:52:36.275Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarImagesModule dependencies initialized","timestamp":"2025-08-06T07:52:36.276Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarMaintenanceModule dependencies initialized","timestamp":"2025-08-06T07:52:36.276Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ReviewsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.276Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DocumentsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.277Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ComplaintsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.277Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"NotificationModule dependencies initialized","timestamp":"2025-08-06T07:52:36.277Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AuthModule dependencies initialized","timestamp":"2025-08-06T07:52:36.278Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AdminModule dependencies initialized","timestamp":"2025-08-06T07:52:36.278Z"}
+{"context":"NestFactory","label":"Car-Rental","level":"info","message":"Starting Nest application...","timestamp":"2025-08-06T07:52:35.969Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AppModule dependencies initialized","timestamp":"2025-08-06T07:52:35.992Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PrismaModule dependencies initialized","timestamp":"2025-08-06T07:52:35.996Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerModule dependencies initialized","timestamp":"2025-08-06T07:52:35.996Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigHostModule dependencies initialized","timestamp":"2025-08-06T07:52:35.999Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.000Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:36.002Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ConfigModule dependencies initialized","timestamp":"2025-08-06T07:52:36.002Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.276Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.276Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.277Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.277Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.277Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.278Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.278Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.278Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.279Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.279Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.279Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.280Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.280Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"JwtModule dependencies initialized","timestamp":"2025-08-06T07:52:36.281Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailerCoreModule dependencies initialized","timestamp":"2025-08-06T07:52:36.281Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"UserModule dependencies initialized","timestamp":"2025-08-06T07:52:36.282Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"BranchModule dependencies initialized","timestamp":"2025-08-06T07:52:36.284Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"MailModule dependencies initialized","timestamp":"2025-08-06T07:52:36.286Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CompanyModule dependencies initialized","timestamp":"2025-08-06T07:52:36.288Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarModule dependencies initialized","timestamp":"2025-08-06T07:52:36.289Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"FeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:36.289Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarFeatureModule dependencies initialized","timestamp":"2025-08-06T07:52:36.290Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DamageModule dependencies initialized","timestamp":"2025-08-06T07:52:36.290Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"PaymentsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.292Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"RentalModule dependencies initialized","timestamp":"2025-08-06T07:52:36.293Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarImagesModule dependencies initialized","timestamp":"2025-08-06T07:52:36.293Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"CarMaintenanceModule dependencies initialized","timestamp":"2025-08-06T07:52:36.294Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ReviewsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.295Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"DocumentsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.295Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"ComplaintsModule dependencies initialized","timestamp":"2025-08-06T07:52:36.295Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"NotificationModule dependencies initialized","timestamp":"2025-08-06T07:52:36.296Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AuthModule dependencies initialized","timestamp":"2025-08-06T07:52:36.297Z"}
+{"context":"InstanceLoader","label":"Car-Rental","level":"info","message":"AdminModule dependencies initialized","timestamp":"2025-08-06T07:52:36.297Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"UserController {/api/user}:","timestamp":"2025-08-06T07:52:36.438Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user, POST} route","timestamp":"2025-08-06T07:52:36.443Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user/:id, GET} route","timestamp":"2025-08-06T07:52:36.444Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.445Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.446Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/user, GET} route","timestamp":"2025-08-06T07:52:36.447Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"AuthController {/api/auth}:","timestamp":"2025-08-06T07:52:36.447Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/register, POST} route","timestamp":"2025-08-06T07:52:36.448Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/activate, GET} route","timestamp":"2025-08-06T07:52:36.449Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/login, POST} route","timestamp":"2025-08-06T07:52:36.449Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/refresh, POST} route","timestamp":"2025-08-06T07:52:36.450Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/auth/logout, POST} route","timestamp":"2025-08-06T07:52:36.451Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CompanyController {/api/company}:","timestamp":"2025-08-06T07:52:36.452Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company, POST} route","timestamp":"2025-08-06T07:52:36.452Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company/:id, GET} route","timestamp":"2025-08-06T07:52:36.453Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.454Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.455Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/company, GET} route","timestamp":"2025-08-06T07:52:36.456Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"AdminController {/api/admin}:","timestamp":"2025-08-06T07:52:36.456Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/register, POST} route","timestamp":"2025-08-06T07:52:36.457Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/login, POST} route","timestamp":"2025-08-06T07:52:36.459Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/refresh, POST} route","timestamp":"2025-08-06T07:52:36.460Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/logout, POST} route","timestamp":"2025-08-06T07:52:36.461Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin, GET} route","timestamp":"2025-08-06T07:52:36.461Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/:id, GET} route","timestamp":"2025-08-06T07:52:36.462Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.462Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/admin/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.463Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"BranchController {/api/branch}:","timestamp":"2025-08-06T07:52:36.463Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch, POST} route","timestamp":"2025-08-06T07:52:36.464Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch, GET} route","timestamp":"2025-08-06T07:52:36.464Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch/:id, GET} route","timestamp":"2025-08-06T07:52:36.465Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.465Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/branch/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.466Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarController {/api/car}:","timestamp":"2025-08-06T07:52:36.466Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car, POST} route","timestamp":"2025-08-06T07:52:36.467Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car, GET} route","timestamp":"2025-08-06T07:52:36.468Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/color, GET} route","timestamp":"2025-08-06T07:52:36.469Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/year, GET} route","timestamp":"2025-08-06T07:52:36.470Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/price, GET} route","timestamp":"2025-08-06T07:52:36.470Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/search/rating, GET} route","timestamp":"2025-08-06T07:52:36.471Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/:id, GET} route","timestamp":"2025-08-06T07:52:36.472Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.473Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.473Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"FeatureController {/api/feature}:","timestamp":"2025-08-06T07:52:36.474Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature, POST} route","timestamp":"2025-08-06T07:52:36.475Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature, GET} route","timestamp":"2025-08-06T07:52:36.475Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature/:id, GET} route","timestamp":"2025-08-06T07:52:36.476Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.476Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/feature/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.477Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarFeatureController {/api/car-feature}:","timestamp":"2025-08-06T07:52:36.477Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature, POST} route","timestamp":"2025-08-06T07:52:36.477Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature/:id, GET} route","timestamp":"2025-08-06T07:52:36.478Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.478Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.479Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-feature, GET} route","timestamp":"2025-08-06T07:52:36.479Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"DamageController {/api/damage}:","timestamp":"2025-08-06T07:52:36.480Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage, POST} route","timestamp":"2025-08-06T07:52:36.481Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage/:id, GET} route","timestamp":"2025-08-06T07:52:36.481Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.482Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.482Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/damage, GET} route","timestamp":"2025-08-06T07:52:36.483Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"PaymentsController {/api/payments}:","timestamp":"2025-08-06T07:52:36.483Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments, POST} route","timestamp":"2025-08-06T07:52:36.484Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments/:id, GET} route","timestamp":"2025-08-06T07:52:36.485Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.485Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.486Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/payments, GET} route","timestamp":"2025-08-06T07:52:36.486Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"RentalController {/api/rental}:","timestamp":"2025-08-06T07:52:36.487Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental, POST} route","timestamp":"2025-08-06T07:52:36.487Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental/:id, GET} route","timestamp":"2025-08-06T07:52:36.488Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental, GET} route","timestamp":"2025-08-06T07:52:36.488Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.489Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/rental/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.490Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarImagesController {/api/car-images}:","timestamp":"2025-08-06T07:52:36.490Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images, POST} route","timestamp":"2025-08-06T07:52:36.491Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images/:id, GET} route","timestamp":"2025-08-06T07:52:36.492Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.492Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.493Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-images, GET} route","timestamp":"2025-08-06T07:52:36.493Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"CarMaintenanceController {/api/car-maintenance}:","timestamp":"2025-08-06T07:52:36.494Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance, POST} route","timestamp":"2025-08-06T07:52:36.494Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance/:id, GET} route","timestamp":"2025-08-06T07:52:36.495Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.495Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.496Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/car-maintenance, GET} route","timestamp":"2025-08-06T07:52:36.496Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"ReviewsController {/api/reviews}:","timestamp":"2025-08-06T07:52:36.497Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews, POST} route","timestamp":"2025-08-06T07:52:36.497Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews/:id, GET} route","timestamp":"2025-08-06T07:52:36.497Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.498Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.498Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/reviews, GET} route","timestamp":"2025-08-06T07:52:36.499Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"DocumentsController {/api/documents}:","timestamp":"2025-08-06T07:52:36.499Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents, POST} route","timestamp":"2025-08-06T07:52:36.499Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents/:id, GET} route","timestamp":"2025-08-06T07:52:36.500Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.500Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.501Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/documents, GET} route","timestamp":"2025-08-06T07:52:36.502Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"ComplaintsController {/api/complaints}:","timestamp":"2025-08-06T07:52:36.502Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints, POST} route","timestamp":"2025-08-06T07:52:36.504Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints/:id, GET} route","timestamp":"2025-08-06T07:52:36.504Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.505Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.505Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/complaints, GET} route","timestamp":"2025-08-06T07:52:36.506Z"}
+{"context":"RoutesResolver","label":"Car-Rental","level":"info","message":"NotificationController {/api/notification}:","timestamp":"2025-08-06T07:52:36.506Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification, POST} route","timestamp":"2025-08-06T07:52:36.507Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification/:id, GET} route","timestamp":"2025-08-06T07:52:36.508Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification/:id, PATCH} route","timestamp":"2025-08-06T07:52:36.508Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification/:id, DELETE} route","timestamp":"2025-08-06T07:52:36.509Z"}
+{"context":"RouterExplorer","label":"Car-Rental","level":"info","message":"Mapped {/api/notification, GET} route","timestamp":"2025-08-06T07:52:36.510Z"}
+{"context":"NestApplication","label":"Car-Rental","level":"info","message":"Nest application successfully started","timestamp":"2025-08-06T07:52:36.514Z"}

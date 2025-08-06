@@ -22,7 +22,7 @@ exports.CreateCompaniesDto = CreateCompaniesDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
         description: "Kompaniya nomi",
-        example: "Avto Ijara MChJ"
+        example: "Avto Ijara"
     }),
     (0, class_validator_1.IsString)({ message: "Kompaniya nomi matn bo'lishi kerak" }),
     (0, class_validator_1.MinLength)(2, { message: "Kompaniya nomi kamida 2 ta harf bo'lishi kerak" }),
@@ -32,7 +32,7 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({
         description: "Kompaniya manzili",
-        example: "Toshkent shahri, Chilonzor tumani, 1-uy"
+        example: "Toshkent shahri, Chilonzor tumani, 2-uy"
     }),
     (0, class_validator_1.IsString)({ message: "Manzil matn bo'lishi kerak" }),
     (0, class_validator_1.MinLength)(10, { message: "Manzil kamida 10 ta harf bo'lishi kerak" }),

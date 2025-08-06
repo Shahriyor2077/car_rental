@@ -53,7 +53,7 @@ let PaymentsService = class PaymentsService {
             include: { rental: true }
         });
         if (!payment) {
-            throw new common_1.NotFoundException('To\'lov topilmadi');
+            throw new common_1.NotFoundException('Tolov topilmadi');
         }
         return payment;
     }

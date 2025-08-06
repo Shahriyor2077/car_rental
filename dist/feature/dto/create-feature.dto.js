@@ -19,7 +19,7 @@ exports.CreateFeatureDto = CreateFeatureDto;
 __decorate([
     (0, swagger_1.ApiProperty)({
         description: "Xususiyat nomi",
-        example: "Bluetooth"
+        example: "Avtomat"
     }),
     (0, class_validator_1.IsString)({ message: "Nomi matn bo'lishi kerak" }),
     (0, class_validator_1.MinLength)(2, { message: "Nomi kamida 2 ta harf bo'lishi kerak" }),

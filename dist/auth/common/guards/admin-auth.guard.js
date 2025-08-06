@@ -21,12 +21,12 @@ let AdminAuthGuard = class AdminAuthGuard {
         const request = context.switchToHttp().getRequest();
         const token = request.headers.authorization?.replace('Bearer ', '');
         if (!token) {
-            throw new common_1.UnauthorizedException('Token yo\'q');
+            throw new common_1.UnauthorizedException("Token yo'q");
         }
         try {
             const payload = this.jwtService.verify(token);
             if (payload.role !== 'ADMIN' && payload.role !== 'MANAGER') {
-                throw new common_1.ForbiddenException('Admin huquqi yo\'q');
+                throw new common_1.ForbiddenException("Admin huquqi yoq");
             }
             request.user = payload;
             return true;
@@ -35,7 +35,7 @@ let AdminAuthGuard = class AdminAuthGuard {
             if (error instanceof common_1.ForbiddenException) {
                 throw error;
             }
-            throw new common_1.UnauthorizedException('Token noto\'g\'ri');
+            throw new common_1.UnauthorizedException("Token noto'g'ri");
         }
     }
 };

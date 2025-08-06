@@ -1,7 +1,7 @@
-import { PrismaService } from '../prisma/prisma.service';
-import { JwtService } from '@nestjs/jwt';
-import { MailService } from '../mail/mail.service';
-import { CreateUserDto } from '../user/dto/create-user.dto';
+import { PrismaService } from "../prisma/prisma.service";
+import { JwtService } from "@nestjs/jwt";
+import { MailService } from "../mail/mail.service";
+import { CreateUserDto } from "../user/dto/create-user.dto";
 export declare class AuthService {
     private readonly prisma;
     private readonly jwtService;
@@ -29,6 +29,7 @@ export declare class AuthService {
     }>;
     logout(): Promise<{
         message: string;
+        success: boolean;
     }>;
     refreshToken(oldRefreshToken: string): Promise<{
         accessToken: string;

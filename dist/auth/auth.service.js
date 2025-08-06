@@ -26,14 +26,17 @@ let AuthService = class AuthService {
         this.mailService = mailService;
     }
     generateTokens(payload) {
-        const accessToken = this.jwtService.sign(payload, { expiresIn: '3d' });
-        const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' });
+        const accessToken = this.jwtService.sign(payload, { expiresIn: "3d" });
+        const refreshToken = this.jwtService.sign(payload, { expiresIn: "7d" });
         return { accessToken, refreshToken };
     }
     async register(dto) {
-        const userExists = await this.prisma.user.findUnique({ where: { email: dto.email } });
-        if (userExists)
-            throw new common_1.ForbiddenException('Bu email allaqachon ro\'yxatdan o\'tgan');
+        const userExists = await this.prisma.user.findUnique({
+            where: { email: dto.email },
+        });
+        if (userExists) {
+            throw new common_1.ForbiddenException("Bu email allaqachon ro'yxatdan o'tgan");
+        }
         const hashedPassword = await bcrypt.hash(dto.password, 10);
         const activation_link = (0, uuid_1.v4)();
         const user = await this.prisma.user.create({
@@ -42,70 +45,80 @@ let AuthService = class AuthService {
                 password: hashedPassword,
                 activation_link,
                 is_active: false,
-            }
+            },
         });
         try {
             await this.mailService.sendMail({
                 email: user.email,
                 name: user.full_name,
-                activation_link: activation_link
-            }, 'user');
+                activation_link: activation_link,
+            }, "user");
         }
         catch (error) {
-            console.log('Mail yuborishda xatolik:', error.message);
+            console.log("Mail yuborishda xatolik:", error.message);
         }
         const { password, ...userWithoutPassword } = user;
         return {
-            message: 'Foydalanuvchi muvaffaqiyatli yaratildi. Emailingizni tasdiqlang.',
-            user: userWithoutPassword
+            message: "Foydalanuvchi muvaffaqiyatli yaratildi. Emailingizni tasdiqlang.",
+            user: userWithoutPassword,
         };
     }
     async activate(link) {
-        const user = await this.prisma.user.findFirst({ where: { activation_link: link } });
+        const user = await this.prisma.user.findFirst({
+            where: { activation_link: link },
+        });
         if (!user)
-            throw new common_1.NotFoundException('Activation link noto\'g\'ri yoki eskirgan');
+            throw new common_1.NotFoundException("Activation link notogri yoki eskirgan");
         if (user.is_active) {
-            return { message: 'Email allaqachon tasdiqlangan!' };
+            return { message: "Email allaqachon tasdiqlangan!" };
         }
         await this.prisma.user.update({
             where: { id: user.id },
-            data: { is_active: true, activation_link: null }
+            data: { is_active: true, activation_link: null },
         });
-        return { message: 'Email muvaffaqiyatli tasdiqlandi!' };
+        return { message: "Email muvaffaqiyatli tasdiqlandi!" };
     }
     async login(email, password) {
         const user = await this.prisma.user.findUnique({ where: { email } });
-        if (!user)
-            throw new common_1.UnauthorizedException('Email yoki parol noto\'g\'ri');
-        if (!user.is_active)
-            throw new common_1.ForbiddenException('Email tasdiqlanmagan!');
+        if (!user) {
+            throw new common_1.UnauthorizedException("Email yoki parol notogri");
+        }
+        if (!user.is_active) {
+            throw new common_1.ForbiddenException("Email tasdiqlanmagan!");
+        }
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch)
-            throw new common_1.UnauthorizedException('Email yoki parol noto\'g\'ri');
+        if (!isMatch) {
+            throw new common_1.UnauthorizedException("Email yoki parol notogri");
+        }
         const payload = {
             sub: user.id,
             email: user.email,
-            role: 'USER'
+            role: "USER"
         };
         return this.generateTokens(payload);
     }
     async logout() {
-        return { message: 'Logout muvaffaqiyatli' };
+        return {
+            message: "Logout muvaffaqiyatli",
+            success: true
+        };
     }
     async refreshToken(oldRefreshToken) {
         if (!oldRefreshToken) {
-            throw new common_1.UnauthorizedException('Refresh token topilmadi');
+            throw new common_1.UnauthorizedException("Refresh token topilmadi");
         }
         let payload;
         try {
             payload = this.jwtService.verify(oldRefreshToken);
         }
         catch (error) {
-            throw new common_1.UnauthorizedException('Refresh token noto\'g\'ri yoki eskirgan');
+            throw new common_1.UnauthorizedException("Refresh token notogri yoki eskirgan");
         }
-        const user = await this.prisma.user.findUnique({ where: { id: payload.sub } });
+        const user = await this.prisma.user.findUnique({
+            where: { id: payload.sub },
+        });
         if (!user) {
-            throw new common_1.UnauthorizedException('Foydalanuvchi topilmadi');
+            throw new common_1.UnauthorizedException("Foydalanuvchi topilmadi");
         }
         const newPayload = { sub: user.id, email: user.email };
         return this.generateTokens(newPayload);

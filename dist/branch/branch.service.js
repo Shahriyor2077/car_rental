@@ -72,7 +72,7 @@ let BranchService = class BranchService {
             throw new common_1.NotFoundException('Branch topilmadi');
         }
         if (existingBranch.cars.length > 0) {
-            throw new common_1.BadRequestException('Bu branch\'da car\'lar mavjud. Avval car\'larni o\'chiring');
+            throw new common_1.BadRequestException('Bu branchda carlar mavjud. Avval carlarni ochiring');
         }
         return await this.prismaService.branches.delete({
             where: { id }

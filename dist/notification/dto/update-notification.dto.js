@@ -21,7 +21,7 @@ class UpdateNotificationsDto extends (0, mapped_types_1.PartialType)(create_noti
 exports.UpdateNotificationsDto = UpdateNotificationsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Foydalanuvchi ID (ixtiyoriy)",
+        description: "Foydalanuvchi ID ",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -30,7 +30,7 @@ __decorate([
 ], UpdateNotificationsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Xabar matni (ixtiyoriy)",
+        description: "Xabar matni",
         example: "Sizning buyurtmangiz tasdiqlandi."
     }),
     (0, class_validator_1.IsOptional)(),

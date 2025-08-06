@@ -27,7 +27,7 @@ class UpdateCarDto extends (0, mapped_types_1.PartialType)(create_car_dto_1.Crea
 exports.UpdateCarDto = UpdateCarDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Filial ID (ixtiyoriy)",
+        description: "Filial ID ",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -37,7 +37,7 @@ __decorate([
 ], UpdateCarDto.prototype, "branch_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Avtomobil brendi (ixtiyoriy)",
+        description: "Avtomobil brendi",
         example: "Toyota"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -48,7 +48,7 @@ __decorate([
 ], UpdateCarDto.prototype, "brand", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Avtomobil modeli (ixtiyoriy)",
+        description: "Avtomobil modeli",
         example: "Camry"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -59,7 +59,7 @@ __decorate([
 ], UpdateCarDto.prototype, "model", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Ishlab chiqarilgan yili (ixtiyoriy)",
+        description: "Ishlab chiqarilgan yili",
         example: "2020"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -68,7 +68,7 @@ __decorate([
 ], UpdateCarDto.prototype, "year", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Rang (ixtiyoriy)",
+        description: "Rang ",
         example: "red"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -77,7 +77,7 @@ __decorate([
 ], UpdateCarDto.prototype, "color", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Yurgan masofa (ixtiyoriy)",
+        description: "Yurgan masofa ",
         example: 50000
     }),
     (0, class_validator_1.IsOptional)(),
@@ -87,7 +87,7 @@ __decorate([
 ], UpdateCarDto.prototype, "mileage", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Kunlik narxi (ixtiyoriy)",
+        description: "Kunlik narxi ",
         example: "500000"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -96,7 +96,7 @@ __decorate([
 ], UpdateCarDto.prototype, "price_per_day", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Avtomobil mavjudmi (ixtiyoriy)",
+        description: "Avtomobil mavjudmi ",
         example: true
     }),
     (0, class_validator_1.IsOptional)(),

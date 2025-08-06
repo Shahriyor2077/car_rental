@@ -20,7 +20,7 @@ class UpdateFeatureDto extends (0, mapped_types_1.PartialType)(create_feature_dt
 exports.UpdateFeatureDto = UpdateFeatureDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Xususiyat nomi (ixtiyoriy)",
+        description: "Xususiyat nomi",
         example: "Bluetooth"
     }),
     (0, class_validator_1.IsOptional)(),

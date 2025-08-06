@@ -23,7 +23,7 @@ class UpdateBranchesDto extends (0, mapped_types_1.PartialType)(create_branch_dt
 exports.UpdateBranchesDto = UpdateBranchesDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Filial nomi (ixtiyoriy)",
+        description: "Filial nomi",
         example: "Toshkent markaziy filiali"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -34,7 +34,7 @@ __decorate([
 ], UpdateBranchesDto.prototype, "name", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Filial manzili (ixtiyoriy)",
+        description: "Filial manzili",
         example: "Toshkent shahri, Chilonzor tumani, 1-uy"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -45,7 +45,7 @@ __decorate([
 ], UpdateBranchesDto.prototype, "address", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Kompaniya ID (ixtiyoriy)",
+        description: "Kompaniya ID",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -55,7 +55,7 @@ __decorate([
 ], UpdateBranchesDto.prototype, "company_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Telefon raqami (ixtiyoriy)",
+        description: "Telefon raqami",
         example: "+998901234567"
     }),
     (0, class_validator_1.IsOptional)(),

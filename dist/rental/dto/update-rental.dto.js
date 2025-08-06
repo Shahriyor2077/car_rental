@@ -25,7 +25,7 @@ class UpdateRentalsDto extends (0, mapped_types_1.PartialType)(create_rental_dto
 exports.UpdateRentalsDto = UpdateRentalsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Foydalanuvchi ID (ixtiyoriy)",
+        description: "Foydalanuvchi ID",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -35,7 +35,7 @@ __decorate([
 ], UpdateRentalsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Avtomobil ID (ixtiyoriy)",
+        description: "Avtomobil ID",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -45,7 +45,7 @@ __decorate([
 ], UpdateRentalsDto.prototype, "car_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Ijara boshlanish sanasi (ixtiyoriy)",
+        description: "Ijara boshlanish sanasi",
         example: "2024-01-15"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -54,7 +54,7 @@ __decorate([
 ], UpdateRentalsDto.prototype, "start_date", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Ijara tugash sanasi (ixtiyoriy)",
+        description: "Ijara tugash sanasi",
         example: "2024-01-20"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -63,7 +63,7 @@ __decorate([
 ], UpdateRentalsDto.prototype, "end_date", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Umumiy narxi (ixtiyoriy)",
+        description: "Umumiy narxi",
         example: 2500000
     }),
     (0, class_validator_1.IsOptional)(),
@@ -73,7 +73,7 @@ __decorate([
 ], UpdateRentalsDto.prototype, "total_price", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Ijara holati (ixtiyoriy)",
+        description: "Ijara holati",
         example: "PENDING",
         enum: ["PENDING", "ACTIVE", "COMPLETED", "CANCELLED"]
     }),

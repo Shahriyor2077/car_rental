@@ -74,7 +74,7 @@ let AdminService = class AdminService {
             payload = this.jwtService.verify(oldRefreshToken);
         }
         catch (error) {
-            throw new common_1.UnauthorizedException('Refresh token noto\'g\'ri yoki eskirgan');
+            throw new common_1.UnauthorizedException("Refresh token noto'g'ri yoki eskirgan");
         }
         const admin = await this.prisma.admin.findUnique({ where: { id: payload.sub } });
         if (!admin) {

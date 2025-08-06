@@ -22,7 +22,7 @@ class UpdateComplaintsDto extends (0, mapped_types_1.PartialType)(create_complai
 exports.UpdateComplaintsDto = UpdateComplaintsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Foydalanuvchi ID (ixtiyoriy)",
+        description: "Foydalanuvchi ID ",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -31,7 +31,7 @@ __decorate([
 ], UpdateComplaintsDto.prototype, "user_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Shikoyat matni (ixtiyoriy)",
+        description: "Shikoyat matni ",
         example: "Avtomobil kechikib yetkazildi."
     }),
     (0, class_validator_1.IsOptional)(),
@@ -41,7 +41,7 @@ __decorate([
 ], UpdateComplaintsDto.prototype, "message", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Ijaraga olingan avtomobil ID (ixtiyoriy)",
+        description: "Ijaraga olingan avtomobil ID ",
         example: 10
     }),
     (0, class_validator_1.IsOptional)(),

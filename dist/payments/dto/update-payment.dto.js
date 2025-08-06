@@ -23,7 +23,7 @@ class UpdatePaymentsDto extends (0, mapped_types_1.PartialType)(create_payment_d
 exports.UpdatePaymentsDto = UpdatePaymentsDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Ijara ID (ixtiyoriy)",
+        description: "Ijara ID",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -32,7 +32,7 @@ __decorate([
 ], UpdatePaymentsDto.prototype, "rental_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "To'lov miqdori (ixtiyoriy)",
+        description: "To'lov miqdori",
         example: 500000
     }),
     (0, class_validator_1.IsOptional)(),
@@ -41,7 +41,7 @@ __decorate([
 ], UpdatePaymentsDto.prototype, "amount", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "To'lov sanasi (ixtiyoriy)",
+        description: "To'lov sanasi ",
         example: "2024-01-15"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -50,7 +50,7 @@ __decorate([
 ], UpdatePaymentsDto.prototype, "payment_date", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "To'lov usuli (ixtiyoriy)",
+        description: "To'lov usuli ",
         example: "CASH",
         enum: ["CASH", "CARD", "TRANSFER"]
     }),

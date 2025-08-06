@@ -23,7 +23,7 @@ class UpdateCompaniesDto extends (0, mapped_types_1.PartialType)(create_company_
 exports.UpdateCompaniesDto = UpdateCompaniesDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Kompaniya nomi (ixtiyoriy)",
+        description: "Kompaniya nomi",
         example: "Avto Ijara MChJ"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -34,8 +34,8 @@ __decorate([
 ], UpdateCompaniesDto.prototype, "name", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Kompaniya manzili (ixtiyoriy)",
-        example: "Toshkent shahri, Chilonzor tumani, 1-uy"
+        description: "Kompaniya manzili",
+        example: "Toshkent shahri, Chilonzor tumani, 2-uy"
     }),
     (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsString)({ message: "Manzil matn bo'lishi kerak" }),
@@ -45,7 +45,7 @@ __decorate([
 ], UpdateCompaniesDto.prototype, "address", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Telefon raqami (ixtiyoriy)",
+        description: "Telefon raqami",
         example: "+998901234567"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -54,7 +54,7 @@ __decorate([
 ], UpdateCompaniesDto.prototype, "phone", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Litsenziya raqami (ixtiyoriy)",
+        description: "Litsenziya raqami",
         example: "L123456789"
     }),
     (0, class_validator_1.IsOptional)(),

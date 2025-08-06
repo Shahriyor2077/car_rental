@@ -18,7 +18,7 @@ let RoleGuard = class RoleGuard {
         this.reflector = reflector;
     }
     canActivate(context) {
-        const requiredRoles = this.reflector.getAllAndOverride('roles', [
+        const requiredRoles = this.reflector.getAllAndOverride("roles", [
             context.getHandler(),
             context.getClass(),
         ]);
@@ -27,9 +27,9 @@ let RoleGuard = class RoleGuard {
         }
         const request = context.switchToHttp().getRequest();
         const user = request.user;
-        const hasRole = requiredRoles.some(role => user.role === role);
+        const hasRole = requiredRoles.some((role) => user.role === role);
         if (!hasRole) {
-            throw new common_1.ForbiddenException('Bu amal uchun huquq yo\'q');
+            throw new common_1.ForbiddenException("Bu amal uchun huquq yoq");
         }
         return true;
     }

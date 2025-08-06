@@ -23,7 +23,7 @@ class UpdateDamagesDto extends (0, mapped_types_1.PartialType)(create_damage_dto
 exports.UpdateDamagesDto = UpdateDamagesDto;
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Ijaraga olingan avtomobil ID (ixtiyoriy)",
+        description: "Ijaraga olingan avtomobil ID",
         example: 1
     }),
     (0, class_validator_1.IsOptional)(),
@@ -32,7 +32,7 @@ __decorate([
 ], UpdateDamagesDto.prototype, "rental_id", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Zarar tavsifi (ixtiyoriy)",
+        description: "Zarar tavsifi ",
         example: "Old bamperda tirnalgan joy bor."
     }),
     (0, class_validator_1.IsOptional)(),
@@ -42,7 +42,7 @@ __decorate([
 ], UpdateDamagesDto.prototype, "description", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Zarar qiymati (ixtiyoriy)",
+        description: "Zarar qiymati",
         example: "500000"
     }),
     (0, class_validator_1.IsOptional)(),
@@ -51,7 +51,7 @@ __decorate([
 ], UpdateDamagesDto.prototype, "cost_estimate", void 0);
 __decorate([
     (0, swagger_1.ApiPropertyOptional)({
-        description: "Zarar sanasi (ixtiyoriy)",
+        description: "Zarar sanasi",
         example: "2024-08-01"
     }),
     (0, class_validator_1.IsOptional)(),

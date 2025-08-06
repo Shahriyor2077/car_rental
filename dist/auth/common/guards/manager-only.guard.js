@@ -19,14 +19,14 @@ let ManagerOnlyGuard = class ManagerOnlyGuard {
     }
     async canActivate(context) {
         const request = context.switchToHttp().getRequest();
-        const token = request.headers.authorization?.replace('Bearer ', '');
+        const token = request.headers.authorization?.replace("Bearer ", "");
         if (!token) {
-            throw new common_1.UnauthorizedException('Token yo\'q');
+            throw new common_1.UnauthorizedException("Token yo'q");
         }
         try {
             const payload = this.jwtService.verify(token);
-            if (payload.role !== 'MANAGER') {
-                throw new common_1.ForbiddenException('Manager huquqi yo\'q');
+            if (payload.role !== "MANAGER") {
+                throw new common_1.ForbiddenException("Manager huquqi yoq");
             }
             request.user = payload;
             return true;
@@ -35,7 +35,7 @@ let ManagerOnlyGuard = class ManagerOnlyGuard {
             if (error instanceof common_1.ForbiddenException) {
                 throw error;
             }
-            throw new common_1.UnauthorizedException('Token noto\'g\'ri');
+            throw new common_1.UnauthorizedException("Token noto'g'ri");
         }
     }
 };

@@ -35,13 +35,12 @@ let AuthController = class AuthController {
             httpOnly: true,
             secure: false,
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            path: "/"
         });
         return {
             message: "User login muvaffaqiyatli",
             success: true,
             accessToken,
-            refreshToken
+            refreshToken,
         };
     }
     async refresh(req, body, res) {
@@ -51,31 +50,32 @@ let AuthController = class AuthController {
             httpOnly: true,
             secure: false,
             maxAge: 7 * 24 * 60 * 60 * 1000,
-            path: "/"
         });
         return {
             message: "Token yangilandi",
             success: true,
             accessToken,
-            refreshToken
+            refreshToken,
         };
     }
     async logout(res) {
         res.clearCookie("refreshToken", {
-            path: "/",
             httpOnly: true,
             secure: false,
         });
         return {
             message: "Logout muvaffaqiyatli",
-            success: true
+            success: true,
         };
     }
 };
 exports.AuthController = AuthController;
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: "Foydalanuvchi ro'yxatdan o'tkazish" }),
-    (0, swagger_1.ApiResponse)({ status: 201, description: "Foydalanuvchi muvaffaqiyatli yaratildi" }),
+    (0, swagger_1.ApiResponse)({
+        status: 201,
+        description: "Foydalanuvchi muvaffaqiyatli yaratildi",
+    }),
     (0, swagger_1.ApiResponse)({ status: 400, description: "Noto'g'ri ma'lumotlar" }),
     (0, common_1.Post)("register"),
     __param(0, (0, common_1.Body)()),
@@ -126,7 +126,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "logout", null);
 exports.AuthController = AuthController = __decorate([
-    (0, swagger_1.ApiTags)("Auth - Autentifikatsiya"),
+    (0, swagger_1.ApiTags)("Auth"),
     (0, common_1.Controller)("auth"),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);

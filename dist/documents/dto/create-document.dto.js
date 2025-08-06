@@ -22,7 +22,7 @@ __decorate([
         description: 'Foydalanuvchi ID',
         example: 1
     }),
-    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bo\'lishi kerak' }),
+    (0, class_validator_1.IsNumber)({}, { message: 'user_id raqam bolishi kerak' }),
     __metadata("design:type", Number)
 ], CreateDocumentsDto.prototype, "user_id", void 0);
 __decorate([
@@ -30,8 +30,8 @@ __decorate([
         description: 'Haydovchilik guvohnomasi raqami',
         example: 'AA1234567'
     }),
-    (0, class_validator_1.IsString)({ message: 'Guvohnoma raqami matn bo\'lishi kerak' }),
-    (0, class_validator_1.MinLength)(5, { message: 'Guvohnoma raqami kamida 5 ta harf bo\'lishi kerak' }),
+    (0, class_validator_1.IsString)({ message: 'Hujjat raqami matn bolishi kerak' }),
+    (0, class_validator_1.MinLength)(5, { message: 'Hujjat raqami kamida 5 ta harf bolishi kerak' }),
     __metadata("design:type", String)
 ], CreateDocumentsDto.prototype, "deliver_license", void 0);
 //# sourceMappingURL=create-document.dto.js.map

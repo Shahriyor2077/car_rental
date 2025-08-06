@@ -19,9 +19,9 @@ let JwtAuthGuard = class JwtAuthGuard {
     }
     async canActivate(context) {
         const request = context.switchToHttp().getRequest();
-        const token = request.headers.authorization?.replace('Bearer ', '');
+        const token = request.headers.authorization?.replace("Bearer ", "");
         if (!token) {
-            throw new common_1.UnauthorizedException('Token yo\'q');
+            throw new common_1.UnauthorizedException("Token yo'q");
         }
         try {
             const payload = this.jwtService.verify(token);
@@ -29,7 +29,7 @@ let JwtAuthGuard = class JwtAuthGuard {
             return true;
         }
         catch (error) {
-            throw new common_1.UnauthorizedException('Token noto\'g\'ri');
+            throw new common_1.UnauthorizedException("Token noto'g'ri");
         }
     }
 };

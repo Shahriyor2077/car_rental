@@ -1,9 +1,15 @@
-import { Controller, Post, Body, Get, Query, Req, Res } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth, ApiParam } from '@nestjs/swagger';
-import { AuthService } from './auth.service';
-import { CreateUserDto } from '../user/dto/create-user.dto';
-import { LoginDto } from '../user/dto/login.dto';
-import { Request, Response } from 'express';
+import { Controller, Post, Body, Get, Query, Req, Res } from "@nestjs/common";
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBearerAuth,
+  ApiParam,
+} from "@nestjs/swagger";
+import { AuthService } from "./auth.service";
+import { CreateUserDto } from "../user/dto/create-user.dto";
+import { LoginDto } from "../user/dto/login.dto";
+import { Request, Response } from "express";
 
 @ApiTags("Auth")
 @Controller("auth")
@@ -11,7 +17,10 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @ApiOperation({ summary: "Foydalanuvchi ro'yxatdan o'tkazish" })
-  @ApiResponse({ status: 201, description: "Foydalanuvchi muvaffaqiyatli yaratildi" })
+  @ApiResponse({
+    status: 201,
+    description: "Foydalanuvchi muvaffaqiyatli yaratildi",
+  })
   @ApiResponse({ status: 400, description: "Noto'g'ri ma'lumotlar" })
   @Post("register")
   async register(@Body() dto: CreateUserDto) {
@@ -30,20 +39,26 @@ export class AuthController {
   @ApiResponse({ status: 200, description: "Muvaffaqiyatli kirish" })
   @ApiResponse({ status: 401, description: "Noto'g'ri ma'lumotlar" })
   @Post("login")
-  async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: Response) {
-    const { accessToken, refreshToken } = await this.authService.login(dto.email, dto.password);
-    
+  async login(
+    @Body() dto: LoginDto,
+    @Res({ passthrough: true }) res: Response
+  ) {
+    const { accessToken, refreshToken } = await this.authService.login(
+      dto.email,
+      dto.password
+    );
+
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: false,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    
-    return { 
+
+    return {
       message: "User login muvaffaqiyatli",
       success: true,
       accessToken,
-      refreshToken
+      refreshToken,
     };
   }
 
@@ -51,22 +66,26 @@ export class AuthController {
   @ApiResponse({ status: 200, description: "Token yangilandi" })
   @ApiResponse({ status: 401, description: "Noto'g'ri refresh token" })
   @Post("refresh")
-  async refresh(@Req() req: Request, @Body() body: any, @Res({ passthrough: true }) res: Response) {
+  async refresh(
+    @Req() req: Request,
+    @Body() body: any,
+    @Res({ passthrough: true }) res: Response
+  ) {
     const oldRefreshToken = req.cookies["refreshToken"] || body?.refreshToken;
-    const { accessToken, refreshToken } = await this.authService.refreshToken(oldRefreshToken);
-    
-    // Yangi refresh token ni cookie da saqlash
+    const { accessToken, refreshToken } =
+      await this.authService.refreshToken(oldRefreshToken);
+
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: false,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    
-    return { 
+
+    return {
       message: "Token yangilandi",
       success: true,
       accessToken,
-      refreshToken
+      refreshToken,
     };
   }
 
@@ -74,14 +93,14 @@ export class AuthController {
   @ApiResponse({ status: 200, description: "Muvaffaqiyatli chiqish" })
   @Post("logout")
   async logout(@Res({ passthrough: true }) res: Response) {
-    res.clearCookie("refreshToken", { 
+    res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: false,
     });
-    
-    return { 
+
+    return {
       message: "Logout muvaffaqiyatli",
-      success: true
+      success: true,
     };
   }
 }

@@ -1,0 +1,2 @@
+{"context":"NestApplication","label":"Car-Rental","level":"error","message":"Error: listen EADDRINUSE: address already in use :::5000","stack":[null],"timestamp":"2025-08-06T07:49:07.655Z"}
+{"context":"NestApplication","label":"Car-Rental","level":"error","message":"Error: listen EADDRINUSE: address already in use :::5000","stack":[null],"timestamp":"2025-08-06T07:49:42.929Z"}

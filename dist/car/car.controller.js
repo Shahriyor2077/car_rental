@@ -30,6 +30,18 @@ let CarController = class CarController {
     findAll() {
         return this.carService.findAll();
     }
+    findByColor(color) {
+        return this.carService.findByColor(color);
+    }
+    findByYear(year) {
+        return this.carService.findByYear(year);
+    }
+    findByPrice(minPrice, maxPrice) {
+        return this.carService.findByPrice(minPrice ? +minPrice : undefined, maxPrice ? +maxPrice : undefined);
+    }
+    findByRating(minRating, maxRating) {
+        return this.carService.findByRating(minRating ? +minRating : undefined, maxRating ? +maxRating : undefined);
+    }
     findOne(id) {
         return this.carService.findOne(+id);
     }
@@ -60,6 +72,50 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CarController.prototype, "findAll", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobillarni rangi bo'yicha qidirish" }),
+    (0, swagger_1.ApiQuery)({ name: "color", required: true, description: "Avtomobil rangi" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Rang bo'yicha topilgan avtomobillar" }),
+    (0, common_1.Get)("search/color"),
+    __param(0, (0, common_1.Query)("color")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], CarController.prototype, "findByColor", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobillarni yili bo'yicha qidirish" }),
+    (0, swagger_1.ApiQuery)({ name: "year", required: true, description: "Avtomobil yili" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Yil bo'yicha topilgan avtomobillar" }),
+    (0, common_1.Get)("search/year"),
+    __param(0, (0, common_1.Query)("year")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], CarController.prototype, "findByYear", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobillarni narxi bo'yicha qidirish" }),
+    (0, swagger_1.ApiQuery)({ name: "minPrice", required: false, description: "Minimal narx" }),
+    (0, swagger_1.ApiQuery)({ name: "maxPrice", required: false, description: "Maksimal narx" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Narx bo'yicha topilgan avtomobillar" }),
+    (0, common_1.Get)("search/price"),
+    __param(0, (0, common_1.Query)("minPrice")),
+    __param(1, (0, common_1.Query)("maxPrice")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], CarController.prototype, "findByPrice", null);
+__decorate([
+    (0, swagger_1.ApiOperation)({ summary: "Avtomobillarni reytingi bo'yicha qidirish" }),
+    (0, swagger_1.ApiQuery)({ name: "minRating", required: false, description: "Minimal reyting" }),
+    (0, swagger_1.ApiQuery)({ name: "maxRating", required: false, description: "Maksimal reyting" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "Reyting bo'yicha topilgan avtomobillar" }),
+    (0, common_1.Get)("search/rating"),
+    __param(0, (0, common_1.Query)("minRating")),
+    __param(1, (0, common_1.Query)("maxRating")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], CarController.prototype, "findByRating", null);
 __decorate([
     (0, swagger_1.ApiOperation)({ summary: "Avtomobil ma'lumotini olish" }),
     (0, swagger_1.ApiParam)({ name: "id", description: "Avtomobil ID" }),

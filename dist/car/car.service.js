@@ -19,10 +19,10 @@ let CarService = class CarService {
     }
     async create(createCarDto) {
         const branch = await this.prismaService.branches.findUnique({
-            where: { id: createCarDto.branch_id }
+            where: { id: createCarDto.branch_id },
         });
         if (!branch) {
-            throw new common_1.BadRequestException('Filial topilmadi');
+            throw new common_1.BadRequestException("Filial topilmadi");
         }
         return await this.prismaService.car.create({
             data: {
@@ -34,37 +34,80 @@ let CarService = class CarService {
                 mileage: createCarDto.mileage,
                 price_per_day: createCarDto.price_per_day,
                 is_available: createCarDto.is_available,
-            }
+            },
         });
     }
     async findAll() {
         return await this.prismaService.car.findMany({
-            include: { branch: true }
+            include: { branch: true },
+        });
+    }
+    async findByColor(color) {
+        return await this.prismaService.car.findMany({
+            where: { color: { contains: color } },
+            include: { branch: true, car_images: true },
+        });
+    }
+    async findByYear(year) {
+        return await this.prismaService.car.findMany({
+            where: { year },
+            include: { branch: true, car_images: true },
+            orderBy: { year: "desc" },
+        });
+    }
+    async findByPrice(minPrice, maxPrice) {
+        const where = {};
+        if (minPrice || maxPrice) {
+            where.price_per_day = {};
+            if (minPrice)
+                where.price_per_day.gte = minPrice.toString();
+            if (maxPrice)
+                where.price_per_day.lte = maxPrice.toString();
+        }
+        return await this.prismaService.car.findMany({
+            where,
+            include: { branch: true, car_images: true },
+            orderBy: { price_per_day: "asc" },
+        });
+    }
+    async findByRating(minRating, maxRating) {
+        const where = {};
+        if (minRating || maxRating) {
+            where.reviews = { some: { rating: {} } };
+            if (minRating)
+                where.reviews.some.rating.gte = minRating.toString();
+            if (maxRating)
+                where.reviews.some.rating.lte = maxRating.toString();
+        }
+        return await this.prismaService.car.findMany({
+            where,
+            include: { branch: true, car_images: true, reviews: { include: { user: true } } },
+            orderBy: { reviews: { _count: "desc" } },
         });
     }
     async findOne(id) {
         const car = await this.prismaService.car.findUnique({
             where: { id },
-            include: { branch: true }
+            include: { branch: true },
         });
         if (!car) {
-            throw new common_1.NotFoundException('Avtomobil topilmadi');
+            throw new common_1.NotFoundException("Avtomobil topilmadi");
         }
         return car;
     }
     async update(id, updateCarDto) {
         const existingCar = await this.prismaService.car.findUnique({
-            where: { id }
+            where: { id },
         });
         if (!existingCar) {
-            throw new common_1.NotFoundException('Avtomobil topilmadi');
+            throw new common_1.NotFoundException("Avtomobil topilmadi");
         }
         if (updateCarDto.branch_id) {
             const branch = await this.prismaService.branches.findUnique({
-                where: { id: updateCarDto.branch_id }
+                where: { id: updateCarDto.branch_id },
             });
             if (!branch) {
-                throw new common_1.BadRequestException('Filial topilmadi');
+                throw new common_1.BadRequestException("Filial topilmadi");
             }
         }
         const updateData = {};
@@ -86,22 +129,22 @@ let CarService = class CarService {
             updateData.is_available = updateCarDto.is_available;
         return await this.prismaService.car.update({
             where: { id },
-            data: updateData
+            data: updateData,
         });
     }
     async remove(id) {
         const existingCar = await this.prismaService.car.findUnique({
             where: { id },
-            include: { rentals: true }
+            include: { rentals: true },
         });
         if (!existingCar) {
-            throw new common_1.NotFoundException('Avtomobil topilmadi');
+            throw new common_1.NotFoundException("Avtomobil topilmadi");
         }
         if (existingCar.rentals.length > 0) {
-            throw new common_1.BadRequestException('Bu avtomobilda ijara tarixi mavjud. O\'chirish mumkin emas');
+            throw new common_1.BadRequestException("Bu avtomobilda ijara tarixi mavjud. Ochirish mumkin emas");
         }
         return await this.prismaService.car.delete({
-            where: { id }
+            where: { id },
         });
     }
 };

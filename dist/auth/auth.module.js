@@ -22,13 +22,13 @@ exports.AuthModule = AuthModule = __decorate([
             prisma_module_1.PrismaModule,
             mail_module_1.MailModule,
             jwt_1.JwtModule.register({
-                secret: process.env.JWT__ACCESS_SECRET || 'your-secret-key',
-                signOptions: { expiresIn: '2d' },
-            })
+                secret: process.env.JWT__ACCESS_SECRET,
+                signOptions: { expiresIn: "3d" },
+            }),
         ],
         controllers: [auth_controller_1.AuthController],
         providers: [auth_service_1.AuthService],
-        exports: [jwt_1.JwtModule]
+        exports: [jwt_1.JwtModule],
     })
 ], AuthModule);
 //# sourceMappingURL=auth.module.js.map

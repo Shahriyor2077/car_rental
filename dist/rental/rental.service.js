@@ -37,12 +37,12 @@ let RentalService = class RentalService {
         const endDate = new Date(createRentalDto.end_date);
         const daysDiff = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
         if (daysDiff <= 0) {
-            throw new common_1.BadRequestException('Tugash sanasi boshlanish sanasidan keyin bo\'lishi kerak');
+            throw new common_1.BadRequestException('Tugash sanasi boshlanish sanasidan keyin bolishi kerak');
         }
         const carPricePerDay = parseFloat(car.price_per_day);
         const totalRequiredPrice = carPricePerDay * daysDiff;
         if (createRentalDto.total_price < totalRequiredPrice) {
-            throw new common_1.BadRequestException(`Avtomobil narxi: ${carPricePerDay} so'm/kun, ${daysDiff} kun uchun: ${totalRequiredPrice} so'm. Siz ${createRentalDto.total_price} so'm to\'layapsiz. Kamida ${totalRequiredPrice} so\'m to\'lashingiz kerak.`);
+            throw new common_1.BadRequestException(`Avtomobil narxi: ${carPricePerDay} so'm/kun, ${daysDiff} kun uchun: ${totalRequiredPrice} so'm. Siz ${createRentalDto.total_price} so'm tolayapsiz. Kamida ${totalRequiredPrice} som tolashingiz kerak.`);
         }
         return await this.prismaService.$transaction(async (prisma) => {
             const rental = await prisma.rentals.create({
@@ -66,7 +66,7 @@ let RentalService = class RentalService {
             });
         }
         if (!currentUserId) {
-            throw new common_1.BadRequestException('Foydalanuvchi ma\'lumotlari kerak');
+            throw new common_1.BadRequestException('Foydalanuvchi malumotlari kerak');
         }
         return await this.prismaService.rentals.findMany({
             where: { user_id: currentUserId },
@@ -91,7 +91,7 @@ let RentalService = class RentalService {
             return rental;
         }
         if (rental.user_id !== currentUserId) {
-            throw new common_1.ForbiddenException('Faqat o\'z ijara ma\'lumotlaringizga kirishingiz mumkin');
+            throw new common_1.ForbiddenException('Faqat oz ijara malumotlaringizga kirishingiz mumkin');
         }
         return rental;
     }

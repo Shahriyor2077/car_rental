@@ -7,15 +7,15 @@ const swagger_1 = require("@nestjs/swagger");
 const cookieParser = require("cookie-parser");
 const prisma_service_1 = require("./prisma/prisma.service");
 const prisma_1 = require("../generated/prisma");
-const winston_logger_service_1 = require("./common/logger/winston-logger.service");
-const all_exceptions_filter_1 = require("./common/errors/all-exceptions.filter");
 const bcrypt = require("bcrypt");
+const nest_winston_1 = require("nest-winston");
+const winston_logging_1 = require("./auth/common/logging/winston.logging");
+const error_handling_1 = require("./auth/common/errors/error.handling");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, {
-        bufferLogs: true,
+        logger: nest_winston_1.WinstonModule.createLogger(winston_logging_1.winstonConfig)
     });
-    const logger = app.get(winston_logger_service_1.WinstonLoggerService);
-    app.useLogger(logger);
+    app.useGlobalFilters(new error_handling_1.AllExeptionsFilter());
     const prisma = app.get(prisma_service_1.PrismaService);
     await prisma.$connect();
     const managerEmail = 'manager@mail.com';
@@ -36,15 +36,14 @@ async function bootstrap() {
                 role: prisma_1.AdminRole.MANAGER,
             },
         });
-        logger.log('✅ Manager yaratildi!', 'Bootstrap');
+        console.log(' Manager yaratildi!');
     }
     else {
-        logger.log('ℹ️ Manager allaqachon mavjud.', 'Bootstrap');
+        console.log('Manager allaqachon mavjud.');
     }
     app.use(cookieParser());
     app.setGlobalPrefix('api');
     app.useGlobalPipes(new common_1.ValidationPipe());
-    app.useGlobalFilters(new all_exceptions_filter_1.AllExceptionsFilter(logger));
     const config = new swagger_1.DocumentBuilder()
         .setTitle('Avto Ijara loyihasi')
         .setDescription('NestJS + Prisma REST API')
@@ -53,10 +52,10 @@ async function bootstrap() {
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('/api/docs', app, document);
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3001;
     await app.listen(PORT, () => {
-        logger.log(`🚀 Server http://localhost:${PORT}`, 'Bootstrap');
-        logger.log(`📘 Swagger http://localhost:${PORT}/api/docs`, 'Bootstrap');
+        console.log(`🚀 Server http://localhost:${PORT}`);
+        console.log(`📘 Swagger http://localhost:${PORT}/api/docs`);
     });
 }
 bootstrap();
